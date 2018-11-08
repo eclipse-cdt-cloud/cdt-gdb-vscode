@@ -14,3 +14,9 @@ The build uses webpack. We duplicate the debug adapter build and add in the vsco
 npm install
 npm run build
 ```
+
+## Launching
+
+I've included a launch.json with the typical Extension launch configuration predefined. Simply hit F5 to launch.
+
+Still not sure how to debug the adapter itself. Any ideas there would be appreciated.
