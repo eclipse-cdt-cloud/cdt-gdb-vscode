@@ -1,0 +1,32 @@
+const path = require('path');
+
+module.exports = {
+    target: 'node',
+    mode: 'none',
+    context: __dirname,
+    resolve: {
+        extensions: [ '.ts', '.js' ]
+    },
+    entry: {
+        gdbDebugAdapter: './adapter/src/debugAdapter.ts',
+        extension: './src/extension.ts'
+    },
+    output: {
+        path: path.resolve(__dirname, 'out'),
+        filename: '[name].js',
+        libraryTarget: 'commonjs',
+        devtoolModuleFilenameTemplate: '[absolute-resource-path]'
+    },
+    devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                loader: 'ts-loader',
+            }
+        ]
+    },
+    externals: [
+        'vscode'
+    ]
+};
