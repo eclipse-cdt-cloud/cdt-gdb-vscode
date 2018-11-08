@@ -1,0 +1,125 @@
+{
+  "name": "cdt-gdb-vscode",
+  "version": "0.0.1",
+  "description": "VS Code extension for CDT GDB debug adapter",
+  "publisher": "eclipse-cdt",
+  "main": "./out/extension",
+  "engines": {
+    "vscode": "^1.26.0"
+  },
+  "activationEvents": [
+    "onDebug"
+  ],
+  "contributes": {
+    "breakpoints": [
+      {
+        "language": "c"
+      },
+      {
+        "language": "cpp"
+      }
+    ],
+    "debuggers": [
+      {
+        "type": "gdb",
+        "label": "GDB",
+        "program": "./out/gdbDebugAdapter.js",
+        "runtime": "node",
+        "configurationAttributes": {
+          "launch": {
+            "required": [
+              "program"
+            ],
+            "properties": {
+              "gdb": {
+                "type": "string",
+                "description": "Path to gdb",
+                "default": "gdb"
+              },
+              "program": {
+                "type": "string",
+                "description": "Path to the program to be launched",
+                "default": "${workspaceFolder}/${command:askProgramPath}"
+              },
+              "arguments": {
+                "type": "string",
+                "description": "Arguments for the program"
+              },
+              "verbose": {
+                "type": "boolean",
+                "description": "Produce verbose log output",
+                "default": "false"
+              }
+            }
+          },
+          "attach": {
+            "required": [
+              "program",
+              "processId"
+            ],
+            "properties": {
+              "gdb": {
+                "type": "string",
+                "description": "Path to gdb",
+                "default": "gdb"
+              },
+              "program": {
+                "type": "string",
+                "description": "Path to the program to be debugged",
+                "default": "${workspaceFolder}/${command:askProgramPath}"
+              },
+              "processId": {
+                "type": "string",
+                "description": "Process ID to attach to",
+                "default": "${command:askProcessId}"
+              },
+              "verbose": {
+                "type": "boolean",
+                "description": "Produce verbose log output",
+                "default": "false"
+              }
+            }
+          }
+        },
+        "variables": {
+          "askProgramPath": "cdt.debug.askProgramPath",
+          "askProcessId": "cdt.debug.askProcessId"
+        },
+        "initialConfigurations": [
+          {
+            "type": "gdb",
+            "request": "launch",
+            "name": "gdb launch"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "build": "webpack --mode production --display-modules",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eclipse-cdt/cdt-gdb-vscode.git"
+  },
+  "author": "Ecilpse CDT",
+  "license": "EPL-2.0",
+  "bugs": {
+    "url": "https://github.com/eclipse-cdt/cdt-gdb-vscode/issues"
+  },
+  "homepage": "https://github.com/eclipse-cdt/cdt-gdb-vscode#readme",
+  "dependencies": {
+    "vscode-debugadapter": "^1.32.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.3",
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.6",
+    "vscode": "^1.1.21",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
