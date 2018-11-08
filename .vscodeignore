@@ -1,0 +1,11 @@
+node_modules
+adapter
+.gitignore
+.gitmodules
+.vscode
+out/*.map
+package-lock.json
+README.md
+src
+tsconfig.json
+webpack.config.js
