@@ -6,12 +6,16 @@ It will also implement IDE side support for any debug adapter protocol extension
 
 ## Building
 
-For now, we have the debug adapter as a submodule. This allows us to work on and test both at the same time. Once things mature, we'll switch to pull the adapter out of npm as a proper dependency.
+Do an ```npm install``` to fetch the dependencies.
 
-The build uses webpack. We duplicate the debug adapter build and add in the vscode extension build resulting in two bundles, gdbDebugAdapter.js and extension.js.
+The extension currently depends on having the cdt-gdb-adapter available in source form in one of these places and checks in this order.
+- Location pointed to by ```CDT_ADAPTER_DIR``` environment variable
+- From sibling directory ```../cdt-gdb-adapter```
+- The github npm dependency in ```node_modules/cdt-gdb-adapter```
+
+After that, the build is pretty simple. It uses webpack to bundle the extension and the adapter into the ```out``` directory.
 
 ```
-npm install
 npm run build
 ```
 
