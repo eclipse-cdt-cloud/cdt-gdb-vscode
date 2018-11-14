@@ -3,7 +3,7 @@ const fs = require('fs');
 
 let adapterDir = process.env['CDT_ADAPTER_DIR'] || '../cdt-gdb-adapter';
 if (!fs.existsSync(adapterDir)) {
-    adapterDir = 'node_modules/cdt-gdb-adapter';
+    adapterDir = path.join(__dirname, 'node_modules', 'cdt-gdb-adapter');
 }
 adapterConfig = require(path.join(adapterDir, 'webpack.config.js'));
 
