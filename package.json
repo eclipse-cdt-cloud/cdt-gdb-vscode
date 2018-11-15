@@ -23,7 +23,7 @@
       {
         "type": "gdb",
         "label": "GDB",
-        "program": "./out/gdbDebugAdapter.js",
+        "program": "./out/debugAdapter.js",
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
