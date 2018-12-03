@@ -49,6 +49,10 @@
                 "type": "boolean",
                 "description": "Produce verbose log output",
                 "default": "false"
+              },
+              "logFile": {
+                "type": "string",
+                "description": "Absolute path to the file to log interaction with gdb"
               }
             }
           },
@@ -77,6 +81,10 @@
                 "type": "boolean",
                 "description": "Produce verbose log output",
                 "default": "false"
+              },
+              "logFile": {
+                "type": "string",
+                "description": "Absolute path to the file to log interaction with gdb"
               }
             }
           }
