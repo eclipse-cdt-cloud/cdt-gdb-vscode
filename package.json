@@ -114,15 +114,19 @@
   },
   "homepage": "https://github.com/eclipse-cdt/cdt-gdb-vscode#readme",
   "dependencies": {
-    "cdt-gdb-adapter": "github:eclipse-cdt/cdt-gdb-adapter",
     "vscode-debugadapter": "^1.32.1"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.3",
+    "chai": "^4.2.0",
     "ts-loader": "^5.3.0",
+    "tslint": "^5.11.0",
     "typescript": "^3.1.6",
     "vsce": "^1.53.0",
     "vscode": "^1.1.21",
+    "vscode-debugadapter-testsupport": "^1.33.0",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2"
   }
