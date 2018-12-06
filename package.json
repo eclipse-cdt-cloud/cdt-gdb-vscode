@@ -121,6 +121,7 @@
     "@types/mocha": "^5.2.5",
     "@types/node": "^10.12.3",
     "chai": "^4.2.0",
+    "event-stream": "^4.0.1",
     "ts-loader": "^5.3.0",
     "tslint": "^5.11.0",
     "typescript": "^3.1.6",
