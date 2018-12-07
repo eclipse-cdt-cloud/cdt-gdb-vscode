@@ -6,16 +6,12 @@ It will also implement IDE side support for any debug adapter protocol extension
 
 ## Building
 
-Do an ```npm install``` to fetch the dependencies.
+We include the cdt-gdb-adapter as a git submodule here. Make sure you recursively clone or submodule update to get it.
 
-The extension currently depends on having the cdt-gdb-adapter available in source form in one of these places and checks in this order.
-- Location pointed to by ```CDT_ADAPTER_DIR``` environment variable
-- From sibling directory ```../cdt-gdb-adapter```
-- The github npm dependency in ```node_modules/cdt-gdb-adapter```
-
-After that, the build is pretty simple. It uses webpack to bundle the extension and the adapter into the ```out``` directory.
+Then you're good to go.
 
 ```
+npm install
 npm run build
 ```
 
