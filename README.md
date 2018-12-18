@@ -6,15 +6,17 @@ It will also implement IDE side support for any debug adapter protocol extension
 
 ## Building
 
-This extension uses the cdt-gdb-adapter. It is still under initial development. It needs to be checked
-out of git in it's own directory. Once that is done, use npm link to link it into this project.
-
-Then you're good to go.
+We're using yarn since yarn link works where npm link does not.
 
 ```
-npm install
-npm run build
+yarn
+yarn build
 ```
+
+## Development
+
+When working on the adapter and the extension at the same time, you can use yarn link to link the adapter
+into the extension's node_modules.
 
 ## Launching
 

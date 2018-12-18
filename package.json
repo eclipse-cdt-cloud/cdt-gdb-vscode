@@ -109,7 +109,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "vscode:prepublish": "npm run build",
-    "vsce:package": "vsce package"
+    "vsce:package": "vsce package --yarn"
   },
   "repository": {
     "type": "git",
