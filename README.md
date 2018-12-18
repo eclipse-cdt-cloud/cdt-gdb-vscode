@@ -6,14 +6,17 @@ It will also implement IDE side support for any debug adapter protocol extension
 
 ## Building
 
-We include the cdt-gdb-adapter as a git submodule here. Make sure you recursively clone or submodule update to get it.
-
-Then you're good to go.
+We're using yarn since yarn link works where npm link does not.
 
 ```
-npm install
-npm run build
+yarn
+yarn build
 ```
+
+## Development
+
+When working on the adapter and the extension at the same time, you can use yarn link to link the adapter
+into the extension's node_modules.
 
 ## Launching
 
