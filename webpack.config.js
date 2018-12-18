@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = [
-    ...adapterConfig,
     {
         target: 'node',
         mode: 'none',
