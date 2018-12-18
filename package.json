@@ -23,7 +23,7 @@
       {
         "type": "gdb",
         "label": "GDB",
-        "program": "./out/debugAdapter.js",
+        "program": "./node_modules/cdt-gdb-adapter/out/debugAdapter.js",
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
@@ -122,6 +122,7 @@
   },
   "homepage": "https://github.com/eclipse-cdt/cdt-gdb-vscode#readme",
   "dependencies": {
+    "cdt-gdb-adapter": "https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz",
     "vscode-debugadapter": "^1.32.1"
   },
   "devDependencies": {

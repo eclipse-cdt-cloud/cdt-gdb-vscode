@@ -1,3 +1,0 @@
-[submodule "src/cdt-gdb-adapter"]
-	path = src/cdt-gdb-adapter
-	url = https://github.com/eclipse-cdt/cdt-gdb-adapter

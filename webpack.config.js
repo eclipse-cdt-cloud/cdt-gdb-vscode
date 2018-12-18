@@ -1,11 +1,4 @@
 const path = require('path');
-const fs = require('fs');
-
-adapterConfig = require(path.join(__dirname, 'src', 'cdt-gdb-adapter', 'webpack.config.js'));
-
-adapterConfig.forEach((config) => {
-    config.output.path = path.resolve(__dirname, 'out');
-});
 
 module.exports = [
     ...adapterConfig,
