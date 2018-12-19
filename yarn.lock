@@ -656,7 +656,7 @@ caseless@~0.12.0:
 
 "cdt-gdb-adapter@https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz":
   version "0.1.0"
-  resolved "https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz#25d5f58517f801f09affbce68b558de670d918b0"
+  resolved "https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz#6cd6eeea47056867bc9e84d940cd217ce2f191a2"
   dependencies:
     vscode-debugadapter "^1.32.1"
 
@@ -4157,13 +4157,6 @@ vsce@^1.53.0:
     vso-node-api "6.1.2-preview"
     yauzl "^2.3.1"
     yazl "^2.2.2"
-
-vscode-debugadapter-testsupport@^1.33.0:
-  version "1.33.0"
-  resolved "https://registry.yarnpkg.com/vscode-debugadapter-testsupport/-/vscode-debugadapter-testsupport-1.33.0.tgz#7509ca7c2cb3c7f5f8d8e502e790c3cc1e7973a1"
-  integrity sha512-HusC7JpYQyVGzV08hYgjv+9Cm0v+6/ZbXxAlQLMFXjQNZgbFCrk2kTflurxrQCt+beb05cjin9RbSFWWaYH8PQ==
-  dependencies:
-    vscode-debugprotocol "1.33.0"
 
 vscode-debugadapter@^1.32.1:
   version "1.33.0"
