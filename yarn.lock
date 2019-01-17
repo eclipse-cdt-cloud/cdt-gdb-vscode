@@ -656,7 +656,7 @@ caseless@~0.12.0:
 
 "cdt-gdb-adapter@https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz":
   version "0.1.0"
-  resolved "https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz#9406cf2c82eecdeeaa90058e7f84d586959fa720"
+  resolved "https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz#2762fd002e08566e7479e21348087feefe364969"
   dependencies:
     vscode-debugadapter "^1.32.1"
 
