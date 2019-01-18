@@ -53,6 +53,10 @@
               "logFile": {
                 "type": "string",
                 "description": "Absolute path to the file to log interaction with gdb"
+              },
+              "openGdbConsole": {
+                "type": "boolean",
+                "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
               }
             }
           },
@@ -85,6 +89,10 @@
               "logFile": {
                 "type": "string",
                 "description": "Absolute path to the file to log interaction with gdb"
+              },
+              "openGdbConsole": {
+                "type": "boolean",
+                "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
               }
             }
           }
