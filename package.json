@@ -130,7 +130,7 @@
   },
   "homepage": "https://github.com/eclipse-cdt/cdt-gdb-vscode#readme",
   "dependencies": {
-    "cdt-gdb-adapter": "https://ci.eclipse.org/cdt/view/Github/job/cdt-gdb-adapter-master/lastSuccessfulBuild/artifact/cdt-gdb-adapter.tgz"
+    "cdt-gdb-adapter": "*"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
