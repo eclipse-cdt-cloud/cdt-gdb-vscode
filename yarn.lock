@@ -660,9 +660,9 @@ caseless@~0.12.0:
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
 cdt-gdb-adapter@*:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-0.0.5.tgz#b06a8d3f0e8aca84bc5f53159c8d1c3d4216b732"
-  integrity sha512-WD4gwoxLNq3/o18Wxw7g9ZXEWhGszJYtc5SCHz2mkfnquxxnFgDSSseD3dJDsbWrCwLWGAqPgxHMA3Lhs6dX+A==
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-0.0.6.tgz#2be7d998382eff105f0dca0dc74bd7777cf28418"
+  integrity sha512-kkbXwZ2Ndvq8uPQV7dnsRR/tYQD63EIXnBsfFUPshA4a6EIx83OpVwVovMRtrv95zGBlkfhT8GCfO4H0WE9rPQ==
   dependencies:
     node-addon-api "^1.6.2"
     vscode-debugadapter "^1.32.1"
