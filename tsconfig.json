@@ -5,8 +5,10 @@
         "target": "es2015",
         "outDir": "out",
         "lib": [
-            "es2015"
+            "es2015",
+            "dom"
         ],
+        "jsx": "react",
         "strict": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
@@ -15,5 +17,8 @@
         "experimentalDecorators": true,
         "sourceMap": true,
         "preserveWatchOutput": true
-    }
+    },
+    "exclude": [
+        "**/client/*"
+    ]
 }

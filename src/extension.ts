@@ -8,8 +8,11 @@
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
 import { ExtensionContext, commands, window } from 'vscode';
+import { MemoryServer } from './memory/server/MemoryServer';
 
 export function activate(context: ExtensionContext) {
+    new MemoryServer(context);
+
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', config => {
             return window.showInputBox({
