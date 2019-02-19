@@ -1,0 +1,43 @@
+/*********************************************************************
+ * Copyright (c) 2019 QNX Software Systems and others
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *********************************************************************/
+#memory-browser {
+    align-items: left;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+
+    .group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .input-group {
+        align-self: center;
+        margin: 2px;
+        margin-right: 20px;
+        flex-shrink: 2;
+
+        input, select {
+            border-radius: 5px;
+            flex-basis: 0;
+        }
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    .seperator {
+        border: 1px solid;
+        margin-top: 10px;
+    }
+}
