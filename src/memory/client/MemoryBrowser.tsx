@@ -13,7 +13,7 @@
  *********************************************************************/
 
 import * as React from 'react';
-import { MemoryResponse } from 'cdt-gdb-adapter';
+import { MemoryContents } from 'cdt-gdb-adapter';
 
 import './MemoryBrowser.scss';
 import { messageBroker } from './MessageBroker';
@@ -72,7 +72,7 @@ interface Props {
 };
 
 interface State {
-    memory?: MemoryResponse;
+    memory?: MemoryContents;
     error?: JSX.Element;
     bytesPerRow: number;
     bytesPerGroup: number;
