@@ -10,7 +10,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import { ClientRequest, ServerResponse, ReadMemory } from '../common/messages';
-import { MemoryResponse } from 'cdt-gdb-adapter';
+import { MemoryContents } from 'cdt-gdb-adapter';
 
 export class MemoryServer {
     private panel?: vscode.WebviewPanel;
@@ -75,7 +75,7 @@ export class MemoryServer {
         const session = vscode.debug.activeDebugSession;
         if (session) {
             try {
-                const result: MemoryResponse = await session.customRequest('cdt-gdb-adapter/Memory', request.args);
+                const result: MemoryContents = await session.customRequest('cdt-gdb-adapter/Memory', request.args);
                 this.sendResponse(request, {
                     result
                 })
