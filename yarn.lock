@@ -733,9 +733,9 @@ caseless@~0.12.0:
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
 cdt-gdb-adapter@*:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-0.0.10.tgz#c429e378916de000df8c1d8fe686a2ae5d8f05d2"
-  integrity sha512-Xa6i52EznstXenFE6i/1oBlKuoSWa+YITwDzqL5ucTDNacp7Fecus3hG3XNVJCjNlw0uDrLjmMYgPvRP4hxBXg==
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-0.0.11.tgz#d7cef444b5b153303086c5bec677c0c8936d03b6"
+  integrity sha512-y7FfpL3G2L4kDymaTX3lF+GOqCK/Q0A55/tZf/CchFKL0otSeEvhCszmllIQtZRv/MzGf3X0g7XrJVqdJjGmjw==
   dependencies:
     node-addon-api "^1.6.2"
     vscode-debugadapter "^1.32.1"
@@ -5065,17 +5065,17 @@ vsce@^1.53.0:
     yazl "^2.2.2"
 
 vscode-debugadapter@^1.32.1:
-  version "1.33.0"
-  resolved "https://registry.yarnpkg.com/vscode-debugadapter/-/vscode-debugadapter-1.33.0.tgz#6e86888bbe12088f79b1a4b56233ab10f74faa8f"
-  integrity sha512-GsSD6PyVokjyW+7LU3FRXbu8SINv9muQtMQEDvwB6SIGQfrQzld8kECpQRr71j3mgXW+sTY+44/XMzueeaU6/Q==
+  version "1.34.0"
+  resolved "https://registry.yarnpkg.com/vscode-debugadapter/-/vscode-debugadapter-1.34.0.tgz#88629b42ca27f1e70a3d0b1f440c063274ef92e6"
+  integrity sha512-ye11QX9K4QA4TOuJHVusJenTuqh7GrCsLZJ7Gs86spOJ4WTTPd8wFLJBjL5ivkCUln/Tyo4HMkxlLBlTBtHdog==
   dependencies:
     mkdirp "^0.5.1"
-    vscode-debugprotocol "1.33.0"
+    vscode-debugprotocol "1.34.0"
 
-vscode-debugprotocol@1.33.0:
-  version "1.33.0"
-  resolved "https://registry.yarnpkg.com/vscode-debugprotocol/-/vscode-debugprotocol-1.33.0.tgz#334d2e76ac965f33437a0298441facdcad377d99"
-  integrity sha512-d+l4lrEz6OP2kmGpweqe37x9H7icAMV8S4m8azTWGAIlNJxBP4rlSTnZa7NMLcbgqWkWG9lTGY7fJ+rSPaW7yg==
+vscode-debugprotocol@1.34.0:
+  version "1.34.0"
+  resolved "https://registry.yarnpkg.com/vscode-debugprotocol/-/vscode-debugprotocol-1.34.0.tgz#aef63274166ccbc6d1d68e68c7d7f6d013802f08"
+  integrity sha512-tcMThtgk9TUtE8zzAIwPvHZfgnEYnVa7cI3YaQk/o54Q9cme+TLd/ao60a6ycj5rCrI/B5r/mAfeK5EKSItm7g==
 
 vscode@^1.1.21:
   version "1.1.26"
