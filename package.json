@@ -3,6 +3,17 @@
   "version": "0.0.89",
   "description": "VS Code extension for CDT GDB debug adapter",
   "publisher": "eclipse-cdt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eclipse-cdt/cdt-gdb-vscode.git"
+  },
+  "author": "Ecilpse CDT",
+  "license": "EPL-2.0",
+  "icon": "images/cdt_debug_logo.png",
+  "bugs": {
+    "url": "https://github.com/eclipse-cdt/cdt-gdb-vscode/issues"
+  },
+  "homepage": "https://github.com/eclipse-cdt/cdt-gdb-vscode#readme",
   "main": "./out/extension",
   "engines": {
     "vscode": "^1.26.0"
@@ -131,16 +142,6 @@
     "vscode:prepublish": "npm run build",
     "vsce:package": "vsce package"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eclipse-cdt/cdt-gdb-vscode.git"
-  },
-  "author": "Ecilpse CDT",
-  "license": "EPL-2.0",
-  "bugs": {
-    "url": "https://github.com/eclipse-cdt/cdt-gdb-vscode/issues"
-  },
-  "homepage": "https://github.com/eclipse-cdt/cdt-gdb-vscode#readme",
   "dependencies": {
     "cdt-gdb-adapter": "*",
     "react": "^16.8.1",
