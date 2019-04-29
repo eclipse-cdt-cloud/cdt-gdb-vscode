@@ -1,25 +1,19 @@
-# CDT GDB Visual Studio Code Extension
+# VS Code Debug Extension for GDB
 
-This is a Visual Studio Code extension that supports the CDT GDB Debug Adapter.
-It supports the launch configurations for gdb.
-It will also implement IDE side support for any debug adapter protocol extensions we need to make.
+> Note: This is a preliminary milestone release. Please help us by trying out this extension and providing feedback using [our github issues page](https://github.com/eclipse-cdt/cdt-gdb-vscode/issues).
 
-## Building
+This is a Visual Studio Code extension that supports debugging using gdb and any other debugger that supports the MI protocol. It is built by the experts that provide the gdb support in the Eclipse C/C++ IDE (CDT). It uses the cdt-gdb-adapter which is a node.js application that provides a Debug Adapter Protocol interface to gdb that plugs into Visual Studio Code and Eclipse.
 
-We're using yarn since yarn link works where npm link does not.
+As well, this extension provides a number of features that integrate  into the Visual Studio Code debug environment. This includes launch types, support for the standard debug views as well as a custom viewer for memory browsing.
 
-```
-yarn
-yarn build
-```
+## Launch Settings
 
-## Development
+TODO
 
-When working on the adapter and the extension at the same time, you can use yarn link to link the adapter
-into the extension's node_modules.
+## Memory Browser
 
-## Launching
+TODO
 
-I've included a launch.json with the typical Extension launch configuration predefined. Simply hit F5 to launch.
+## Build
 
-Still not sure how to debug the adapter itself. Any ideas there would be appreciated.
+[Build instructions are on the wiki](https://github.com/eclipse-cdt/cdt-gdb-vscode/wiki/Building)
