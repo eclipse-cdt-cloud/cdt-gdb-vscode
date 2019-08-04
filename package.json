@@ -124,7 +124,202 @@
           {
             "type": "gdb",
             "request": "launch",
-            "name": "gdb launch"
+            "name": "gdb launch",
+            "program": "${workspaceFolder}/${command:askProgramPath}"
+          }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "GDB CDT Local debugging",
+            "description": "A new configuration for local debugging using GDB.",
+            "body": {
+              "type": "gdb",
+              "request": "launch",
+              "name": "Name here",
+              "program": "^\"\\${workspaceFolder}/\\${command:askProgramPath}\""
+            }
+          }
+        ]
+      },
+      {
+        "type": "gdbtarget",
+        "label": "GDB Target",
+        "program": "./node_modules/cdt-gdb-adapter/dist/debugTargetAdapter.js",
+        "runtime": "node",
+        "configurationAttributes": {
+          "launch": {
+            "required": [
+              "program"
+            ],
+            "properties": {
+              "gdb": {
+                "type": "string",
+                "description": "Path to gdb",
+                "default": "gdb"
+              },
+              "program": {
+                "type": "string",
+                "description": "Path to the program to be launched",
+                "default": "${workspaceFolder}/${command:askProgramPath}"
+              },
+              "verbose": {
+                "type": "boolean",
+                "description": "Produce verbose log output",
+                "default": "false"
+              },
+              "logFile": {
+                "type": "string",
+                "description": "Absolute path to the file to log interaction with gdb"
+              },
+              "openGdbConsole": {
+                "type": "boolean",
+                "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "target": {
+                "type": "object",
+                "default": {},
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The kind of target debugging to do. This is passed to -target-select (defaults to remote)",
+                    "default": "remote"
+                  },
+                  "parameters": {
+                    "type": "array",
+                    "description": "Target parameters for the type of target. Normally something like localhost:12345. (defaults to `${host}:${port}`)",
+                    "items": {
+                      "type": "string"
+                    },
+                    "default": []
+                  },
+                  "host": {
+                    "type": "string",
+                    "description": "Target host to connect to (defaults to 'localhost', ignored if parameters is set)",
+                    "default": "localhost"
+                  },
+                  "port": {
+                    "type": "string",
+                    "description": "Target port to connect to (defaults to value captured by serverPortRegExp, ignored if parameters is set)",
+                    "default": "gdbserver"
+                  },
+                  "server": {
+                    "type": "string",
+                    "description": "The executable for the target server to launch (e.g. gdbserver or JLinkGDBServerCLExe) (defaults to gdbserver)",
+                    "default": "gdbserver"
+                  },
+                  "serverParameters": {
+                    "type": "array",
+                    "description": "Command line arguments passed to server (defaults to --once :0 ${args.program}).",
+                    "items": {
+                      "type": "string"
+                    },
+                    "default": []
+                  },
+                  "serverPortRegExp": {
+                    "type": "string",
+                    "description": "Regular expression to extract port from by examinging stdout/err of server. Once server is launched, port will be set to this if port is not set. Defaults to matching a string like 'Listening on port 41551' which is what gdbserver provides. Ignored if port or parameters is set",
+                    "default": ""
+                  },
+                  "serverStartupDelay": {
+                    "type": "number",
+                    "description": "Delay after startup before continuing launch, in milliseconds. If serverPortRegExp is provided, it is the delay after that regexp is seen.",
+                    "default": "0"
+                  }
+                }
+              }
+            }
+          },
+          "attach": {
+            "required": [
+              "program"
+            ],
+            "properties": {
+              "gdb": {
+                "type": "string",
+                "description": "Path to gdb",
+                "default": "gdb"
+              },
+              "program": {
+                "type": "string",
+                "description": "Path to the program to be debugged",
+                "default": "${workspaceFolder}/${command:askProgramPath}"
+              },
+              "verbose": {
+                "type": "boolean",
+                "description": "Produce verbose log output",
+                "default": "false"
+              },
+              "logFile": {
+                "type": "string",
+                "description": "Absolute path to the file to log interaction with gdb"
+              },
+              "openGdbConsole": {
+                "type": "boolean",
+                "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "target": {
+                "type": "object",
+                "default": {},
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "The kind of target debugging to do. This is passed to -target-select (defaults to remote)",
+                    "default": "remote"
+                  },
+                  "parameters": {
+                    "type": "array",
+                    "description": "Target parameters for the type of target. Normally something like localhost:12345. (defaults to `${host}:${port}`)",
+                    "items": {
+                      "type": "string"
+                    },
+                    "default": []
+                  },
+                  "host": {
+                    "type": "string",
+                    "description": "Target host to connect to (defaults to 'localhost', ignored if parameters is set)",
+                    "default": "localhost"
+                  },
+                  "port": {
+                    "type": "string",
+                    "description": "Target port to connect to (defaults to value captured by serverPortRegExp, ignored if parameters is set)",
+                    "default": "gdbserver"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "variables": {
+          "askProgramPath": "cdt.debug.askProgramPath"
+        },
+        "initialConfigurations": [
+          {
+            "type": "gdbtarget",
+            "request": "attach",
+            "name": "gdb remote attach",
+            "program": "${workspaceFolder}/${command:askProgramPath}"
+          }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "GDB CDT Remote debugging - automatic launching of gdbserver",
+            "description": "A new configuration for remote debugging using GDB with launching of gdbserver.",
+            "body": {
+              "type": "gdbtarget",
+              "request": "launch",
+              "name": "Name here",
+              "program": "^\"\\${workspaceFolder}/\\${command:askProgramPath}\""
+            }
+          },
+          {
+            "label": "GDB CDT Remote debugging",
+            "description": "A new configuration for remote debugging using GDB.",
+            "body": {
+              "type": "gdbtarget",
+              "request": "attach",
+              "name": "Name here",
+              "program": "^\"\\${workspaceFolder}/\\${command:askProgramPath}\""
+            }
           }
         ]
       }
