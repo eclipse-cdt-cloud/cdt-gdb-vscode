@@ -338,7 +338,7 @@
     "vsce:package": "vsce package"
   },
   "dependencies": {
-    "cdt-gdb-adapter": "*",
+    "cdt-gdb-adapter": "^0.0.14-next.52121ae.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
   },
