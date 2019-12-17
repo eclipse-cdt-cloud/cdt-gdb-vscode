@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/eclipse-cdt/cdt-gdb-vscode.git"
   },
-  "author": "Ecilpse CDT",
+  "author": "Eclipse CDT",
   "license": "EPL-2.0",
   "icon": "images/cdt_debug_logo.png",
   "bugs": {
@@ -365,5 +365,11 @@
   },
   "bundledDependencies": [
     "cdt-gdb-adapter"
+  ],
+  "files": [
+    "NOTICE",
+    "LICENSE",
+    "README.md",
+    "CONTRIBUTING.md",
   ]
 }

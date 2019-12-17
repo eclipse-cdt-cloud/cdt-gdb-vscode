@@ -14,6 +14,30 @@ TODO
 
 TODO
 
-## Build
+## Building
 
-[Build instructions are on the wiki](https://github.com/eclipse-cdt/cdt-gdb-vscode/wiki/Building)
+### Building the extension
+
+We use yarn to as our package manager. To build, simply do
+
+```
+yarn
+yarn build
+```
+You can also run the build in watch mode using
+```
+yarn watch
+```
+### Co-developing cdt-gdb-adapter
+
+If you are working on the cdt-gdb-adapter you can check it out to a different location and then link it in.
+
+From the cdt-gdb-adapter project run
+```
+yarn link
+```
+Then from this project run
+```
+yarn link cdt-gdb-adapter
+```
+You can set up a VS Code workspace that has both folders. Also make sure you have builds running in each folder to pick up updates.
