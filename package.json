@@ -207,6 +207,32 @@
                 },
                 "default": []
               },
+              "imageAndSymbols": {
+                "type": "object",
+                "default": {},
+                "properties": {
+                  "symbolFileName": {
+                    "type": "string",
+                    "description": "If specified, a symbol file to load at the given (optional) offset",
+                    "default": ""
+                  },
+                  "symbolOffset": {
+                    "type": "string",
+                    "description": "If symbolFileName is specified, the offset used to load",
+                    "default": ""
+                  },
+                  "imageFileName": {
+                    "type": "string",
+                    "description": "If specified, an image file to load at the given (optional) offset",
+                    "default": ""
+                  },
+                  "imageOffset": {
+                    "type": "string",
+                    "description": "If imageFileName is specified, the offset used to load",
+                    "default": ""
+                  }
+                }
+              },
               "target": {
                 "type": "object",
                 "default": {},
@@ -304,6 +330,32 @@
                   "type": "string"
                 },
                 "default": []
+              },
+              "imageAndSymbols": {
+                "type": "object",
+                "default": {},
+                "properties": {
+                  "symbolFileName": {
+                    "type": "string",
+                    "description": "If specified, a symbol file to load at the given (optional) offset",
+                    "default": ""
+                  },
+                  "symbolOffset": {
+                    "type": "string",
+                    "description": "If symbolFileName is specified, the offset used to load",
+                    "default": ""
+                  },
+                  "imageFileName": {
+                    "type": "string",
+                    "description": "If specified, an image file to load at the given (optional) offset",
+                    "default": ""
+                  },
+                  "imageOffset": {
+                    "type": "string",
+                    "description": "If imageFileName is specified, the offset used to load",
+                    "default": ""
+                  }
+                }
               },
               "target": {
                 "type": "object",
