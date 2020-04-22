@@ -200,7 +200,7 @@
                   "port": {
                     "type": "string",
                     "description": "Target port to connect to (defaults to value captured by serverPortRegExp, ignored if parameters is set)",
-                    "default": "gdbserver"
+                    "default": "2331"
                   },
                   "server": {
                     "type": "string",
@@ -282,7 +282,7 @@
                   "port": {
                     "type": "string",
                     "description": "Target port to connect to (defaults to value captured by serverPortRegExp, ignored if parameters is set)",
-                    "default": "gdbserver"
+                    "default": "2331"
                   }
                 }
               }
