@@ -76,6 +76,14 @@
               "openGdbConsole": {
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "initCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent before starting inferior.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
               }
             }
           },
@@ -112,6 +120,14 @@
               "openGdbConsole": {
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "initCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent before attaching to inferior.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
               }
             }
           }
@@ -174,6 +190,22 @@
               "openGdbConsole": {
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "initCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent after attaching to target before loading image on target.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              },
+              "preRunCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent after loading image on target before resuming target.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
               },
               "target": {
                 "type": "object",
@@ -256,6 +288,22 @@
               "openGdbConsole": {
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "initCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent after attaching to target before loading image on target.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              },
+              "preRunCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent after loading image on target before resuming target.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
               },
               "target": {
                 "type": "object",
