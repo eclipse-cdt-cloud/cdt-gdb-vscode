@@ -260,7 +260,7 @@
                     "description": "Target port to connect to (defaults to value captured by serverPortRegExp, ignored if parameters is set)",
                     "default": "2331"
                   },
-				          "cwd": {
+                  "cwd": {
                     "type": "string",
                     "description": "Specifies the working directory of gdbserver",
                     "default": ""
