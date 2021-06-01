@@ -475,6 +475,9 @@
     "NOTICE",
     "LICENSE",
     "README.md",
-    "CONTRIBUTING.md"
+    "CONTRIBUTING.md",
+    "out/**/*.js",
+    "out/**/*.js.map",
+    "out/**/*.d.ts"
   ]
 }

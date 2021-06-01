@@ -9,6 +9,7 @@
  *********************************************************************/
 import { ExtensionContext, commands, window } from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
+export { MemoryServer } from './memory/server/MemoryServer';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
