@@ -262,7 +262,7 @@
                   },
                   "cwd": {
                     "type": "string",
-                    "description": "Specifies the working directory of gdbserver",
+                    "description": "Specifies the working directory of server (defaults to the working directory of gdb)",
                     "default": ""
                   },
                   "server": {
