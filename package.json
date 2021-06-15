@@ -260,6 +260,11 @@
                     "description": "Target port to connect to (defaults to value captured by serverPortRegExp, ignored if parameters is set)",
                     "default": "2331"
                   },
+                  "cwd": {
+                    "type": "string",
+                    "description": "Specifies the working directory of server (defaults to the working directory of gdb)",
+                    "default": ""
+                  },
                   "server": {
                     "type": "string",
                     "description": "The executable for the target server to launch (e.g. gdbserver or JLinkGDBServerCLExe) (defaults to gdbserver)",
