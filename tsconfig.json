@@ -18,7 +18,6 @@
         "sourceMap": true,
         "preserveWatchOutput": true
     },
-    ],
     "exclude": [
         "**/client/*"
     ]
