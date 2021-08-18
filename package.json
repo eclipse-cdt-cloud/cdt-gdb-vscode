@@ -443,7 +443,7 @@
     "vsce:package": "vsce package"
   },
   "dependencies": {
-    "cdt-gdb-adapter": "^0.0.15-next.20200405120928.3276846.0",
+    "cdt-gdb-adapter": "^0.0.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
