@@ -110,7 +110,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
                 });
                 this.setState({memory: result.result});
             } catch (err) {
-                this.setState({error: <h3>{err}</h3>});
+                this.setState({error: <h3>{err + ''}</h3>});
             }
         }
     }

@@ -81,7 +81,7 @@ export class MemoryServer {
                 })
             } catch (err) {
                 this.sendResponse(request, {
-                    err: err.toString()
+                    err: err + ''
                 });
             }
         } else {
