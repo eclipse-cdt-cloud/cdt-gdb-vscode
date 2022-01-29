@@ -2,7 +2,7 @@
 
 Thanks for your interest in this project, part of the [Eclipse C/C++ Development Tools project](https://projects.eclipse.org/projects/tools.cdt)
 
-The source code can be found in the following repository: https://github.com/eclipse-cdt/cdt-gdb-vscode
+The source code can be found in the following repository: https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode
 
 ## Project description
 

@@ -1,6 +1,6 @@
 # VS Code Debug Extension for GDB
 
-> Note: This is a preliminary milestone release. Please help us by trying out this extension and providing feedback using [our github issues page](https://github.com/eclipse-cdt/cdt-gdb-vscode/issues).
+> Note: This is a preliminary milestone release. Please help us by trying out this extension and providing feedback using [our github issues page](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues).
 
 This is a Visual Studio Code extension that supports debugging using gdb and any other debugger that supports the MI protocol. It is built by the experts that provide the gdb support in the Eclipse C/C++ IDE (CDT).
 

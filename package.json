@@ -5,15 +5,15 @@
   "publisher": "eclipse-cdt",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eclipse-cdt/cdt-gdb-vscode.git"
+    "url": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode.git"
   },
   "author": "Eclipse CDT",
   "license": "EPL-2.0",
   "icon": "images/cdt_debug_logo.png",
   "bugs": {
-    "url": "https://github.com/eclipse-cdt/cdt-gdb-vscode/issues"
+    "url": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues"
   },
-  "homepage": "https://github.com/eclipse-cdt/cdt-gdb-vscode#readme",
+  "homepage": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode#readme",
   "main": "./out/extension",
   "engines": {
     "vscode": "^1.26.0"
