@@ -19,7 +19,7 @@ import './MemoryBrowser.scss';
 import { messageBroker } from './MessageBroker';
 
 class ForwardIterator implements Iterator<number> {
-    private nextItem: number = 0;
+    private nextItem = 0;
 
     constructor(private array: Uint8Array) { }
 
@@ -68,8 +68,9 @@ class ReverseIterator implements Iterator<number> {
     }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {
-};
+}
 
 interface State {
     memory?: MemoryContents;
@@ -77,7 +78,7 @@ interface State {
     bytesPerRow: number;
     bytesPerGroup: number;
     endianness: 'le' | 'be';
-};
+}
 
 export class MemoryBrowser extends React.Component<Props, State> {
     private addressReq = "";

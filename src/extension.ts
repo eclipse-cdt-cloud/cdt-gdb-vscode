@@ -15,7 +15,7 @@ export function activate(context: ExtensionContext) {
     new MemoryServer(context);
 
     context.subscriptions.push(
-        commands.registerCommand('cdt.debug.askProgramPath', config => {
+        commands.registerCommand('cdt.debug.askProgramPath', _config => {
             return window.showInputBox({
                 placeHolder: "Please enter the path to the program"
             });
@@ -23,7 +23,7 @@ export function activate(context: ExtensionContext) {
     );
 
     context.subscriptions.push(
-        commands.registerCommand('cdt.debug.askProcessId', config => {
+        commands.registerCommand('cdt.debug.askProcessId', _config => {
             return window.showInputBox({
                 placeHolder: "Please enter ID of process to attach to"
             });
@@ -32,5 +32,5 @@ export function activate(context: ExtensionContext) {
 }
 
 export function deactivate() {
-
+    // empty, nothing to do on deactivating extension
 }

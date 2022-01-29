@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 /*********************************************************************
  * Copyright (c) 2019 QNX Software Systems and others
  *
