@@ -17,7 +17,7 @@ class MessageBroker {
     private queue: { [token: number]: (result: ServerResponse) => void } = {};
 
     constructor() {
-        window.addEventListener('message', event => {
+        window.addEventListener('message', (event) => {
             const response: ServerResponse = event.data;
             if (response.token) {
                 this.queue[response.token](response);
@@ -28,10 +28,13 @@ class MessageBroker {
 
     send(request: ReadMemory.Request): Promise<ReadMemory.Response>;
 
-    send<Req extends ClientRequest, Resp extends ServerResponse>(request: Req): Promise<Resp> {
+    send<Req extends ClientRequest, Resp extends ServerResponse>(
+        request: Req
+    ): Promise<Resp> {
         return new Promise<Resp>((resolve, reject) => {
             request.token = this.currentToken++;
-            this.queue[request.token] = (result: ServerResponse) => result.err ? reject(result.err) : resolve(result as Resp);
+            this.queue[request.token] = (result: ServerResponse) =>
+                result.err ? reject(result.err) : resolve(result as Resp);
             vscode.postMessage(request);
         });
     }

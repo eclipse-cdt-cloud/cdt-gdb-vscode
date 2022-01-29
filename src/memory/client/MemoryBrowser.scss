@@ -8,36 +8,37 @@
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
 #memory-browser {
-    align-items: left;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 10px;
+  align-items: left;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px;
 
-    .group {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
+  .group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .input-group {
+    align-self: center;
+    margin: 2px;
+    margin-right: 20px;
+    flex-shrink: 2;
+
+    input,
+    select {
+      border-radius: 5px;
+      flex-basis: 0;
     }
+  }
 
-    .input-group {
-        align-self: center;
-        margin: 2px;
-        margin-right: 20px;
-        flex-shrink: 2;
+  label {
+    margin-right: 10px;
+  }
 
-        input, select {
-            border-radius: 5px;
-            flex-basis: 0;
-        }
-    }
-
-    label {
-        margin-right: 10px;
-    }
-
-    .seperator {
-        border: 1px solid;
-        margin-top: 10px;
-    }
+  .seperator {
+    border: 1px solid;
+    margin-top: 10px;
+  }
 }

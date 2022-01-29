@@ -11,7 +11,4 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { MemoryBrowser } from './MemoryBrowser';
 
-ReactDOM.render(
-    <MemoryBrowser/>,
-    document.getElementById('app')
-);
+ReactDOM.render(<MemoryBrowser />, document.getElementById('app'));

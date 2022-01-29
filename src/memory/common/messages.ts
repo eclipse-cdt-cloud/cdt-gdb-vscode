@@ -14,7 +14,7 @@ export namespace Message {
     export interface Request {
         token?: number;
     }
-    
+
     export interface Response {
         token?: number;
         err?: string;
@@ -33,10 +33,6 @@ export namespace ReadMemory {
     }
 }
 
-export type ClientRequest =
-    ReadMemory.Request
-;
+export type ClientRequest = ReadMemory.Request;
 
-export type ServerResponse =
-    ReadMemory.Response
-;
+export type ServerResponse = ReadMemory.Response;

@@ -15,17 +15,17 @@ export function activate(context: ExtensionContext) {
     new MemoryServer(context);
 
     context.subscriptions.push(
-        commands.registerCommand('cdt.debug.askProgramPath', _config => {
+        commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
             return window.showInputBox({
-                placeHolder: "Please enter the path to the program"
+                placeHolder: 'Please enter the path to the program',
             });
         })
     );
 
     context.subscriptions.push(
-        commands.registerCommand('cdt.debug.askProcessId', _config => {
+        commands.registerCommand('cdt.debug.askProcessId', (_config) => {
             return window.showInputBox({
-                placeHolder: "Please enter ID of process to attach to"
+                placeHolder: 'Please enter ID of process to attach to',
             });
         })
     );
