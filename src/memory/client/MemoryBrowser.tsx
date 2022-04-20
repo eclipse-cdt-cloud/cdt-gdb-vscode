@@ -142,7 +142,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
             size={6}
             title="Number of bytes to fetch, in decimal or hexadecimal"
             defaultValue={this.lengthReq}
-            onChange={(event) => (this.addressReq = event.target.value)}
+            onChange={(event) => (this.lengthReq = event.target.value)}
           />
         </div>
         <div className="input-group">
@@ -273,11 +273,11 @@ export class MemoryBrowser extends React.Component<Props, State> {
 
       rows.push(
         <tr key={rowOffset}>
-          <td style={{fontFamily:'Consolas'}} key={`addr${rowOffset}`}>{addressStr}</td>
+          <td className='monofont' key={`addr${rowOffset}`}>{addressStr}</td>
           {data.map((group, index) => (
-            <td style={{fontFamily:'Consolas'}} key={`data${rowOffset},${index}`}>{group}</td>
+            <td className='monofont' key={`data${rowOffset},${index}`}>{group}</td>
           ))}
-          <td style={{fontFamily:'Consolas'}} key={`asc${rowOffset}`}>{asciiStr}</td>
+          <td className='monofont' key={`asc${rowOffset}`}>{asciiStr}</td>
         </tr>
       );
     }
