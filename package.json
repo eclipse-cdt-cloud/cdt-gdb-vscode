@@ -439,7 +439,6 @@
     "watch": "run-p watch:*",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node -e \"require('vscode/bin/install')\"",
     "vscode:prepublish": "npm run build",
     "vsce:package": "vsce package"
   },
@@ -454,6 +453,7 @@
     "@types/node": "^17.0.13",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "@types/vscode": "^1.26.0",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
     "chai": "^4.3.6",
@@ -468,7 +468,6 @@
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.5",
     "vsce": "^2.6.5",
-    "vscode": "^1.1.36",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2"
   },
