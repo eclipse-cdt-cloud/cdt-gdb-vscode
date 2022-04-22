@@ -438,6 +438,8 @@
     "build": "run-s build:*",
     "watch": "run-p watch:*",
     "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write .",
+    "format-check": "prettier --check .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "vscode:prepublish": "npm run build",
     "vsce:package": "vsce package"
