@@ -142,7 +142,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
             size={6}
             title="Number of bytes to fetch, in decimal or hexadecimal"
             defaultValue={this.lengthReq}
-            onChange={(event) => (this.addressReq = event.target.value)}
+            onChange={(event) => (this.lengthReq = event.target.value)}
           />
         </div>
         <div className="input-group">
