@@ -273,11 +273,11 @@ export class MemoryBrowser extends React.Component<Props, State> {
 
       rows.push(
         <tr key={rowOffset}>
-          <td key={`addr${rowOffset}`}>{addressStr}</td>
+          <td className='monofont' key={`addr${rowOffset}`}>{addressStr}</td>
           {data.map((group, index) => (
-            <td key={`data${rowOffset},${index}`}>{group}</td>
+            <td className='monofont' key={`data${rowOffset},${index}`}>{group}</td>
           ))}
-          <td key={`asc${rowOffset}`}>{asciiStr}</td>
+          <td className='monofont' key={`asc${rowOffset}`}>{asciiStr}</td>
         </tr>
       );
     }
