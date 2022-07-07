@@ -64,10 +64,20 @@
                 "type": "string",
                 "description": "Arguments for the program"
               },
+              "gdbAsync": {
+                "type": "boolean",
+                "description": "Use mi-async mode for communication with GDB. (defaults to true, always true when gdbNonStop is true)",
+                "default": true
+              },
+              "gdbNonStop": {
+                "type": "boolean",
+                "description": "Use non-stop mode for controlling multiple threads. (defaults to false)",
+                "default": false
+              },
               "verbose": {
                 "type": "boolean",
                 "description": "Produce verbose log output",
-                "default": "false"
+                "default": false
               },
               "logFile": {
                 "type": "string",
@@ -108,10 +118,20 @@
                 "description": "Process ID to attach to",
                 "default": "${command:askProcessId}"
               },
+              "gdbAsync": {
+                "type": "boolean",
+                "description": "Use mi-async mode for communication with GDB. (defaults to true, always true when gdbNonStop is true)",
+                "default": true
+              },
+              "gdbNonStop": {
+                "type": "boolean",
+                "description": "Use non-stop mode for controlling multiple threads. (defaults to false)",
+                "default": false
+              },
               "verbose": {
                 "type": "boolean",
                 "description": "Produce verbose log output",
-                "default": "false"
+                "default": false
               },
               "logFile": {
                 "type": "string",
@@ -178,10 +198,20 @@
                 "description": "Path to the program to be launched",
                 "default": "${workspaceFolder}/${command:askProgramPath}"
               },
+              "gdbAsync": {
+                "type": "boolean",
+                "description": "Use mi-async mode for communication with GDB. (defaults to true, always true when gdbNonStop is true)",
+                "default": true
+              },
+              "gdbNonStop": {
+                "type": "boolean",
+                "description": "Use non-stop mode for controlling multiple threads. (defaults to false)",
+                "default": false
+              },
               "verbose": {
                 "type": "boolean",
                 "description": "Produce verbose log output",
-                "default": "false"
+                "default": false
               },
               "logFile": {
                 "type": "string",
@@ -307,10 +337,20 @@
                 "description": "Path to the program to be debugged",
                 "default": "${workspaceFolder}/${command:askProgramPath}"
               },
+              "gdbAsync": {
+                "type": "boolean",
+                "description": "Use mi-async mode for communication with GDB. (defaults to true, always true when gdbNonStop is true)",
+                "default": true
+              },
+              "gdbNonStop": {
+                "type": "boolean",
+                "description": "Use non-stop mode for controlling multiple threads. (defaults to false)",
+                "default": false
+              },
               "verbose": {
                 "type": "boolean",
                 "description": "Produce verbose log output",
-                "default": "false"
+                "default": false
               },
               "logFile": {
                 "type": "string",
