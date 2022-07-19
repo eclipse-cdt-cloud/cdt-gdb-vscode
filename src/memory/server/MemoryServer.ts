@@ -17,9 +17,13 @@ export class MemoryServer {
 
     constructor(context: vscode.ExtensionContext) {
         context.subscriptions.push(
-            vscode.commands.registerCommand('cdt.gdb.memory.open', () =>
-                this.openPanel(context)
-            )
+            vscode.commands.registerCommand('cdt.gdb.memory.open', () => {
+                if (this.panel) {
+                    this.panel.reveal();
+                } else {
+                    this.openPanel(context);
+                }
+            })
         );
     }
 
@@ -55,6 +59,15 @@ export class MemoryServer {
                 </body>
             </html>
         `;
+
+        // Reset when panel is disposed
+        this.panel.onDidDispose(
+            () => {
+                this.panel = undefined;
+            },
+            null,
+            context.subscriptions
+        );
     }
 
     private loadScript(context: vscode.ExtensionContext, path: string) {
