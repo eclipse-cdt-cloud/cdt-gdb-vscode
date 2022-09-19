@@ -57,7 +57,6 @@ export class MemoryServer {
                 </body>
             </html>
         `;
-        //
 
         // Reset when panel is disposed
         newPanel.onDidDispose(
