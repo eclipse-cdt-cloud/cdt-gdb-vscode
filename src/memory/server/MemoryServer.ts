@@ -17,18 +17,15 @@ export class MemoryServer {
 
     constructor(context: vscode.ExtensionContext) {
         context.subscriptions.push(
-            vscode.commands.registerCommand('cdt.gdb.memory.open', () => {
-                if (this.panel) {
-                    this.panel.reveal();
-                } else {
-                    this.openPanel(context);
-                }
-            })
+            vscode.commands.registerCommand('cdt.gdb.memory.open', () =>
+                this.openPanel(context)
+            )
         );
     }
 
     private openPanel(context: vscode.ExtensionContext) {
-        this.panel = vscode.window.createWebviewPanel(
+        let newPanel: vscode.WebviewPanel;
+        newPanel = vscode.window.createWebviewPanel(
             'cdtMemoryBrowser',
             'Memory Browser',
             vscode.ViewColumn.One,
@@ -40,29 +37,32 @@ export class MemoryServer {
                 retainContextWhenHidden: true,
             }
         );
-        context.subscriptions.push(this.panel);
+        context.subscriptions.push(newPanel);
 
-        this.panel.webview.onDidReceiveMessage((message) =>
-            this.onDidReceiveMessage(message)
-        );
+        newPanel.webview.onDidReceiveMessage((message) => {
+            this.panel = newPanel;
+            this.onDidReceiveMessage(message);
+        });
 
-        this.panel.webview.html = `
-            <html>
-                <head>
-                    <meta charset="utf-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                </head>
-                <body>
-                    <div id="app"></div>
-                    ${this.loadScript(context, 'out/vendor.js')}
-                    ${this.loadScript(context, 'out/MemoryBrowser.js')}
-                </body>
-            </html>
-        `;
+        newPanel.webview.html = `
+                 <html>
+                     <head>
+                         <meta charset="utf-8">
+                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                     </head>
+                     <body>
+                         <div id="app"></div>
+                         ${this.loadScript(context, 'out/vendor.js')}
+                         ${this.loadScript(context, 'out/MemoryBrowser.js')}
+                     </body>
+                 </html>
+             `;
+        //
 
         // Reset when panel is disposed
-        this.panel.onDidDispose(
+        newPanel.onDidDispose(
             () => {
+                this.panel = newPanel;
                 this.panel = undefined;
             },
             null,
