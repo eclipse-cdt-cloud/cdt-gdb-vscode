@@ -45,18 +45,18 @@ export class MemoryServer {
         });
 
         newPanel.webview.html = `
-                 <html>
-                     <head>
-                         <meta charset="utf-8">
-                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                     </head>
-                     <body>
-                         <div id="app"></div>
-                         ${this.loadScript(context, 'out/vendor.js')}
-                         ${this.loadScript(context, 'out/MemoryBrowser.js')}
-                     </body>
-                 </html>
-             `;
+            <html>
+                <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                </head>
+                <body>
+                    <div id="app"></div>
+                    ${this.loadScript(context, 'out/vendor.js')}
+                    ${this.loadScript(context, 'out/MemoryBrowser.js')}
+                </body>
+            </html>
+        `;
         //
 
         // Reset when panel is disposed
