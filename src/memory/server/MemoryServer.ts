@@ -13,11 +13,10 @@ import { ClientRequest, ServerResponse, ReadMemory } from '../common/messages';
 import { MemoryContents } from 'cdt-gdb-adapter';
 
 export class MemoryServer {
-
     constructor(context: vscode.ExtensionContext) {
         context.subscriptions.push(
             vscode.commands.registerCommand('cdt.gdb.memory.open', () =>
-                this.openPanel(context);
+                this.openPanel(context)
             )
         );
     }
@@ -62,8 +61,10 @@ export class MemoryServer {
             .toString()}"></script>`;
     }
 
-    private onDidReceiveMessage(request: ClientRequest,
-        panel: vscode.WebviewPanel) {
+    private onDidReceiveMessage(
+        request: ClientRequest,
+        panel: vscode.WebviewPanel
+    ) {
         switch (request.command) {
             case 'ReadMemory':
                 this.handleReadMemory(request, panel);
@@ -83,8 +84,10 @@ export class MemoryServer {
         }
     }
 
-    private async handleReadMemory(request: ReadMemory.Request,
-        panel: vscode.WebviewPanel) {
+    private async handleReadMemory(
+        request: ReadMemory.Request,
+        panel: vscode.WebviewPanel
+    ) {
         const session = vscode.debug.activeDebugSession;
         if (session) {
             try {
