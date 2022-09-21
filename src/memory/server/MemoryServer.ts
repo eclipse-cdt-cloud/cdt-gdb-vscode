@@ -13,19 +13,17 @@ import { ClientRequest, ServerResponse, ReadMemory } from '../common/messages';
 import { MemoryContents } from 'cdt-gdb-adapter';
 
 export class MemoryServer {
-    private panel?: vscode.WebviewPanel;
 
     constructor(context: vscode.ExtensionContext) {
         context.subscriptions.push(
             vscode.commands.registerCommand('cdt.gdb.memory.open', () =>
-                this.openPanel(context)
+                this.openPanel(context);
             )
         );
     }
 
     private openPanel(context: vscode.ExtensionContext) {
-        let newPanel: vscode.WebviewPanel;
-        newPanel = vscode.window.createWebviewPanel(
+        const newPanel = vscode.window.createWebviewPanel(
             'cdtMemoryBrowser',
             'Memory Browser',
             vscode.ViewColumn.One,
@@ -40,8 +38,7 @@ export class MemoryServer {
         context.subscriptions.push(newPanel);
 
         newPanel.webview.onDidReceiveMessage((message) => {
-            this.panel = newPanel;
-            this.onDidReceiveMessage(message);
+            this.onDidReceiveMessage(message, newPanel);
         });
 
         newPanel.webview.html = `
@@ -57,16 +54,6 @@ export class MemoryServer {
                 </body>
             </html>
         `;
-
-        // Reset when panel is disposed
-        newPanel.onDidDispose(
-            () => {
-                this.panel = newPanel;
-                this.panel = undefined;
-            },
-            null,
-            context.subscriptions
-        );
     }
 
     private loadScript(context: vscode.ExtensionContext, path: string) {
@@ -75,26 +62,29 @@ export class MemoryServer {
             .toString()}"></script>`;
     }
 
-    private onDidReceiveMessage(request: ClientRequest) {
+    private onDidReceiveMessage(request: ClientRequest,
+        panel: vscode.WebviewPanel) {
         switch (request.command) {
             case 'ReadMemory':
-                this.handleReadMemory(request);
+                this.handleReadMemory(request, panel);
                 break;
         }
     }
 
     private sendResponse(
+        panel: vscode.WebviewPanel,
         request: ClientRequest,
         response: Partial<ServerResponse>
     ) {
-        if (this.panel) {
+        if (panel) {
             response.token = request.token;
             response.command = request.command;
-            this.panel.webview.postMessage(response);
+            panel.webview.postMessage(response);
         }
     }
 
-    private async handleReadMemory(request: ReadMemory.Request) {
+    private async handleReadMemory(request: ReadMemory.Request,
+        panel: vscode.WebviewPanel) {
         const session = vscode.debug.activeDebugSession;
         if (session) {
             try {
@@ -102,16 +92,16 @@ export class MemoryServer {
                     'cdt-gdb-adapter/Memory',
                     request.args
                 );
-                this.sendResponse(request, {
+                this.sendResponse(panel, request, {
                     result,
                 });
             } catch (err) {
-                this.sendResponse(request, {
+                this.sendResponse(panel, request, {
                     err: err + '',
                 });
             }
         } else {
-            this.sendResponse(request, {
+            this.sendResponse(panel, request, {
                 err: 'No Debug Session',
             });
         }
