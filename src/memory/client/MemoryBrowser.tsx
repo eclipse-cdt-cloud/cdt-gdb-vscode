@@ -77,11 +77,14 @@ interface State {
   bytesPerRow: number;
   bytesPerGroup: number;
   endianness: 'le' | 'be';
+  childNames: { id: string; name: string }[];
 }
 
 export class MemoryBrowser extends React.Component<Props, State> {
   private addressReq = '';
   private lengthReq = '512';
+  private childReq = '0';
+  public static firtTime: boolean = true;
 
   constructor(props: Props) {
     super(props);
@@ -89,7 +92,35 @@ export class MemoryBrowser extends React.Component<Props, State> {
       bytesPerRow: 32,
       bytesPerGroup: 8,
       endianness: 'le',
+      childNames: [],
     };
+  }
+
+  async getAvailableChilds() {
+    if (this.state.childNames.length === 0) {
+      try {
+        const result = await messageBroker.send({
+          command: 'ReadMemory',
+          args: {
+            address: this.addressReq,
+            length: parseInt(this.lengthReq),
+            child: this.childReq,
+          },
+        });
+        let childArray: {
+          id: any;
+          name: any;
+        }[] = [];
+        result.result?.child?.map(function (val: any, index: any) {
+          childArray.push({ id: index, name: val });
+        });
+        this.setState({
+          childNames: childArray,
+        });
+      } catch (err) {
+        this.setState({ error: <h3>{err + ''}</h3> });
+      }
+    }
   }
 
   async sendReadMemoryRequest() {
@@ -106,6 +137,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
           args: {
             address: this.addressReq,
             length: parseInt(this.lengthReq),
+            child: this.childReq,
           },
         });
         this.setState({ memory: result.result });
@@ -145,6 +177,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
             onChange={(event) => (this.lengthReq = event.target.value)}
           />
         </div>
+        {this.renderChildName()}
         <div className="input-group">
           <button onClick={() => this.sendReadMemoryRequest()}>Go</button>
         </div>
@@ -273,11 +306,17 @@ export class MemoryBrowser extends React.Component<Props, State> {
 
       rows.push(
         <tr key={rowOffset}>
-          <td className='monofont' key={`addr${rowOffset}`}>{addressStr}</td>
+          <td className="monofont" key={`addr${rowOffset}`}>
+            {addressStr}
+          </td>
           {data.map((group, index) => (
-            <td className='monofont' key={`data${rowOffset},${index}`}>{group}</td>
+            <td className="monofont" key={`data${rowOffset},${index}`}>
+              {group}
+            </td>
           ))}
-          <td className='monofont' key={`asc${rowOffset}`}>{asciiStr}</td>
+          <td className="monofont" key={`asc${rowOffset}`}>
+            {asciiStr}
+          </td>
         </tr>
       );
     }
@@ -317,5 +356,37 @@ export class MemoryBrowser extends React.Component<Props, State> {
         {this.renderMemory()}
       </div>
     );
+  }
+
+  renderChildName() {
+    if (MemoryBrowser.firtTime) {
+      this.getAvailableChilds();
+      MemoryBrowser.firtTime = false;
+    }
+    const { childNames } = this.state;
+    let childNamesList =
+      childNames.length > 0 &&
+      childNames.map((item, i) => {
+        return (
+          <option key={i} value={item.id}>
+            {item.name}
+          </option>
+        );
+      }, this);
+    if (childNames.length > 0) {
+      return (
+        <div className="input-group">
+          <label>Child</label>
+          <select
+            defaultValue={this.childReq}
+            onChange={(event) => (this.childReq = event.target.value)}
+          >
+            {childNamesList}
+          </select>
+        </div>
+      );
+    } else {
+      return <p></p>;
+    }
   }
 }
