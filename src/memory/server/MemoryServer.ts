@@ -48,17 +48,25 @@ export class MemoryServer {
                 </head>
                 <body>
                     <div id="app"></div>
-                    ${this.loadScript(context, 'out/vendor.js')}
-                    ${this.loadScript(context, 'out/MemoryBrowser.js')}
+                    ${this.loadScript(context, 'out/packages.js', newPanel)}
+                    ${this.loadScript(
+                        context,
+                        'out/MemoryBrowser.js',
+                        newPanel
+                    )}
                 </body>
             </html>
         `;
     }
 
-    private loadScript(context: vscode.ExtensionContext, path: string) {
-        return `<script src="${vscode.Uri.file(context.asAbsolutePath(path))
-            .with({ scheme: 'vscode-resource' })
-            .toString()}"></script>`;
+    private loadScript(
+        context: vscode.ExtensionContext,
+        path: string,
+        panel: vscode.WebviewPanel
+    ) {
+        const uri = vscode.Uri.file(context.asAbsolutePath(path));
+        const fp = panel.webview.asWebviewUri(uri);
+        return `<script src="${fp.toString()}"></script>`;
     }
 
     private onDidReceiveMessage(
