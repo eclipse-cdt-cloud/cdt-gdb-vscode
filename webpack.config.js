@@ -12,10 +12,10 @@ module.exports = {
     optimization: {
         splitChunks: {
             cacheGroups: {
-                vendor: {
+                packages: {
                     test: /node_modules/,
                     chunks: 'initial',
-                    name: 'vendor',
+                    name: 'packages',
                     priority: 10,
                     enforce: true,
                 },

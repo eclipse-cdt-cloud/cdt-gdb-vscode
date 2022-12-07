@@ -48,7 +48,7 @@ export class MemoryServer {
                 </head>
                 <body>
                     <div id="app"></div>
-                    ${this.loadScript(context, 'out/vendor.js', newPanel)}
+                    ${this.loadScript(context, 'out/packages.js', newPanel)}
                     ${this.loadScript(
                         context,
                         'out/MemoryBrowser.js',
