@@ -77,14 +77,14 @@ interface State {
   bytesPerRow: number;
   bytesPerGroup: number;
   endianness: 'le' | 'be';
-  childNames: { id: string; name: string }[];
+  childrenNames: { id: number; name: string }[];
 }
 
 export class MemoryBrowser extends React.Component<Props, State> {
   private addressReq = '';
   private lengthReq = '512';
-  private childReq = '0';
-  public static firtTime: boolean = true;
+  private childReq = 0;
+  public static firstTime: boolean = true;
 
   constructor(props: Props) {
     super(props);
@@ -92,30 +92,28 @@ export class MemoryBrowser extends React.Component<Props, State> {
       bytesPerRow: 32,
       bytesPerGroup: 8,
       endianness: 'le',
-      childNames: [],
+      childrenNames: [],
     };
   }
 
   async getAvailableChilds() {
-    if (this.state.childNames.length === 0) {
+    if (this.state.childrenNames.length === 0) {
       try {
-        const result = await messageBroker.send({
-          command: 'ReadMemory',
+        const result = await messageBroker.sendGetChildrenNames({
+          command: 'getChildDapNames',
           args: {
-            address: this.addressReq,
-            length: parseInt(this.lengthReq),
-            child: this.childReq,
+            child: -1,
           },
         });
         let childArray: {
-          id: any;
-          name: any;
+          id: number;
+          name: string;
         }[] = [];
-        result.result?.child?.map(function (val: any, index: any) {
+        result.result?.child?.map(function (val: string, index: number) {
           childArray.push({ id: index, name: val });
         });
         this.setState({
-          childNames: childArray,
+          childrenNames: childArray,
         });
       } catch (err) {
         this.setState({ error: <h3>{err + ''}</h3> });
@@ -128,6 +126,14 @@ export class MemoryBrowser extends React.Component<Props, State> {
       this.setState({ error: <h3>No address</h3> });
     } else {
       try {
+        if (this.state.childrenNames.length > 0) {
+          await messageBroker.sendGetChildrenNames({
+            command: 'getChildDapNames',
+            args: {
+              child: this.childReq,
+            },
+          });
+        }
         this.setState({
           error: undefined,
           memory: undefined,
@@ -137,7 +143,6 @@ export class MemoryBrowser extends React.Component<Props, State> {
           args: {
             address: this.addressReq,
             length: parseInt(this.lengthReq),
-            child: this.childReq,
           },
         });
         this.setState({ memory: result.result });
@@ -359,29 +364,29 @@ export class MemoryBrowser extends React.Component<Props, State> {
   }
 
   renderChildName() {
-    if (MemoryBrowser.firtTime) {
+    if (MemoryBrowser.firstTime) {
       this.getAvailableChilds();
-      MemoryBrowser.firtTime = false;
+      MemoryBrowser.firstTime = false;
     }
-    const { childNames } = this.state;
-    let childNamesList =
-      childNames.length > 0 &&
-      childNames.map((item, i) => {
+    const { childrenNames } = this.state;
+    let childrenNamesList =
+      childrenNames.length > 0 &&
+      childrenNames.map((item, i) => {
         return (
           <option key={i} value={item.id}>
             {item.name}
           </option>
         );
       }, this);
-    if (childNames.length > 0) {
+    if (childrenNames.length > 0) {
       return (
         <div className="input-group">
           <label>Child</label>
           <select
             defaultValue={this.childReq}
-            onChange={(event) => (this.childReq = event.target.value)}
+            onChange={(event) => (this.childReq = event.target.selectedIndex)}
           >
-            {childNamesList}
+            {childrenNamesList}
           </select>
         </div>
       );
