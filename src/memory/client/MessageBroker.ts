@@ -7,21 +7,37 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import { ClientRequest, ServerResponse, ReadMemory } from '../common/messages';
+import {
+    ClientRequest,
+    ServerResponse,
+    ReadMemory,
+    ChildDapNamesServerResponse,
+    GetChildDapNames,
+} from '../common/messages';
 
 declare function acquireVsCodeApi(): any;
 const vscode = acquireVsCodeApi();
 
 class MessageBroker {
     private currentToken = 1;
-    private queue: { [token: number]: (result: ServerResponse) => void } = {};
+    private queue1: { [token: number]: (result: ServerResponse) => void } = {};
+    private queue2: {
+        [token: number]: (result: ChildDapNamesServerResponse) => void;
+    } = {};
 
     constructor() {
         window.addEventListener('message', (event) => {
-            const response: ServerResponse = event.data;
-            if (response.token) {
-                this.queue[response.token](response);
-                delete this.queue[response.token];
+            const response1: ServerResponse = event.data;
+            if (response1.token) {
+                this.queue1[response1.token](response1);
+                delete this.queue1[response1.token];
+            }
+        });
+        window.addEventListener('message', (event) => {
+            const response2: ChildDapNamesServerResponse = event.data;
+            if (response2.token) {
+                this.queue2[response2.token](response2);
+                delete this.queue2[response2.token];
             }
         });
     }
@@ -33,8 +49,25 @@ class MessageBroker {
     ): Promise<Resp> {
         return new Promise<Resp>((resolve, reject) => {
             request.token = this.currentToken++;
-            this.queue[request.token] = (result: ServerResponse) =>
+            this.queue1[request.token] = (result: ServerResponse) =>
                 result.err ? reject(result.err) : resolve(result as Resp);
+            vscode.postMessage(request);
+        });
+    }
+
+    sendGetChildrenNames(
+        request: GetChildDapNames.Request
+    ): Promise<GetChildDapNames.Response>;
+
+    sendGetChildrenNames<
+        Req extends ClientRequest,
+        Resp extends ChildDapNamesServerResponse
+    >(request: Req): Promise<Resp> {
+        return new Promise<Resp>((resolve, reject) => {
+            request.token = this.currentToken++;
+            this.queue2[request.token] = (
+                result: ChildDapNamesServerResponse
+            ) => (result.err ? reject(result.err) : resolve(result as Resp));
             vscode.postMessage(request);
         });
     }
