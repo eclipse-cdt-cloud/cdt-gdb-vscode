@@ -97,27 +97,27 @@ export class MemoryBrowser extends React.Component<Props, State> {
   }
 
   async getAvailableChilds() {
-    if (this.state.childrenNames.length === 0) {
-      try {
-        const result = await messageBroker.sendGetChildrenNames({
-          command: 'getChildDapNames',
-          args: {
-            child: -1,
-          },
-        });
-        let childArray: {
-          id: number;
-          name: string;
-        }[] = [];
-        result.result?.child?.map(function (val: string, index: number) {
-          childArray.push({ id: index, name: val });
-        });
-        this.setState({
-          childrenNames: childArray,
-        });
-      } catch (err) {
-        this.setState({ error: <h3>{err + ''}</h3> });
-      }
+    try {
+      const result = await messageBroker.sendGetChildrenNames({
+        command: 'getChildDapNames',
+        args: {
+          child: this.childReq,
+        },
+      });
+      let childArray: {
+        id: number;
+        name: string;
+      }[] = [];
+      result.result?.child?.map(function (val: string, index: number) {
+        childArray.push({ id: index, name: val });
+      });
+      this.setState({
+        childrenNames: childArray,
+      });
+    } catch {
+      this.setState({
+        childrenNames: [],
+      });
     }
   }
 
@@ -126,26 +126,30 @@ export class MemoryBrowser extends React.Component<Props, State> {
       this.setState({ error: <h3>No address</h3> });
     } else {
       try {
-        if (this.state.childrenNames.length > 0) {
-          await messageBroker.sendGetChildrenNames({
-            command: 'getChildDapNames',
-            args: {
-              child: this.childReq,
-            },
-          });
-        }
         this.setState({
           error: undefined,
           memory: undefined,
         });
-        const result = await messageBroker.send({
-          command: 'ReadMemory',
-          args: {
-            address: this.addressReq,
-            length: parseInt(this.lengthReq),
-          },
-        });
-        this.setState({ memory: result.result });
+        if (this.state.childrenNames.length > 0) {
+          const result = await messageBroker.send({
+            command: 'ReadMemory',
+            args: {
+              address: this.addressReq,
+              length: parseInt(this.lengthReq),
+              child: this.childReq,
+            },
+          });
+          this.setState({ memory: result.result });
+        } else {
+          const result = await messageBroker.send({
+            command: 'ReadMemory',
+            args: {
+              address: this.addressReq,
+              length: parseInt(this.lengthReq),
+            },
+          });
+          this.setState({ memory: result.result });
+        }
       } catch (err) {
         this.setState({ error: <h3>{err + ''}</h3> });
       }
