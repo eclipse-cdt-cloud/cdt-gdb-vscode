@@ -110,13 +110,23 @@ export class MemoryServer {
         const session = vscode.debug.activeDebugSession;
         if (session) {
             try {
-                const result: MemoryContents = await session.customRequest(
-                    'cdt-gdb-adapter/Memory',
-                    request.args
-                );
-                this.sendResponse(panel, request, {
-                    result,
-                });
+                if (request.args.child === undefined) {
+                    const result: MemoryContents = await session.customRequest(
+                        'cdt-gdb-adapter/Memory',
+                        request.args
+                    );
+                    this.sendResponse(panel, request, {
+                        result,
+                    });
+                } else {
+                    const result: MemoryContents = await session.customRequest(
+                        'cdt-amalgamator/Memory',
+                        request.args
+                    );
+                    this.sendResponse(panel, request, {
+                        result,
+                    });
+                }
             } catch (err) {
                 this.sendResponse(panel, request, {
                     err: err + '',
