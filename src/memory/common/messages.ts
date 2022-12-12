@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
 import { MemoryRequestArguments, MemoryContents } from 'cdt-gdb-adapter';
-import { ChildDapRequestArguments, ChildDapContents } from 'cdt-amalgamator';
+import { ChildDapContents } from 'cdt-amalgamator';
 
 export namespace Message {
     export interface Request {
@@ -42,7 +42,6 @@ export namespace ReadMemory {
 export namespace GetChildDapNames {
     export interface Request extends Message.Request {
         command: 'getChildDapNames';
-        args: ChildDapRequestArguments;
     }
 
     export interface Response extends Message.Response {
