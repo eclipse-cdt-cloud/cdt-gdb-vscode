@@ -96,23 +96,17 @@ export class MemoryBrowser extends React.Component<Props, State> {
     };
   }
 
-  async getAvailableChilds() {
+  async getAvailableChildren() {
     try {
       const result = await messageBroker.sendGetChildrenNames({
         command: 'getChildDapNames',
-        args: {
-          child: this.childReq,
-        },
       });
-      let childArray: {
-        id: number;
-        name: string;
-      }[] = [];
-      result.result?.child?.map(function (val: string, index: number) {
-        childArray.push({ id: index, name: val });
-      });
+      const childrenNames =
+        result.result?.children?.map((val, index) => {
+          return { id: index, name: val };
+        }) || [];
       this.setState({
-        childrenNames: childArray,
+        childrenNames: childrenNames,
       });
     } catch {
       this.setState({
@@ -136,7 +130,9 @@ export class MemoryBrowser extends React.Component<Props, State> {
             args: {
               address: this.addressReq,
               length: parseInt(this.lengthReq),
-              child: this.childReq,
+              child: this.state.childrenNames.length
+                ? this.childReq
+                : undefined,
             },
           });
           this.setState({ memory: result.result });
@@ -369,7 +365,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
 
   renderChildName() {
     if (MemoryBrowser.firstTime) {
-      this.getAvailableChilds();
+      this.getAvailableChildren();
       MemoryBrowser.firstTime = false;
     }
     const { childrenNames } = this.state;
