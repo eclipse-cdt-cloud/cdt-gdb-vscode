@@ -49,22 +49,22 @@ export class MemoryServer {
         });
 
         newPanel.webview.html = `
-            <html>
-                <head>
-                    <meta charset="utf-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                </head>
-                <body>
-                    <div id="app"></div>
-                    ${this.loadScript(context, 'out/packages.js', newPanel)}
-                    ${this.loadScript(
-                        context,
-                        'out/MemoryBrowser.js',
-                        newPanel
-                    )}
-                </body>
-            </html>
-        `;
+             <html>
+                 <head>
+                     <meta charset="utf-8">
+                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                 </head>
+                 <body>
+                     <div id="app"></div>
+                     ${this.loadScript(context, 'out/packages.js', newPanel)}
+                     ${this.loadScript(
+                         context,
+                         'out/MemoryBrowser.js',
+                         newPanel
+                     )}
+                 </body>
+             </html>
+         `;
     }
 
     private loadScript(
@@ -147,8 +147,7 @@ export class MemoryServer {
         if (session) {
             try {
                 const result: ChildDapContents = await session.customRequest(
-                    'cdt-amalgamator/getChildDapNames',
-                    request.args
+                    'cdt-amalgamator/getChildDapNames'
                 );
                 this.sendResponse(panel, request, {
                     result,
