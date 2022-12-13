@@ -124,28 +124,15 @@ export class MemoryBrowser extends React.Component<Props, State> {
           error: undefined,
           memory: undefined,
         });
-        if (this.state.childrenNames.length > 0) {
-          const result = await messageBroker.send({
-            command: 'ReadMemory',
-            args: {
-              address: this.addressReq,
-              length: parseInt(this.lengthReq),
-              child: this.state.childrenNames.length
-                ? this.childReq
-                : undefined,
-            },
-          });
-          this.setState({ memory: result.result });
-        } else {
-          const result = await messageBroker.send({
-            command: 'ReadMemory',
-            args: {
-              address: this.addressReq,
-              length: parseInt(this.lengthReq),
-            },
-          });
-          this.setState({ memory: result.result });
-        }
+        const result = await messageBroker.send({
+          command: 'ReadMemory',
+          args: {
+            address: this.addressReq,
+            length: parseInt(this.lengthReq),
+            child: this.state.childrenNames.length ? this.childReq : undefined,
+          },
+        });
+        this.setState({ memory: result.result });
       } catch (err) {
         this.setState({ error: <h3>{err + ''}</h3> });
       }
