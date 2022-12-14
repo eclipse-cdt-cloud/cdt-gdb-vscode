@@ -7,18 +7,25 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import { ClientRequest, ServerResponse, ReadMemory } from '../common/messages';
+import {
+    ClientRequest,
+    ServerResponse,
+    ReadMemory,
+    ChildDapNamesServerResponse,
+    GetChildDapNames,
+    ChildDapNamesClientRequest,
+} from '../common/messages';
 
 declare function acquireVsCodeApi(): any;
 const vscode = acquireVsCodeApi();
 
 class MessageBroker {
     private currentToken = 1;
-    private queue: { [token: number]: (result: ServerResponse) => void } = {};
+    private queue: { [token: number]: (result: any) => void } = {};
 
     constructor() {
         window.addEventListener('message', (event) => {
-            const response: ServerResponse = event.data;
+            const response = event.data;
             if (response.token) {
                 this.queue[response.token](response);
                 delete this.queue[response.token];
@@ -34,6 +41,20 @@ class MessageBroker {
         return new Promise<Resp>((resolve, reject) => {
             request.token = this.currentToken++;
             this.queue[request.token] = (result: ServerResponse) =>
+                result.err ? reject(result.err) : resolve(result as Resp);
+            vscode.postMessage(request);
+        });
+    }
+
+    sendGetChildrenNames(request: any): Promise<GetChildDapNames.Response>;
+
+    sendGetChildrenNames<
+        Req extends ChildDapNamesClientRequest,
+        Resp extends ChildDapNamesServerResponse
+    >(request: Req): Promise<Resp> {
+        return new Promise<Resp>((resolve, reject) => {
+            request.token = this.currentToken++;
+            this.queue[request.token] = (result: ChildDapNamesServerResponse) =>
                 result.err ? reject(result.err) : resolve(result as Resp);
             vscode.postMessage(request);
         });
