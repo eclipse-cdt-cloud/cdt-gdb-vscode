@@ -1,11 +1,8 @@
-/* eslint-disable prettier/prettier */
 import { ExtensionContext } from 'vscode';
 import * as vscode from 'vscode';
-import { LoggingDebugSession } from '@vscode/debugadapter';
 
-export class ResumeAllSession extends LoggingDebugSession {
+export class ResumeAllSession {
     constructor(context: ExtensionContext) {
-        super();
         this.registerCommands(context);
     }
 
