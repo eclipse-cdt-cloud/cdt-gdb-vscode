@@ -32,7 +32,7 @@
       },
       {
         "command": "cdt.debug.resumeAllSession",
-        "title": "Resume All",
+        "title": "Resume All Sessions",
         "icon": {
           "light": "images/ResumeAll.png",
           "dark": "images/ResumeAll.png"
