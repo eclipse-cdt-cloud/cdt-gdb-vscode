@@ -9,10 +9,12 @@
  *********************************************************************/
 import { ExtensionContext, commands, window } from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
+import { ResumeAllSession } from './ResumeAllSession';
 export { MemoryServer } from './memory/server/MemoryServer';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
+    new ResumeAllSession(context);
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
