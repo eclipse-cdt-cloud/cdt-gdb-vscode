@@ -483,7 +483,7 @@
         {
           "command": "cdt.debug.resumeAllSession",
           "group": "navigation",
-          "when": "debugType == cdt-amalgamator && debugState == stopped"
+          "when": "debugType == amalgamator"
         }
       ]
     }
