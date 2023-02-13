@@ -13,10 +13,9 @@ export class ResumeAllSession {
                 async () => {
                     const session = vscode.debug.activeDebugSession;
                     if (session) {
-                        const result = await session.customRequest('cdt-amalgamator/resumeAll');
-                        if (result.body !== 'OK') {
-                            throw new Error('Fail to resume all sessions');
-                        }
+                        await session.customRequest(
+                            'cdt-amalgamator/resumeAll'
+                        );
                     }
                 }
             )
