@@ -20,7 +20,8 @@
   },
   "activationEvents": [
     "onDebug",
-    "onCommand:cdt.gdb.memory.open"
+    "onCommand:cdt.gdb.memory.open",
+    "onCommand:cdt.debug.resumeAllSession"
   ],
   "contributes": {
     "commands": [
@@ -28,6 +29,14 @@
         "category": "GDB",
         "title": "Open Memory Browser",
         "command": "cdt.gdb.memory.open"
+      },
+      {
+        "command": "cdt.debug.resumeAllSession",
+        "title": "Resume All Sessions",
+        "icon": {
+          "light": "images/ResumeAll_Light.png",
+          "dark": "images/ResumeAll_Dark.png"
+        }
       }
     ],
     "breakpoints": [
@@ -468,7 +477,16 @@
           }
         ]
       }
-    ]
+    ],
+    "menus": {
+      "debug/toolBar": [
+        {
+          "command": "cdt.debug.resumeAllSession",
+          "group": "navigation",
+          "when": "debugType == amalgamator"
+        }
+      ]
+    }
   },
   "scripts": {
     "build:tsc": "tsc",
