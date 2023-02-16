@@ -9,8 +9,9 @@
  *********************************************************************/
 import { ExtensionContext, commands, window } from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
-import { ResumeAllSession } from './ResumeAllSession';
 export { MemoryServer } from './memory/server/MemoryServer';
+import { ResumeAllSession } from './ResumeAllSession';
+export { ResumeAllSession } from './ResumeAllSession';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
