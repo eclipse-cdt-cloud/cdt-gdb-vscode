@@ -21,7 +21,8 @@
   "activationEvents": [
     "onDebug",
     "onCommand:cdt.gdb.memory.open",
-    "onCommand:cdt.debug.resumeAllSession"
+    "onCommand:cdt.debug.resumeAllSession",
+    "onCommand:cdt.debug.suspendAllSession"
   ],
   "contributes": {
     "commands": [
@@ -36,6 +37,14 @@
         "icon": {
           "light": "images/ResumeAll_Light.png",
           "dark": "images/ResumeAll_Dark.png"
+        }
+      },
+      {
+        "command": "cdt.debug.suspendAllSession",
+        "title": "Suspend All Sessions",
+        "icon": {
+          "light": "images/SuspendAll_Light.png",
+          "dark": "images/SuspendAll_Dark.png"
         }
       }
     ],
@@ -482,6 +491,11 @@
       "debug/toolBar": [
         {
           "command": "cdt.debug.resumeAllSession",
+          "group": "navigation",
+          "when": "debugType == amalgamator"
+        },
+        {
+          "command": "cdt.debug.suspendAllSession",
           "group": "navigation",
           "when": "debugType == amalgamator"
         }
