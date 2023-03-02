@@ -16,7 +16,7 @@
   "homepage": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode#readme",
   "main": "./out/extension",
   "engines": {
-    "vscode": "^1.26.0"
+    "vscode": "^1.76.0"
   },
   "activationEvents": [
     "onDebug",
