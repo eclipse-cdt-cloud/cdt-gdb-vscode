@@ -335,6 +335,10 @@
                     "type": "number",
                     "description": "Delay after startup before continuing launch, in milliseconds. If serverPortRegExp is provided, it is the delay after that regexp is seen.",
                     "default": "0"
+                  },
+                  "automaticallyKillServer": {
+                    "type": "boolean",
+                    "description": "Automatically kill the launched server when client issues a disconnect (default: true)"
                   }
                 }
               }
