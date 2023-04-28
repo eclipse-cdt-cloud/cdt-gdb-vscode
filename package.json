@@ -22,7 +22,9 @@
     "onDebug",
     "onCommand:cdt.gdb.memory.open",
     "onCommand:cdt.debug.resumeAllSession",
-    "onCommand:cdt.debug.suspendAllSession"
+    "onCommand:cdt.debug.suspendAllSession",
+    "onCommand:cdt.debug.disableHWBreakpoint",
+    "onCommand:cdt.debug.enableHWBreakpoint"
   ],
   "contributes": {
     "commands": [
@@ -46,6 +48,14 @@
           "light": "images/SuspendAll_Light.png",
           "dark": "images/SuspendAll_Dark.png"
         }
+      },
+      {
+        "command": "cdt.debug.enableHWBreakpoint",
+        "title": "Enable Hardware Breakpoint"
+      },
+      {
+        "command": "cdt.debug.disableHWBreakpoint",
+        "title": "Disable Hardware Breakpoint"
       }
     ],
     "breakpoints": [
@@ -502,6 +512,18 @@
           "command": "cdt.debug.suspendAllSession",
           "group": "navigation",
           "when": "debugType == amalgamator"
+        }
+      ],
+      "editor/lineNumber/context": [
+        {
+          "command": "cdt.debug.enableHWBreakpoint",
+          "group": "navigation",
+          "when": "(!enableHardware && !disableHardware) || enableHardware"
+        },
+        {
+          "command": "cdt.debug.disableHWBreakPoint",
+          "group": "navigation",
+          "when": "disableHardware"
         }
       ]
     }
