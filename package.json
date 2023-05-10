@@ -509,7 +509,7 @@
           "when": "debugType == amalgamator"
         }
       ],
-      "editor/lineNumber/context": [
+      "editor/context": [
         {
           "command": "cdt.debug.setHWBreakpoint",
           "group": "navigation"
