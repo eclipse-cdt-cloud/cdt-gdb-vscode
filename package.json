@@ -23,7 +23,7 @@
     "onCommand:cdt.gdb.memory.open",
     "onCommand:cdt.debug.resumeAllSession",
     "onCommand:cdt.debug.suspendAllSession",
-    "onCommand:cdt.debug.toggleBreakpoint"
+    "onCommand:cdt.debug.setHWBreakpoint"
   ],
   "contributes": {
     "commands": [
@@ -49,8 +49,8 @@
         }
       },
       {
-        "command": "cdt.debug.toggleBreakpoint",
-        "title": "Toggle Breakpoint"
+        "command": "cdt.debug.setHWBreakpoint",
+        "title": "Use Hardware breakpoints"
       }
     ],
     "breakpoints": [
@@ -511,7 +511,7 @@
       ],
       "editor/lineNumber/context": [
         {
-          "command": "cdt.debug.toggleBreakpoint",
+          "command": "cdt.debug.setHWBreakpoint",
           "group": "navigation"
         }
       ]
