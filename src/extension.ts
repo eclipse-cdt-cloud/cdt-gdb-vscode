@@ -14,14 +14,14 @@ import { ResumeAllSession } from './ResumeAllSession';
 export { ResumeAllSession } from './ResumeAllSession';
 import { SuspendAllSession } from './SuspendAllSession';
 export { SuspendAllSession } from './SuspendAllSession';
-import { ToggleBreakpoint } from './breakpoint/ToggleBreakpoint';
-export { ToggleBreakpoint } from './breakpoint/ToggleBreakpoint';
+import { SetHWBreakpoint } from './breakpoint/SetHWBreakpoint';
+export { SetHWBreakpoint } from './breakpoint/SetHWBreakpoint';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
     new ResumeAllSession(context);
     new SuspendAllSession(context);
-    new ToggleBreakpoint(context);
+    new SetHWBreakpoint(context);
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
