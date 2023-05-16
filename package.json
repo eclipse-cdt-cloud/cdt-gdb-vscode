@@ -16,7 +16,7 @@
   "homepage": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode#readme",
   "main": "./out/extension",
   "engines": {
-    "vscode": "^1.76.0"
+    "vscode": "^1.78.0"
   },
   "activationEvents": [
     "onDebug",
@@ -532,7 +532,7 @@
     "@types/node": "^14.18.17",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
-    "@types/vscode": "^1.76.0",
+    "@types/vscode": "^1.78.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "@vscode/vsce": "^2.18.0",
