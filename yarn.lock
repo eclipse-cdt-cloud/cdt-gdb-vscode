@@ -824,19 +824,19 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==
 
-cdt-amalgamator@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/cdt-amalgamator/-/cdt-amalgamator-0.0.8.tgz#a54117f25d535ecb13c454cf2f839fcee618e181"
-  integrity sha512-6q6MzUcWHfc6rAZqnFVF4+IAd2ZCwR7tV5lyI86IUyPgJcJh5+zdFCJBkzDYiXG1H4oRaTpu5Oahe4VyaxYM6Q==
+cdt-amalgamator@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/cdt-amalgamator/-/cdt-amalgamator-0.0.10.tgz#90bec2540bf4c4baa831639bd26cc63c4a6bb732"
+  integrity sha512-HrVNmoIoJM0hwGeYYKUoDQDeiwoScVRnXYO99nxDaxFaIWqGPi1O3syNlRZ6gfIbA5TF+MIGw7SKw6Zcubt8ew==
   dependencies:
     "@vscode/debugadapter" "^1.59.0"
     "@vscode/debugadapter-testsupport" "^1.59.0"
     "@vscode/debugprotocol" "^1.59.0"
 
-cdt-gdb-adapter@^0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-0.0.20.tgz#03f7bd9e21a2cffdf269d4aadf9410d9e529c986"
-  integrity sha512-ysP7rG/dKwkKamnbb3jrNhWSgJFJqSn0yffhQ20G2R6kudr2IBsNUJZ5/U2lzIYe5UlBjcWSMis/8WuLMsBkTA==
+cdt-gdb-adapter@^0.0.22:
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-0.0.22.tgz#e90e58127d25b9f711bc37512a2a83a939f81f84"
+  integrity sha512-2wuGk092P2S4VK3NsR4ZXO/TcsvqDal9FVy7axhdBzJhbrUGYtn35juWrElRIamTWaig3RGhyd2g8r5QUTwAOA==
   dependencies:
     "@vscode/debugadapter" "^1.59.0"
     "@vscode/debugprotocol" "^1.59.0"
