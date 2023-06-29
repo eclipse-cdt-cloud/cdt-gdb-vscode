@@ -339,6 +339,44 @@
                   "automaticallyKillServer": {
                     "type": "boolean",
                     "description": "Automatically kill the launched server when client issues a disconnect (default: true)"
+                  },
+                  "uartSerialPort": {
+                    "type": "string",
+                    "description": "Path to the serial port connected to the UART on the board."
+                  },
+                  "uartSocketPort": {
+                    "type": "string",
+                    "description": "Target TCP port on the host machine to attach socket to print UART output (defaults to 3456)",
+                    "default": "3456"
+                  },
+                  "baudRate": {
+                    "type": "number",
+                    "description": "Baud Rate (in bits/s) of the serial port to be opened (defaults to 115200).",
+                    "default": 115200
+                  },
+                  "characterSize": {
+                    "type": "number",
+                    "enum": [5, 6, 7, 8],
+                    "description": "The number of bits in each character of data sent across the serial line (defaults to 8).",
+                    "default": 8
+                  },
+                  "parity": {
+                    "type": "string",
+                    "enum": ["none", "odd", "even", "mark", "space"],
+                    "description": "The type of parity check enabled with the transmitted data (defaults to \"none\" - no parity bit sent)",
+                    "default": "none"
+                  },
+                  "stopBits": {
+                    "type": "number",
+                    "enum": [1, 1.5, 2],
+                    "description": "The number of stop bits sent to allow the receiver to detect the end of characters and resynchronize with the character stream (defaults to 1).",
+                    "default": 1
+                  },
+                  "handshakingMethod": {
+                    "type": "string",
+                    "enum": ["none", "XON/XOFF", "RTS/CTS"],
+                    "description": "The handshaking method used for flow control across the serial line (defaults to \"none\" - no handshaking)",
+                    "default": "none"
                   }
                 }
               }
@@ -524,7 +562,9 @@
     "cdt-amalgamator": "^0.0.11",
     "cdt-gdb-adapter": "^0.0.25",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "serialport": "11.0.0",
+    "@types/serialport": "8.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
