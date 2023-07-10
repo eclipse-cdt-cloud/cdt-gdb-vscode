@@ -596,9 +596,7 @@
     "cdt-amalgamator": "^0.0.11",
     "cdt-gdb-adapter": "^0.0.25",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "serialport": "11.0.0",
-    "@types/serialport": "8.0.2"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
