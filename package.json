@@ -407,8 +407,8 @@
                             "LF",
                             "CRLF"
                         ],
-                        "description": "The EOL character used to parse the UART output line-by-line (defaults to \"CRLF\").",
-                        "default": "CRLF"
+                        "description": "The EOL character used to parse the UART output line-by-line (defaults to \"LF\").",
+                        "default": "LF"
                       }
                     }
                   }
@@ -590,8 +590,8 @@
                             "LF",
                             "CRLF"
                         ],
-                        "description": "The EOL character used to parse the UART output line-by-line (defaults to \"CRLF\").",
-                        "default": "CRLF"
+                        "description": "The EOL character used to parse the UART output line-by-line (defaults to \"LF\").",
+                        "default": "LF"
                       }
                     }
                   }
