@@ -404,8 +404,8 @@
                       "eolCharacter": {
                         "type": "string",
                         "enum": [
-                            "LF",
-                            "CRLF"
+                          "LF",
+                          "CRLF"
                         ],
                         "description": "The EOL character used to parse the UART output line-by-line (defaults to \"LF\").",
                         "default": "LF"
@@ -587,8 +587,8 @@
                       "eolCharacter": {
                         "type": "string",
                         "enum": [
-                            "LF",
-                            "CRLF"
+                          "LF",
+                          "CRLF"
                         ],
                         "description": "The EOL character used to parse the UART output line-by-line (defaults to \"LF\").",
                         "default": "LF"
