@@ -1,11 +1,11 @@
-adapter
-.gitignore
-.gitmodules
-.vscode
-out/*.map
-package-lock.json
-README.md
-src
-tsconfig.json
-webpack.config.js
-*.code-workspace
+# Exclude everything
+*
+*/
+
+# Include the following:
+!images/
+!out/
+!LICENSE
+!NOTICE
+!package.json
+!README.md
