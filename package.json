@@ -14,7 +14,7 @@
     "url": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues"
   },
   "homepage": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode#readme",
-  "main": "./out/extension",
+  "main": "./dist/extension",
   "engines": {
     "vscode": "^1.78.0"
   },
@@ -651,12 +651,14 @@
     }
   },
   "scripts": {
-    "build:tsc": "tsc",
-    "watch:tsc": "tsc -w",
-    "build:webpack": "webpack --mode production",
-    "watch:webpack": "webpack --watch",
+    "build:tsc": "tsc -b",
+    "watch:tsc": "tsc -b -w",
+    "build:esbuild": "node esbuild.js",
+    "watch:esbuild": "node esbuild.js --watch",
     "build": "run-s build:*",
-    "watch": "run-p watch:*",
+    "pre-watch": "yarn build",
+    "do-watch": "run-p watch:*",
+    "watch": "run-s pre-watch do-watch",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
@@ -697,8 +699,8 @@
     "LICENSE",
     "README.md",
     "CONTRIBUTING.md",
-    "out/**/*.js",
-    "out/**/*.js.map",
-    "out/**/*.d.ts"
+    "dist/**/*.js",
+    "dist/**/*.js.map",
+    "dist/**/*.d.ts"
   ]
 }

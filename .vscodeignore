@@ -4,7 +4,7 @@
 
 # Include the following:
 !images/
-!out/
+!dist/
 !LICENSE
 !NOTICE
 !package.json
