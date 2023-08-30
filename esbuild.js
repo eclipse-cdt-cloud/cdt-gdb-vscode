@@ -40,6 +40,7 @@ const configurations = [
     {
         entryPoints: [path.join(debugAdapterRoot, 'debugAdapter.js'), path.join(debugAdapterRoot, 'debugTargetAdapter.js')],
         outdir: path.join(__dirname, 'dist'),
+        external: ['process'], // Workaround pending https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/288
         loader: { '.node': 'copy' },
         format: 'cjs',
         platform: 'node',
