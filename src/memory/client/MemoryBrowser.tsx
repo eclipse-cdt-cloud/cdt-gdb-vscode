@@ -21,7 +21,7 @@ import { messageBroker } from './MessageBroker';
 class ForwardIterator implements Iterator<number> {
   private nextItem = 0;
 
-  constructor(private array: Uint8Array) { }
+  constructor(private array: Uint8Array) {}
 
   next(): IteratorResult<number> {
     if (this.nextItem < this.array.length) {
@@ -69,7 +69,7 @@ class ReverseIterator implements Iterator<number> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface Props { }
+interface Props {}
 
 interface State {
   memory?: MemoryContents;

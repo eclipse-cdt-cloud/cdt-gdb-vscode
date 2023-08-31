@@ -1,14 +1,11 @@
 {
-    "extends": "../../../tsconfig.json",
-    "compilerOptions": {
-        "composite": true,
-        "outDir": "../../../out/memory",
-        "rootDir": "../",
-        "esModuleInterop": true,
-    },
-    "include": [
-        "./",
-        "../common",
-    ],
-    "exclude": []
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "../../../out/memory",
+    "rootDir": "../",
+    "esModuleInterop": true
+  },
+  "include": ["./", "../common"],
+  "exclude": []
 }

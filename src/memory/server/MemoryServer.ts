@@ -37,7 +37,9 @@ export class MemoryServer {
             {
                 enableScripts: true,
                 localResourceRoots: [
-                    vscode.Uri.file(path.resolve(context.extensionPath, 'dist')),
+                    vscode.Uri.file(
+                        path.resolve(context.extensionPath, 'dist')
+                    ),
                 ],
                 retainContextWhenHidden: true,
             }
@@ -53,11 +55,23 @@ export class MemoryServer {
                  <head>
                      <meta charset="utf-8">
                      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                     <link href="${newPanel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'dist/MemoryBrowser.css'))}" type="text/css" rel="stylesheet"></link>
+                     <link href="${newPanel.webview.asWebviewUri(
+                         vscode.Uri.joinPath(
+                             context.extensionUri,
+                             'dist/MemoryBrowser.css'
+                         )
+                     )}" type="text/css" rel="stylesheet"></link>
                  </head>
                  <body>
                      <div id="app"></div>
-                     <script src="${newPanel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'dist/MemoryBrowser.js')).toString()}"></script>
+                     <script src="${newPanel.webview
+                         .asWebviewUri(
+                             vscode.Uri.joinPath(
+                                 context.extensionUri,
+                                 'dist/MemoryBrowser.js'
+                             )
+                         )
+                         .toString()}"></script>
                  </body>
              </html>
          `;

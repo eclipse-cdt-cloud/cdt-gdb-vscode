@@ -15,10 +15,15 @@ const commonConfig = {
     target: ['es2020'],
     minify: !CLIDevelopment,
     sourcemap: CLIDevelopment,
-}
+};
 
 const outDir = path.join(__dirname, 'out');
-const debugAdapterRoot = path.join(__dirname, 'node_modules', 'cdt-gdb-adapter', 'dist');
+const debugAdapterRoot = path.join(
+    __dirname,
+    'node_modules',
+    'cdt-gdb-adapter',
+    'dist'
+);
 /** @type {BuildOptions[]} */
 const configurations = [
     {
@@ -27,7 +32,7 @@ const configurations = [
         external: ['vscode'],
         format: 'cjs',
         platform: 'node',
-        ...commonConfig
+        ...commonConfig,
     },
     {
         entryPoints: [path.join(outDir, 'memory', 'client', 'index.js')],
@@ -35,25 +40,34 @@ const configurations = [
         plugins: [sassPlugin()],
         format: 'iife',
         platform: 'browser',
-        ...commonConfig
+        ...commonConfig,
     },
     {
-        entryPoints: [path.join(debugAdapterRoot, 'debugAdapter.js'), path.join(debugAdapterRoot, 'debugTargetAdapter.js')],
+        entryPoints: [
+            path.join(debugAdapterRoot, 'debugAdapter.js'),
+            path.join(debugAdapterRoot, 'debugTargetAdapter.js'),
+        ],
         outdir: path.join(__dirname, 'dist'),
         external: ['process'], // Workaround pending https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/288
         loader: { '.node': 'copy' },
         format: 'cjs',
         platform: 'node',
-        ...commonConfig
-    }
-]
+        ...commonConfig,
+    },
+];
 
 if (CLIWatch) {
     (async function watch() {
-        await Promise.all(configurations.map(config => esbuild.context(config).then(context => context.watch())));
+        await Promise.all(
+            configurations.map((config) =>
+                esbuild.context(config).then((context) => context.watch())
+            )
+        );
     })();
 } else {
     (async function build() {
-        await Promise.all(configurations.map(config => esbuild.build(config)));
+        await Promise.all(
+            configurations.map((config) => esbuild.build(config))
+        );
     })();
 }
