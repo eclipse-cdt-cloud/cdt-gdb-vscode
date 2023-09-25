@@ -14,7 +14,7 @@
     "url": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues"
   },
   "homepage": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode#readme",
-  "main": "./out/extension",
+  "main": "./dist/extension",
   "engines": {
     "vscode": "^1.78.0"
   },
@@ -651,12 +651,14 @@
     }
   },
   "scripts": {
-    "build:tsc": "tsc",
-    "watch:tsc": "tsc -w",
-    "build:webpack": "webpack --mode production",
-    "watch:webpack": "webpack --watch",
+    "build:tsc": "tsc -b",
+    "watch:tsc": "tsc -b -w",
+    "build:esbuild": "node esbuild.js",
+    "watch:esbuild": "node esbuild.js --watch",
     "build": "run-s build:*",
-    "watch": "run-p watch:*",
+    "pre-watch": "yarn build",
+    "do-watch": "run-p watch:*",
+    "watch": "run-s pre-watch do-watch",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
@@ -681,18 +683,13 @@
     "@typescript-eslint/parser": "^5.54.0",
     "@vscode/vsce": "^2.18.0",
     "chai": "^4.3.7",
-    "css-loader": "^6.7.3",
+    "esbuild": "^0.19.2",
+    "esbuild-sass-plugin": "^2.13.0",
     "eslint": "^8.35.0",
     "event-stream": "^4.0.1",
-    "node-sass": "^7.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "2.8.4",
-    "sass-loader": "^12.4.0",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^4.9.2"
+    "typescript": "^4.9.5"
   },
   "bundledDependencies": [
     "cdt-gdb-adapter"
@@ -702,8 +699,8 @@
     "LICENSE",
     "README.md",
     "CONTRIBUTING.md",
-    "out/**/*.js",
-    "out/**/*.js.map",
-    "out/**/*.d.ts"
+    "dist/**/*.js",
+    "dist/**/*.js.map",
+    "dist/**/*.d.ts"
   ]
 }

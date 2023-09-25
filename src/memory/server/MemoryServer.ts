@@ -37,7 +37,9 @@ export class MemoryServer {
             {
                 enableScripts: true,
                 localResourceRoots: [
-                    vscode.Uri.file(path.resolve(context.extensionPath, 'out')),
+                    vscode.Uri.file(
+                        path.resolve(context.extensionPath, 'dist')
+                    ),
                 ],
                 retainContextWhenHidden: true,
             }
@@ -53,28 +55,26 @@ export class MemoryServer {
                  <head>
                      <meta charset="utf-8">
                      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                     <link href="${newPanel.webview.asWebviewUri(
+                         vscode.Uri.joinPath(
+                             context.extensionUri,
+                             'dist/MemoryBrowser.css'
+                         )
+                     )}" type="text/css" rel="stylesheet"></link>
                  </head>
                  <body>
                      <div id="app"></div>
-                     ${this.loadScript(context, 'out/packages.js', newPanel)}
-                     ${this.loadScript(
-                         context,
-                         'out/MemoryBrowser.js',
-                         newPanel
-                     )}
+                     <script src="${newPanel.webview
+                         .asWebviewUri(
+                             vscode.Uri.joinPath(
+                                 context.extensionUri,
+                                 'dist/MemoryBrowser.js'
+                             )
+                         )
+                         .toString()}"></script>
                  </body>
              </html>
          `;
-    }
-
-    private loadScript(
-        context: vscode.ExtensionContext,
-        path: string,
-        panel: vscode.WebviewPanel
-    ) {
-        const uri = vscode.Uri.file(context.asAbsolutePath(path));
-        const fp = panel.webview.asWebviewUri(uri);
-        return `<script src="${fp.toString()}"></script>`;
     }
 
     private onDidReceiveMessage(
