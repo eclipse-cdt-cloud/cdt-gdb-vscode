@@ -1,6 +1,7 @@
 // @ts-check
 const esbuild = require('esbuild');
 const path = require('node:path');
+const os = require('node:os');
 const { sassPlugin } = require('esbuild-sass-plugin');
 
 /** @typedef {import('esbuild').BuildOptions} BuildOptions */
@@ -48,7 +49,7 @@ const configurations = [
             path.join(debugAdapterRoot, 'debugTargetAdapter.js'),
         ],
         outdir: path.join(__dirname, 'dist'),
-        external: ['process'], // Workaround pending https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/288
+        external: os.platform() !== 'linux' ? ['*/pty.node'] : undefined,
         loader: { '.node': 'copy' },
         format: 'cjs',
         platform: 'node',
