@@ -73,6 +73,21 @@
                 "description": "Path to gdb",
                 "default": "gdb"
               },
+              "cwd": {
+                "type": "string",
+                "description": "Working directory (cwd) to use when launching gdb. Defaults to the directory of the 'program'"
+              },
+              "environment": {
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default": {},
+                "description": "Environment variables to use when launching gdb, defined as a key-value pairs. Use null value to remove variable. For example:\n\"environment\": {\n  \"VARNAME\": \"value\",\n  \"PATH\": \"/new/item:${env:PATH}\",\n  \"REMOVEME\": null\n}",
+                "type": "object"
+              },
               "program": {
                 "type": "string",
                 "description": "Path to the program to be launched",
@@ -125,6 +140,21 @@
                 "type": "string",
                 "description": "Path to gdb",
                 "default": "gdb"
+              },
+              "cwd": {
+                "type": "string",
+                "description": "Working directory (cwd) to use when launching gdb. Defaults to the directory of the 'program'"
+              },
+              "environment": {
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default": {},
+                "description": "Environment variables to use when launching gdb, defined as a key-value pairs. Use null value to remove variable. For example:\n\"environment\": {\n  \"VARNAME\": \"value\",\n  \"PATH\": \"/new/item:${env:PATH}\",\n  \"REMOVEME\": null\n}",
+                "type": "object"
               },
               "program": {
                 "type": "string",
@@ -210,6 +240,21 @@
                 "type": "string",
                 "description": "Path to gdb",
                 "default": "gdb"
+              },
+              "cwd": {
+                "type": "string",
+                "description": "Working directory (cwd) to use when launching gdb. Defaults to the directory of the 'program'"
+              },
+              "environment": {
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default": {},
+                "description": "Environment variables to use when launching gdb, defined as a key-value pairs. Use null value to remove variable. For example:\n\"environment\": {\n  \"VARNAME\": \"value\",\n  \"PATH\": \"/new/item:${env:PATH}\",\n  \"REMOVEME\": null\n}",
+                "type": "object"
               },
               "program": {
                 "type": "string",
@@ -312,6 +357,17 @@
                     "type": "string",
                     "description": "Specifies the working directory of server (defaults to the working directory of gdb)",
                     "default": ""
+                  },
+                  "environment": {
+                    "additionalProperties": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "default": {},
+                    "description": "Environment variables to use when launching server (defaults to the environment used to launch gdb), defined as a key-value pairs. Use null value to remove variable. For example:\n\"environment\": {\n  \"VARNAME\": \"value\",\n  \"PATH\": \"/new/item:${env:PATH}\",\n  \"REMOVEME\": null\n}",
+                    "type": "object"
                   },
                   "server": {
                     "type": "string",
@@ -425,6 +481,21 @@
                 "type": "string",
                 "description": "Path to gdb",
                 "default": "gdb"
+              },
+              "cwd": {
+                "type": "string",
+                "description": "Working directory (cwd) to use when launching gdb. Defaults to the directory of the 'program'"
+              },
+              "environment": {
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default": {},
+                "description": "Environment variables to use when launching gdb, defined as a key-value pairs. Use null value to remove variable. For example:\n\"environment\": {\n  \"VARNAME\": \"value\",\n  \"PATH\": \"/new/item:${env:PATH}\",\n  \"REMOVEME\": null\n}",
+                "type": "object"
               },
               "program": {
                 "type": "string",
@@ -668,7 +739,7 @@
   },
   "dependencies": {
     "cdt-amalgamator": "^0.0.11",
-    "cdt-gdb-adapter": "^0.0.28",
+    "cdt-gdb-adapter": "^0.0.30",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
