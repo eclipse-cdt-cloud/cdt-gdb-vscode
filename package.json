@@ -60,7 +60,7 @@
       {
         "type": "gdb",
         "label": "GDB",
-        "program": "./node_modules/cdt-gdb-adapter/dist/debugAdapter.js",
+        "program": "./dist/debugAdapter.js",
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
@@ -228,7 +228,7 @@
       {
         "type": "gdbtarget",
         "label": "GDB Target",
-        "program": "./node_modules/cdt-gdb-adapter/dist/debugTargetAdapter.js",
+        "program": "./dist/debugTargetAdapter.js",
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
