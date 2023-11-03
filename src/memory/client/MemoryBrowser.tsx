@@ -84,7 +84,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
   private addressReq = '';
   private lengthReq = '512';
   private childReq = 0;
-  public static firstTime: boolean = true;
+  public static firstTime = true;
 
   constructor(props: Props) {
     super(props);
@@ -356,7 +356,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
       MemoryBrowser.firstTime = false;
     }
     const { childrenNames } = this.state;
-    let childrenNamesList =
+    const childrenNamesList =
       childrenNames.length > 0 &&
       childrenNames.map((item, i) => {
         return (
