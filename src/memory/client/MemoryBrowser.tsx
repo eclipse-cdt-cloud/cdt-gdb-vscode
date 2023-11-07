@@ -15,7 +15,7 @@
 import * as React from 'react';
 import { MemoryContents } from 'cdt-gdb-adapter';
 
-import '../../../src/memory/client/MemoryBrowser.scss';
+import './MemoryBrowser.scss';
 import { messageBroker } from './MessageBroker';
 
 class ForwardIterator implements Iterator<number> {

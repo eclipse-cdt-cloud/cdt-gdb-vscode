@@ -18,41 +18,15 @@ const commonConfig = {
     sourcemap: CLIDevelopment,
 };
 
-const outDir = path.join(__dirname, 'out');
-const debugAdapterRoot = path.join(
-    __dirname,
-    'node_modules',
-    'cdt-gdb-adapter',
-    'dist'
-);
+const srcDir = path.join(__dirname, 'src');
 /** @type {BuildOptions[]} */
 const configurations = [
     {
-        entryPoints: [path.join(outDir, 'extension.js')],
-        outdir: path.join(__dirname, 'dist'),
-        external: ['vscode'],
-        format: 'cjs',
-        platform: 'node',
-        ...commonConfig,
-    },
-    {
-        entryPoints: [path.join(outDir, 'memory', 'client', 'index.js')],
+        entryPoints: [path.join(srcDir, 'memory', 'client', 'index.tsx')],
         outfile: path.join(__dirname, 'dist', 'MemoryBrowser.js'),
         plugins: [sassPlugin()],
         format: 'iife',
         platform: 'browser',
-        ...commonConfig,
-    },
-    {
-        entryPoints: [
-            path.join(debugAdapterRoot, 'debugAdapter.js'),
-            path.join(debugAdapterRoot, 'debugTargetAdapter.js'),
-        ],
-        outdir: path.join(__dirname, 'dist'),
-        external: os.platform() !== 'linux' ? ['*/pty.node'] : undefined,
-        loader: { '.node': 'copy' },
-        format: 'cjs',
-        platform: 'node',
         ...commonConfig,
     },
 ];
