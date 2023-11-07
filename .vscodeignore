@@ -1,11 +1,12 @@
-# Exclude everything
-*
-*/
-
-# Include the following:
-!images/
-!dist/
-!LICENSE
-!NOTICE
-!package.json
-!README.md
+adapter
+.gitignore
+.gitmodules
+.vscode
+dist/**/*.map
+**/*.tsbuildinfo
+package-lock.json
+README.md
+src
+tsconfig.json
+webpack.config.js
+*.code-workspace

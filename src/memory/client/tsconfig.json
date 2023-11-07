@@ -2,7 +2,7 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "composite": true,
-    "outDir": "../../../out/memory",
+    "outDir": "../../../dist/memory",
     "rootDir": "../",
     "esModuleInterop": true
   },
