@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode#readme",
   "main": "./dist/extension",
+  "types": "./dist/extension.d.ts",
   "engines": {
     "vscode": "^1.78.0"
   },
@@ -770,6 +771,12 @@
     "CONTRIBUTING.md",
     "dist/**/*.js",
     "dist/**/*.js.map",
-    "dist/**/*.d.ts"
+    "dist/**/*.css",
+    "dist/**/*.css.map",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.ts.map",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.scss"
   ]
 }
