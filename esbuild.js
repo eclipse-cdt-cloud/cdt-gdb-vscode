@@ -1,21 +1,20 @@
 // @ts-check
 const esbuild = require('esbuild');
 const path = require('node:path');
-const os = require('node:os');
 const { sassPlugin } = require('esbuild-sass-plugin');
 
 /** @typedef {import('esbuild').BuildOptions} BuildOptions */
 
 const args = process.argv.slice(2);
 const CLIWatch = args.includes('--watch');
-const CLIDevelopment = CLIWatch || args.includes('--development');
+const NoMinify = args.includes('--no-minify');
 
 /** @type {BuildOptions} */
 const commonConfig = {
     bundle: true,
     target: ['es2020'],
-    minify: !CLIDevelopment,
-    sourcemap: CLIDevelopment,
+    minify: !NoMinify,
+    sourcemap: true,
 };
 
 const srcDir = path.join(__dirname, 'src');
