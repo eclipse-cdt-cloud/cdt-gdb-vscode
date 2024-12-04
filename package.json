@@ -1,6 +1,6 @@
 {
   "name": "cdt-gdb-vscode",
-  "version": "0.0.108",
+  "version": "1.0.1",
   "description": "VS Code extension for CDT GDB debug adapter",
   "publisher": "eclipse-cdt",
   "repository": {
@@ -737,7 +737,7 @@
   },
   "dependencies": {
     "cdt-amalgamator": "^0.0.11",
-    "cdt-gdb-adapter": "^1.0.1-next.20240911234240.8957e37.0",
+    "cdt-gdb-adapter": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
