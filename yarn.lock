@@ -422,10 +422,22 @@
   dependencies:
     "@vscode/debugprotocol" "1.59.0"
 
+"@vscode/debugadapter@^1.68.0":
+  version "1.68.0"
+  resolved "https://registry.yarnpkg.com/@vscode/debugadapter/-/debugadapter-1.68.0.tgz#abb23463cb750ca4a6f0834c5d4db659258dc159"
+  integrity sha512-D6gk5Fw2y4FV8oYmltoXpj+VAZexxJFopN/mcZ6YcgzQE9dgq2L45Aj3GLxScJOD6GeLILcxJIaA8l3v11esGg==
+  dependencies:
+    "@vscode/debugprotocol" "1.68.0"
+
 "@vscode/debugprotocol@1.59.0", "@vscode/debugprotocol@^1.59.0":
   version "1.59.0"
   resolved "https://registry.yarnpkg.com/@vscode/debugprotocol/-/debugprotocol-1.59.0.tgz#f173ff725f60e4ff1002f089105634900c88bd77"
   integrity sha512-Ks8NiZrCvybf9ebGLP8OUZQbEMIJYC8X0Ds54Q/szpT/SYEDjTksPvZlcWGTo7B9t5abjvbd0jkNH3blYaSuVw==
+
+"@vscode/debugprotocol@1.68.0", "@vscode/debugprotocol@^1.68.0":
+  version "1.68.0"
+  resolved "https://registry.yarnpkg.com/@vscode/debugprotocol/-/debugprotocol-1.68.0.tgz#e558ba6affe1be7aff4ec824599f316b61d9a69d"
+  integrity sha512-2J27dysaXmvnfuhFGhfeuxfHRXunqNPxtBoR3koiTOA9rdxWNDTa1zIFLCFMSHJ9MPTPKFcBeblsyaCJCIlQxg==
 
 "@vscode/vsce@^2.18.0":
   version "2.18.0"
@@ -604,13 +616,13 @@ cdt-amalgamator@^0.0.11:
     "@vscode/debugadapter-testsupport" "^1.59.0"
     "@vscode/debugprotocol" "^1.59.0"
 
-cdt-gdb-adapter@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.0.2.tgz#3d499abd40d4df87b5601aae56a2eebd429cffc2"
-  integrity sha512-oTGtrwtusTOBUlfg47XMhmEA60TDX/2PDA+R+N1RStnWzqwZLh9/sejiTYQ0qffxqL86Rx1s9lhtq74Tcg4RLg==
+cdt-gdb-adapter@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.0.3.tgz#bb473d92bae9cc69fe7aecee71745a4cab964522"
+  integrity sha512-zE8+dXvUl4v7GlOOhXrKmkQni9lTV2wD50LqC9gLcZ0GGvp7fRnORfiMJzd2mWsQyr6TLg84Y1QsgsnTyxdgEQ==
   dependencies:
-    "@vscode/debugadapter" "^1.59.0"
-    "@vscode/debugprotocol" "^1.59.0"
+    "@vscode/debugadapter" "^1.68.0"
+    "@vscode/debugprotocol" "^1.68.0"
     node-addon-api "^4.3.0"
     serialport "11.0.0"
     utf8 "^3.0.0"
