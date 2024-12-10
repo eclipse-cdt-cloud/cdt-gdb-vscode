@@ -1,6 +1,6 @@
 {
   "name": "cdt-gdb-vscode",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "VS Code extension for CDT GDB debug adapter",
   "publisher": "eclipse-cdt",
   "repository": {
