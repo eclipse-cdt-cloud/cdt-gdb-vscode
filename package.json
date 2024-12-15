@@ -762,14 +762,5 @@
   },
   "bundledDependencies": [
     "cdt-gdb-adapter"
-  ],
-  "files": [
-    "NOTICE",
-    "LICENSE",
-    "README.md",
-    "CONTRIBUTING.md",
-    "dist/**/*.js",
-    "dist/**/*.js.map",
-    "dist/**/*.d.ts"
   ]
 }
