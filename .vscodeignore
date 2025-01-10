@@ -10,3 +10,7 @@ src
 tsconfig.json
 webpack.config.js
 *.code-workspace
+.github
+.eslintignore
+.prettierignore
+esbuild.js
