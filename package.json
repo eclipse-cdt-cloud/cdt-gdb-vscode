@@ -727,6 +727,7 @@
     "build:esbuild": "node esbuild.js",
     "watch:esbuild": "node esbuild.js --watch",
     "build": "run-p build:*",
+    "clean": "git clean -f -x ./node_modules ./dist",
     "watch": "run-p watch:*",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write .",
