@@ -9,7 +9,7 @@
   },
   "author": "Eclipse CDT",
   "license": "EPL-2.0",
-  "icon": "images/cdt_debug_logo.png",
+  "icon": "images/cdtcloud.png",
   "bugs": {
     "url": "https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues"
   },
