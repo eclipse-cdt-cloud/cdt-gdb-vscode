@@ -8,7 +8,11 @@ This extension provides a number of features that integrate into the Visual Stud
 
 ## Launch Settings
 
-TODO
+The Visual Studio Debug Extension for GDB supports two debugger types:
+* `gdb`: Launch or attach to an application locally running on your host machine using GDB.
+* `gdbtarget`: Launch or attach to a running remote GDB server using GDB.
+
+
 
 ## Memory Browser
 
