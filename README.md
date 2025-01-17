@@ -10,7 +10,7 @@ This extension provides a number of features that integrate into the Visual Stud
 
 External tools are expected to be present on your system depending on the intended use case.
 * **Local GDB Debug**: A GDB installation is required on your system.
-* **Remote GDB Debug**: A GDB installation is required on your system. In addition to that you must have either access to a running GDB server instance (`attach` use case), or a suitable GDB server variant must be installed to `launch` and attach to your debug target.
+* **Remote GDB Debug**: A GDB installation is required on your system. In addition to that you must have either access to a running GDB server instance (`attach` use case), or a suitable GDB server variant must be installed to `launch` and connect to your debug target.
 
 ## Launch Configurations
 
