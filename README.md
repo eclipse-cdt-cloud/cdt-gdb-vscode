@@ -6,7 +6,7 @@ This is a Visual Studio Code extension that supports debugging using gdb and any
 
 This extension provides a number of features that integrate into the Visual Studio Code debug environment. This includes launch types, support for the standard debug views as well as a custom viewer for memory browsing.
 
-## Prequisites
+## Prerequisites
 
 External tools are expected to be present on your system depending on the intended use case.
 * **Local GDB Debug**: A GDB installation is required on your system.
@@ -83,9 +83,9 @@ Additional settings for loading images to the target and symbols into the debugg
 | `port` | x | x | `string` | Target port to connect to. Ignored if `parameters` is set.<br>Default: Value captured by `serverPortRegExp`, otherwise defaults to `2331` |
 | `cwd` | x | | `string` | Specifies the working directory of the server.<br>Default: Working directory of GDB |
 | `environment` | x | | `object` | Environment variables to use when launching server, defined as key-value pairs. Defaults to the environment used to launch GDB. Use `null` value to remove variable.<br>Example:<pre>\"environment\": {<br>  \"VARNAME\": \"value\",<br>  \"PATH\": \"/new/item:${env:PATH}\",<br>  \"REMOVEME\": null<br>}</pre> |
-| `server` | x | | `string` | The executable for the target server to launch (e.g. gdbserver or JLinkGDBServerCLExe). This can be an absolute path or the name of an executable on your PATH environment variable.<br>Default: `gdbserver` |
+| `server` | x | | `string` | The executable for the target server to launch (e.g. `gdbserver` or `JLinkGDBServerCLExe`). This can be an absolute path or the name of an executable on your PATH environment variable.<br>Default: `gdbserver` |
 | `serverParameters` | x | | `string[]` | Command line arguments passed to server.<br>Default: `--once :0 ${args.program}` |
-| `serverPortRegExp` | x | | `string` | Regular expression to extract `port` from by examinging stdout/stderr of the GDB server. Once the server is launched, `port` will be set to this if unspecified. Defaults to matching a string like `Listening on port 41551` which is what `gdbserver` provides. Ignored if `port` or `parameters` is set. |
+| `serverPortRegExp` | x | | `string` | Regular expression to extract `port` from by examining stdout/stderr of the GDB server. Once the server is launched, `port` will be set to this if unspecified. Defaults to matching a string like `Listening on port 41551` which is what `gdbserver` provides. Ignored if `port` or `parameters` is set. |
 | `serverStartupDelay` | x | | `number` | Delay, in milliseconds, after startup but before continuing launch. If `serverPortRegExp` is provided, it is the delay after that regexp is seen. |
 | `automaticallyKillServer` | x | | `boolean` | Automatically terminate the launched server when client issues a disconnect.<br>Default: `true` |
 | `uart` | x | x | `object` | Settings related to displaying UART output in the debug console. |
