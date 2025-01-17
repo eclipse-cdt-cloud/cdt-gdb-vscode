@@ -384,7 +384,7 @@
                   },
                   "serverPortRegExp": {
                     "type": "string",
-                    "description": "Regular expression to extract port from by examinging stdout/err of server. Once server is launched, port will be set to this if port is not set. Defaults to matching a string like 'Listening on port 41551' which is what gdbserver provides. Ignored if port or parameters is set",
+                    "description": "Regular expression to extract port from by examining stdout/err of server. Once server is launched, port will be set to this if port is not set. Defaults to matching a string like 'Listening on port 41551' which is what gdbserver provides. Ignored if port or parameters is set",
                     "default": ""
                   },
                   "serverStartupDelay": {
