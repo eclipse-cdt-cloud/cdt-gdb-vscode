@@ -107,7 +107,9 @@ Settings related to displaying UART output in the debug console. This object can
 
 ## Memory Browser
 
-TODO
+The extension comes with a Memory Browser window. However, we have plans to deprecate and remove the window in favour of the Eclipse CDT Cloud [Memory Inspector](https://github.com/eclipse-cdt-cloud/vscode-memory-inspector) extension for Visual Studio Code which is available from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector) and the [Open VSX Registry](https://open-vsx.org/extension/eclipse-cdt/memory-inspector).
+
+Any feedback on these plans is welcomed in the discussion in GitHub issue [#110](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/110).
 
 ## Building
 
