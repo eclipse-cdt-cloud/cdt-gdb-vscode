@@ -13,9 +13,7 @@ the gdb support in the Eclipse C/C++ IDE (CDT).
 
 ## Build Instructions
 
-See build instructions in the [Readme](README.md#building). Further information on building,
-including CI information, download locations, etc can be found in the
-[Wiki](https://github.com/eclipse-cdt/cdt-infra/wiki)
+See build instructions in the [developer documentation](./DEVELOPMENT.md). Further information on building, including CI information, download locations, etc can be found in the [Wiki](https://github.com/eclipse-cdt/cdt-infra/wiki).
 
 ## Eclipse Contributor Agreement
 
