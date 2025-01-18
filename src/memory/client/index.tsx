@@ -8,7 +8,8 @@
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as ReactDOMClient from 'react-dom/client';
 import { MemoryBrowser } from './MemoryBrowser';
 
-ReactDOM.render(<MemoryBrowser />, document.getElementById('app'));
+const container = document.getElementById('app') as ReactDOMClient.Container;
+ReactDOMClient.createRoot(container).render(<MemoryBrowser />);
