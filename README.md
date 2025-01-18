@@ -20,7 +20,7 @@ The Visual Studio Debug Extension for GDB contributes two debugger types:
 
 Both come as `launch` and `attach` request types, each with a sophisticated set of configuration settings.
 
-### `gdb` Type
+### `gdb` Debugger Type
 
 Launch and attach configuration settings that can be used with the `gdb` debugger type for local GDB debug.
 
@@ -40,7 +40,7 @@ Launch and attach configuration settings that can be used with the `gdb` debugge
 | `initCommands` | x | x | `string[]` | List of GDB commands sent before attaching to inferior. |
 
 
-### `gdbtarget` Type
+### `gdbtarget` Debugger Type
 
 Launch and attach configuration settings that can be used with the `gdbtarget` debugger type for remote GDB debug connections.
 
@@ -60,7 +60,7 @@ Launch and attach configuration settings that can be used with the `gdbtarget` d
 | `imageAndSymbols` | x | x | `object` | Additional settings for loading images to the target and symbols into the debugger. See section "`imageAndSymbols` object" for details.
 | `target` | x | x |  `object` | Additional settings to configure the remote GDB target. See section "`target` object" for details. |
 
-#### `imageAndSymbols` object
+#### `imageAndSymbols` Object
 
 Additional settings for loading images to the target and symbols into the debugger. This object can be used in `launch` and `attach` configurations for the `gdbtarget` debugger type for remote GDB connections.
 
@@ -71,9 +71,9 @@ Additional settings for loading images to the target and symbols into the debugg
 | `imageFileName` | x | x | `string` | If specified, an image file to load at the given (optional) offset. Also see `imageOffset`. |
 | `imageOffset` | x | x | `string` | If `imageFileName` is specified, the offset used to load the image. |
 
-#### `target` object
+#### `target` Object
 
-Additional settings for loading images to the target and symbols into the debugger. This object can be used in `launch` and `attach` configurations for the `gdbtarget` debugger type for remote GDB connections.
+Additional settings to configure the remote GDB target. This object can be used in `launch` and `attach` configurations for the `gdbtarget` debugger type for remote GDB connections.
 
 |  Setting | `launch`  | `attach`  | Type | Description |
 |:---|:---:|:---:|:---:|:---|
