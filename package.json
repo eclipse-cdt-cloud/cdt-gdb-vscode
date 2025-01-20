@@ -1,7 +1,8 @@
 {
   "name": "cdt-gdb-vscode",
   "version": "1.0.4",
-  "description": "VS Code extension for CDT GDB debug adapter",
+  "displayName": "CDT GDB Debug Adapter Extension",
+  "description": "CDT GDB debug adapter extension for Visual Studio Code",
   "publisher": "eclipse-cdt",
   "repository": {
     "type": "git",
@@ -18,6 +19,13 @@
   "engines": {
     "vscode": "^1.78.0"
   },
+  "categories": [
+    "Debuggers"
+  ],
+  "keywords": [
+    "debug",
+    "GDB"
+  ],
   "activationEvents": [
     "onDebug",
     "onCommand:cdt.gdb.memory.open",

@@ -1,4 +1,4 @@
-# Contributing to VS Code Debug Extension for GDB
+# Contributing the CDT GDB Debug Adapter Extension for Visual Studio Code
 
 Thanks for your interest in this project, part of the [Eclipse C/C++ Development Tools project](https://projects.eclipse.org/projects/tools.cdt)
 

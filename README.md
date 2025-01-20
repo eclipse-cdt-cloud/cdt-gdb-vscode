@@ -1,4 +1,4 @@
-# VS Code Debug Extension for GDB
+# CDT GDB Debug Adapter Extension for Visual Studio Code
 
 > Note: This is a preliminary milestone release. Please help us by trying out this extension and providing feedback using [our github issues page](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues).
 
