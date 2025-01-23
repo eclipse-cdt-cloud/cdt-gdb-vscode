@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.0.1
+- Update to cdt-gdb-adapter v1.0.4
+  - [Add supportsEvaluateForHovers](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/347)
+  - [Disassembly address handling improvement](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/348)
+
 ## 2.0.0
 - First release to the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.cdt-gdb-vscode) in addition to existing releases to the [Open VSX Registry](https://open-vsx.org/extension/eclipse-cdt/cdt-gdb-vscode).
 - Updated extension logo.
