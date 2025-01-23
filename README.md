@@ -1,8 +1,8 @@
-# CDT GDB Debug Adapter Extension for Visual Studio Code
+# CDT GDB Debug Adapter Extension for vscode
 
-This is a Visual Studio Code extension that supports debugging using gdb and any other debugger that supports the MI protocol. It is built by the experts that provide the gdb support in the Eclipse C/C++ IDE (CDT).
+This is an extension for vscode that supports debugging using gdb and any other debugger that supports the MI protocol. It is built by the experts that provide the gdb support in the Eclipse C/C++ IDE (CDT).
 
-This extension provides a number of features that integrate into the Visual Studio Code debug environment. This includes launch types, support for the standard debug views as well as a custom viewer for memory browsing.
+This extension provides a number of features that integrate into the vscode debug environment. This includes launch types, support for the standard debug views as well as a custom viewer for memory browsing.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ External tools are expected to be present on your system depending on the intend
 
 ## Launch Configurations
 
-The Visual Studio Debug Extension for GDB contributes two debugger types:
+This extension contributes two debugger types:
 * `gdb`: Support for **Local GDB Debug**. Launch or attach to an already running application locally on your host machine using GDB.
 * `gdbtarget`: Support for **Remote GDB Debug**. Launch or attach to an already running remote GDB server using GDB.
 
@@ -105,7 +105,7 @@ Settings related to displaying UART output in the debug console. This object can
 
 ## Memory Browser
 
-The extension comes with a Memory Browser window. However, we have plans to deprecate and remove the window in favour of the Eclipse CDT Cloud [Memory Inspector](https://github.com/eclipse-cdt-cloud/vscode-memory-inspector) extension for Visual Studio Code which is available from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector) and the [Open VSX Registry](https://open-vsx.org/extension/eclipse-cdt/memory-inspector).
+The extension comes with a Memory Browser window. However, we have plans to deprecate and remove the window in favour of the Eclipse CDT Cloud [Memory Inspector](https://github.com/eclipse-cdt-cloud/vscode-memory-inspector) extension for vscode which is available from the [Microsoft Marketplace](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector) and the [Open VSX Registry](https://open-vsx.org/extension/eclipse-cdt/memory-inspector).
 
 Any feedback on these plans is welcomed in the discussion in GitHub issue [#110](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/110).
 
