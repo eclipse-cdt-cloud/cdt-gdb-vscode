@@ -1,4 +1,4 @@
-# Contributing to the CDT GDB Debug Adapter Extension for Visual Studio Code
+# Contributing to the CDT GDB Debug Adapter Extension
 
 Thanks for your interest in this project, part of [Eclipse CDT Cloud](https://eclipse.dev/cdt-cloud/).
 
@@ -6,7 +6,7 @@ The source code can be found in the following repository: https://github.com/ecl
 
 ## Project description
 
-This is a Visual Studio Code extension that supports
+This is an extension that supports
 debugging using gdb and any other debugger that supports
 the MI protocol. It is built by the experts that provide
 the gdb support in the Eclipse C/C++ IDE (CDT).

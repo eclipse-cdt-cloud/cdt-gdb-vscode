@@ -2,7 +2,7 @@
   "name": "cdt-gdb-vscode",
   "version": "2.0.1",
   "displayName": "CDT GDB Debug Adapter Extension",
-  "description": "CDT GDB debug adapter extension for Visual Studio Code",
+  "description": "Extension from Eclipse CDT Cloud that integrates local and remote debugging with GDB",
   "publisher": "eclipse-cdt",
   "repository": {
     "type": "git",
