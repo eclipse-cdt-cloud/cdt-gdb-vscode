@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.0.2
+- Update to cdt-gdb-adapter v1.0.6
+  - [Hardware/Software Breakpoint Modes](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/350)
+  - [Fixes step out to always step out of top frame](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/353)
+
 ## 2.0.1
 - Update to cdt-gdb-adapter v1.0.4
   - [Add supportsEvaluateForHovers](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/347)
