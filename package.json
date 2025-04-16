@@ -54,6 +54,14 @@
           "light": "images/SuspendAll_Light.png",
           "dark": "images/SuspendAll_Dark.png"
         }
+      },
+      {
+        "command": "cdt.debug.customReset",
+        "title": "Custom Reset",
+        "icon": {
+          "light": "images/CustomReset_Light.svg",
+          "dark": "images/CustomReset_Dark.svg"
+        }
       }
     ],
     "breakpoints": [
@@ -725,6 +733,11 @@
           "command": "cdt.debug.suspendAllSession",
           "group": "navigation",
           "when": "debugType == amalgamator"
+        },
+        {
+          "command": "cdt.debug.customReset",
+          "group": "custom",
+          "when": "cdt.debug.hasCustomReset && (debugType == amalgamator || debugType == gdbtarget)"
         }
       ]
     }
