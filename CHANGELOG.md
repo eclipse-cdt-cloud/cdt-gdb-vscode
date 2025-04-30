@@ -1,5 +1,8 @@
 # Change Log
 
+## 2.0.3
+- Fixes [#144](Error with the openGdbConsole option)
+
 ## 2.0.2
 - Update to cdt-gdb-adapter v1.0.6
   - [Hardware/Software Breakpoint Modes](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/350)
