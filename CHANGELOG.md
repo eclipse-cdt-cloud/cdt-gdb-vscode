@@ -1,7 +1,7 @@
 # Change Log
 
 ## 2.0.3
-- Fixes [#144](Error with the openGdbConsole option)
+- Fixes [#144](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/144): Error with the openGdbConsole option
 
 ## 2.0.2
 - Update to cdt-gdb-adapter v1.0.6
