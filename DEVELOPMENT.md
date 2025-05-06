@@ -1,4 +1,4 @@
-# Developing the CDT GDB Debug Adapter Extension for Visual Studio Code
+# Developing the CDT GDB Debug Adapter Extension
 
 This document provides instructions and hints for how to build and develop this extension. More information on contributions to this project can be found in the [contribution guidelines](/CONTRIBUTING.md).
 
@@ -35,7 +35,7 @@ Then from this project run
 yarn link cdt-gdb-adapter
 ```
 
-You can set up a VS Code workspace that has both folders. Also make sure you have builds running in each folder to pick up updates (e.g. `yarn watch`).
+You can set up a workspace that has both folders. Also make sure you have builds running in each folder to pick up updates (e.g. `yarn watch`).
 
 The way to debug cdt-gdb-adapter works with the same principle as the example Mock Debug Adapter provided by VS Code.
 For detailed instructions please refer to [Development Setup for Mock Debug](https://code.visualstudio.com/api/extension-guides/debugger-extension#development-setup-for-mock-debug).
