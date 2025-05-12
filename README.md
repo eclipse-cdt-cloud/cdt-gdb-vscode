@@ -57,6 +57,7 @@ Launch and attach configuration settings that can be used with the `gdbtarget` d
 | `preRunCommands` | x | x | `string[]` | List of GDB commands sent after loading image on target before resuming target. |
 | `imageAndSymbols` | x | x | `object` | Additional settings for loading images to the target and symbols into the debugger. See section "`imageAndSymbols` object" for details.
 | `target` | x | x |  `object` | Additional settings to configure the remote GDB target. See section "`target` object" for details. |
+| `customResetCommands` | x | x |  `string[]` | List of GDB commands to perform a RESET of the connected target, for example through `monitor ...` commands of the connected GDB server. |
 
 #### `imageAndSymbols` Object
 

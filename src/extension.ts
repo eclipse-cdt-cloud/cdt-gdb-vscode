@@ -14,11 +14,14 @@ import { ResumeAllSession } from './ResumeAllSession';
 export { ResumeAllSession } from './ResumeAllSession';
 import { SuspendAllSession } from './SuspendAllSession';
 export { SuspendAllSession } from './SuspendAllSession';
+import { CustomReset } from './CustomReset';
+export { CustomReset } from './CustomReset';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
     new ResumeAllSession(context);
     new SuspendAllSession(context);
+    new CustomReset(context);
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
