@@ -22,7 +22,7 @@ export function activate(context: ExtensionContext) {
     new SuspendAllSession(context);
 
     debug.onDidReceiveDebugSessionCustomEvent(event => {
-        if (event.event === "UpdateBreakpointView") {
+        if (event.event === "cdt-gdb-adapter/UpdateBreakpointView") {
           const bps = debug.breakpoints;
           debug.removeBreakpoints(bps);
           debug.addBreakpoints(bps);
