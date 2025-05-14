@@ -15,7 +15,6 @@ export { ResumeAllSession } from './ResumeAllSession';
 import { SuspendAllSession } from './SuspendAllSession';
 export { SuspendAllSession } from './SuspendAllSession';
 
-
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
     new ResumeAllSession(context);
