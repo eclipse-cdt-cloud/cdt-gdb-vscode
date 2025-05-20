@@ -24,7 +24,7 @@ export class CustomReset {
             vscode.commands.executeCommand(
                 'setContext',
                 'cdt.debug.hasCustomReset',
-                hasCustomReset,
+                hasCustomReset
             );
         });
 
@@ -32,7 +32,7 @@ export class CustomReset {
             vscode.commands.executeCommand(
                 'setContext',
                 'cdt.debug.hasCustomReset',
-                false,
+                false
             );
         });
     };
@@ -45,11 +45,11 @@ export class CustomReset {
                     const session = vscode.debug.activeDebugSession;
                     if (session) {
                         await session.customRequest(
-                            'cdt-gdb-adapter/customReset',
+                            'cdt-gdb-adapter/customReset'
                         );
                     }
-                },
-            ),
+                }
+            )
         );
     };
 }

@@ -143,14 +143,6 @@
                   "type": "string"
                 },
                 "default": []
-              },
-              "customResetCommands": {
-                "type": "array",
-                "description": "List of debugger commands required to execute a reset through connected debugger.",
-                "items": {
-                  "type": "string"
-                },
-                "default": []
               }
             }
           },
@@ -216,14 +208,6 @@
               "initCommands": {
                 "type": "array",
                 "description": "List of GDB commands sent before attaching to inferior.",
-                "items": {
-                  "type": "string"
-                },
-                "default": []
-              },
-              "customResetCommands": {
-                "type": "array",
-                "description": "List of debugger commands required to execute a reset through connected debugger.",
                 "items": {
                   "type": "string"
                 },

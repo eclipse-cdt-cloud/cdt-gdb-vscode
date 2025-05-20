@@ -2,7 +2,7 @@
 
 ## unreleased
 
-- Implements: https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/issues/36: Allow in-session target resets with Arm CMSIS Debugger extension
+-   Implements: [cdt-gdb-adapter #36](https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/issues/36): Allow in-session target resets with Arm CMSIS Debugger extension
 
 ## 2.0.3
 - Fixes [#144](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/144): Error with the openGdbConsole option
