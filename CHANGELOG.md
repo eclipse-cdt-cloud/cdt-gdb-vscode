@@ -2,7 +2,6 @@
 
 ## Unreleased
 - Implements: 
-  - [Allow in-session target resets with Arm CMSIS Debugger extension](https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/issues/36)
   - [Optional device reset during debug session](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/359)
 
 ## 2.0.3
