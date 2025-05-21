@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.0.4
+- Update to cdt-gdb-adapter v1.0.8
+  - [Add device reset](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/365)
+  - [Suppressing unneeded error message when hovering](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/366)
+
 ## 2.0.3
 - Fixes [#144](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/144): Error with the openGdbConsole option
 
