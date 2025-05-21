@@ -1,7 +1,9 @@
 # Change Log
 
 ## Unreleased
-- Implements: [#359](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/359): Optional device reset during debug session
+- Implements: 
+  - [Allow in-session target resets with Arm CMSIS Debugger extension](https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/issues/36)
+  - [Optional device reset during debug session](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/359)
 
 ## 2.0.3
 - Fixes [#144](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/144): Error with the openGdbConsole option
