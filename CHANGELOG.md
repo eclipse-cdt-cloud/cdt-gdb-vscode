@@ -2,7 +2,7 @@
 
 ## 2.0.4
 - Update to cdt-gdb-adapter v1.0.8
-  - [Add device reset](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/365)
+  - [Optional device reset during debug session](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/359)
   - [Suppressing unneeded error message when hovering](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/366)
 
 ## 2.0.3
