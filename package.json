@@ -54,6 +54,14 @@
           "light": "images/SuspendAll_Light.png",
           "dark": "images/SuspendAll_Dark.png"
         }
+      },
+      {
+        "command": "cdt.debug.customReset",
+        "title": "Custom Reset",
+        "icon": {
+          "light": "images/CustomReset_Light.svg",
+          "dark": "images/CustomReset_Dark.svg"
+        }
       }
     ],
     "breakpoints": [
@@ -300,6 +308,14 @@
                 },
                 "default": []
               },
+              "customResetCommands": {
+                "type": "array",
+                "description": "List of debugger commands required to execute a reset through connected debugger.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              },
               "preRunCommands": {
                 "type": "array",
                 "description": "List of GDB commands sent after loading image on target before resuming target.",
@@ -541,6 +557,14 @@
                 },
                 "default": []
               },
+              "customResetCommands": {
+                "type": "array",
+                "description": "List of debugger commands required to execute a reset through connected debugger.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              },
               "preRunCommands": {
                 "type": "array",
                 "description": "List of GDB commands sent after loading image on target before resuming target.",
@@ -725,6 +749,11 @@
           "command": "cdt.debug.suspendAllSession",
           "group": "navigation",
           "when": "debugType == amalgamator"
+        },
+        {
+          "command": "cdt.debug.customReset",
+          "group": "custom",
+          "when": "cdt.debug.hasCustomReset && (debugType == amalgamator || debugType == gdbtarget)"
         }
       ]
     }

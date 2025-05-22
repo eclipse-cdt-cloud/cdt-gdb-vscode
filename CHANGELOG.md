@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+- Implements: 
+  - [Optional device reset during debug session](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/359)
+
 ## 2.0.3
 - Fixes [#144](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/144): Error with the openGdbConsole option
 
