@@ -832,10 +832,10 @@ cdt-amalgamator@^0.0.11:
     "@vscode/debugadapter-testsupport" "^1.59.0"
     "@vscode/debugprotocol" "^1.59.0"
 
-cdt-gdb-adapter@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.0.8.tgz#6c8271f76bcdaed8b55347501c957aa4062ee1a6"
-  integrity sha512-A7/0QJAUjCcrUZ5A54aVFOuUtEH273EmbOfyvJhHZzMJEWM1899MVkohrfM4nGEqbUzSrvHoQW3a44I5DykoIA==
+cdt-gdb-adapter@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.0.9.tgz#b6efcf9a10fc576b3837c636b720b2b722591889"
+  integrity sha512-ZQedkRWMzxmxRnodqOZ+yfRVU3IL9EouJFp+yCzKFoq27l9R7lGlU8/Gu4AkK8iy39Obsoc7vN8XXB0euK8PJw==
   dependencies:
     "@vscode/debugadapter" "^1.68.0"
     "@vscode/debugprotocol" "^1.68.0"
