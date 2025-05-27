@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.5
+- Update to cdt-gdb-adapter v1.0.9
+  - [Support GDB/MI breakpoint notifications](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/360)
+
 ## 2.0.4
 - Update to cdt-gdb-adapter v1.0.8
   - [Optional device reset during debug session](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/359)
