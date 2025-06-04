@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import { ExtensionContext, commands, window, debug } from 'vscode';
+import { ExtensionContext, commands, window } from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
 export { MemoryServer } from './memory/server/MemoryServer';
 import { ResumeAllSession } from './ResumeAllSession';
@@ -22,14 +22,6 @@ export function activate(context: ExtensionContext) {
     new ResumeAllSession(context);
     new SuspendAllSession(context);
     new CustomReset(context);
-
-    debug.onDidReceiveDebugSessionCustomEvent(event => {
-        if (event.event === "cdt-gdb-adapter/UpdateBreakpointView") {
-          const bps = debug.breakpoints;
-          debug.removeBreakpoints(bps);
-          debug.addBreakpoints(bps);
-        }
-      });
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
