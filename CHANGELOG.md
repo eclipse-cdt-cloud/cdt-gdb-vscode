@@ -1,7 +1,7 @@
 # Change Log
 
 ## 2.0.5
-- Update to cdt-gdb-adapter v1.0.9
+- Update to cdt-gdb-adapter v1.0.10
   - [Support GDB/MI breakpoint notifications](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/360)
 
 ## 2.0.4
