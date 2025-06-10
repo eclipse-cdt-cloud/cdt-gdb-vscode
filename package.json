@@ -57,7 +57,7 @@
       },
       {
         "command": "cdt.debug.customReset",
-        "title": "Custom Reset",
+        "title": "Reset Target",
         "icon": {
           "light": "images/CustomReset_Light.svg",
           "dark": "images/CustomReset_Dark.svg"
