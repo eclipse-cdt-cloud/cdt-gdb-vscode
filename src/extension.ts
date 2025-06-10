@@ -16,12 +16,15 @@ import { SuspendAllSession } from './SuspendAllSession';
 export { SuspendAllSession } from './SuspendAllSession';
 import { CustomReset } from './CustomReset';
 export { CustomReset } from './CustomReset';
+import { OwnHoverOver } from './HoverOver';
+export { OwnHoverOver } from './HoverOver';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
     new ResumeAllSession(context);
     new SuspendAllSession(context);
     new CustomReset(context);
+    new OwnHoverOver(context);
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
