@@ -790,7 +790,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^9.1.0",
-    "@types/node": "~20.14.15",
+    "@types/node": "^20.19.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@types/vscode": "^1.78.0",
@@ -805,7 +805,7 @@
     "event-stream": "^4.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "3.5.3",
-    "typescript": "^4.9.5"
+    "typescript": "^5.8.3"
   },
   "bundledDependencies": [
     "cdt-gdb-adapter"
