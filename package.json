@@ -796,7 +796,7 @@
     "@types/vscode": "^1.78.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
-    "@vscode/vsce": "^3.2.1",
+    "@vscode/vsce": "^3.5.0",
     "chai": "^4.3.7",
     "esbuild": "^0.19.2",
     "esbuild-sass-plugin": "^2.13.0",
@@ -804,7 +804,7 @@
     "eslint-config-prettier": "^8.6.0",
     "event-stream": "^4.0.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "2.8.4",
+    "prettier": "3.5.3",
     "typescript": "^4.9.5"
   },
   "bundledDependencies": [
