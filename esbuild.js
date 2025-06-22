@@ -1,7 +1,6 @@
 // @ts-check
 const esbuild = require('esbuild');
 const path = require('node:path');
-const os = require('node:os');
 const { sassPlugin } = require('esbuild-sass-plugin');
 
 /** @typedef {import('esbuild').BuildOptions} BuildOptions */
