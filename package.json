@@ -800,6 +800,7 @@
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "event-stream": "^4.0.1",
+    "globals": "^16.2.0",
     "npm-run-all": "^4.1.5",
     "prettier": "3.5.3",
     "typescript": "^5.8.3",
