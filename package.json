@@ -788,8 +788,6 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.4",
-    "@types/mocha": "^9.1.0",
     "@types/node": "^20.19.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -797,7 +795,6 @@
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "@vscode/vsce": "^3.5.0",
-    "chai": "^4.3.7",
     "esbuild": "^0.25.5",
     "esbuild-sass-plugin": "^3.3.1",
     "eslint": "^8.35.0",
