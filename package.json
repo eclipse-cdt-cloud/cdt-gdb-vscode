@@ -64,14 +64,6 @@
         }
       }
     ],
-    "keybindings": [
-      {
-        "command": "cdt.debug.customReset",
-        "key": "ctrl+shift+r",
-        "mac": "cmd+shift+r",
-        "when": "cdt.debug.hasCustomReset && (debugType == amalgamator || debugType == gdbtarget)"
-      }
-    ],
     "breakpoints": [
       {
         "language": "c"

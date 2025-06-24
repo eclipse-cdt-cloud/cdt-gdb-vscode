@@ -1,7 +1,7 @@
 # Change Log
 
 ## Unreleased
-- Changed "Custom Reset" button tooltip to "Reset Target", added keybinding "CTRL/CMD + SHIFT + R"
+- Changed "Custom Reset" button tooltip to "Reset Target"
 
 ## 2.0.5
 - Update to cdt-gdb-adapter v1.0.10
