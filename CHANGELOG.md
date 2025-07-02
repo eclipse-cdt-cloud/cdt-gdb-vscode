@@ -1,7 +1,9 @@
 # Change Log
 
-## Unreleased
-- Changed "Custom Reset" button tooltip to "Reset Target"
+## 2.0.6
+- Fixes [#161](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/161): Changed "Custom Reset" button tooltip to "Reset Target" 
+- Update to cdt-gdb-adapter v1.0.11
+  - [Adds instruction breakpoint support to enable breakpoints in Disassembly View](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/373)
 
 ## 2.0.5
 - Update to cdt-gdb-adapter v1.0.10
