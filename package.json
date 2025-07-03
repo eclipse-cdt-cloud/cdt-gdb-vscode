@@ -76,6 +76,10 @@
       {
         "type": "gdb",
         "label": "GDB",
+        "languages": [
+          "c",
+          "cpp"
+        ],
         "program": "./node_modules/cdt-gdb-adapter/dist/debugAdapter.js",
         "runtime": "node",
         "configurationAttributes": {
