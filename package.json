@@ -76,6 +76,10 @@
       {
         "type": "gdb",
         "label": "GDB",
+        "languages": [
+          "c",
+          "cpp"
+        ],
         "program": "./node_modules/cdt-gdb-adapter/dist/debugAdapter.js",
         "runtime": "node",
         "configurationAttributes": {
@@ -244,6 +248,10 @@
       {
         "type": "gdbtarget",
         "label": "GDB Target",
+        "languages": [
+          "c",
+          "cpp"
+        ],
         "program": "./node_modules/cdt-gdb-adapter/dist/debugTargetAdapter.js",
         "runtime": "node",
         "configurationAttributes": {

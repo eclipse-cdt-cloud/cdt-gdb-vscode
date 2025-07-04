@@ -1,5 +1,8 @@
 # Change Log
 
+# Unreleased
+- Showing Open Disassembly View option in source view's context menu [#95](https://github.com/Open-CMSIS-Pack/vscode-cmsis-debugger/issues/95)
+
 ## 2.0.6
 - Fixes [#161](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/161): Changed "Custom Reset" button tooltip to "Reset Target" 
 - Update to cdt-gdb-adapter v1.0.11
