@@ -16,6 +16,5 @@
     "sourceMap": true,
     "preserveWatchOutput": true
   },
-  "references": [{ "path": "src/memory/client/tsconfig.json" }],
-  "exclude": ["**/client/*"]
+  "references": [{ "path": "src/memory/tsconfig.json" }],
 }
