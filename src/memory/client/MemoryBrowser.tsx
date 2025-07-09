@@ -68,12 +68,12 @@ class ReverseIterator implements Iterator<number> {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface Props {}
 
 interface State {
   memory?: MemoryContents;
-  error?: JSX.Element;
+  error?: React.JSX.Element;
   bytesPerRow: number;
   bytesPerGroup: number;
   endianness: 'le' | 'be';
@@ -252,7 +252,7 @@ export class MemoryBrowser extends React.Component<Props, State> {
     const bytes = this.hex2bytes(this.state.memory.data);
     const address = parseInt(this.state.memory.address, 16);
 
-    const rows: JSX.Element[] = [];
+    const rows: React.JSX.Element[] = [];
 
     for (
       let rowOffset = 0;
