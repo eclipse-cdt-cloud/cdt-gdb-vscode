@@ -1,6 +1,6 @@
 {
   "name": "cdt-gdb-vscode",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "displayName": "CDT GDB Debug Adapter Extension",
   "description": "CDT GDB debug adapter extension for Visual Studio Code",
   "publisher": "eclipse-cdt",
@@ -419,6 +419,11 @@
                     "description": "Regular expression to extract port from by examining stdout/err of server. Once server is launched, port will be set to this if port is not set. Defaults to matching a string like 'Listening on port 41551' which is what gdbserver provides. Ignored if port or parameters is set",
                     "default": ""
                   },
+                  "portDetectionTimeout": {
+                    "type": "number",
+                    "description": "Timeout for port detection based on serverPortRegExp. Default value is 10000 (ms).",
+                    "default": 10000
+                  },
                   "serverStartupDelay": {
                     "type": "number",
                     "description": "Delay after startup before continuing launch, in milliseconds. If serverPortRegExp is provided, it is the delay after that regexp is seen.",
@@ -783,7 +788,7 @@
   },
   "dependencies": {
     "cdt-amalgamator": "^0.0.11",
-    "cdt-gdb-adapter": "^1.0.11",
+    "cdt-gdb-adapter": "^1.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
