@@ -22,7 +22,7 @@ export function activate(context: ExtensionContext) {
     new ResumeAllSession(context);
     new SuspendAllSession(context);
     new CustomReset(context);
-    
+
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
             return window.showInputBox({
