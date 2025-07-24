@@ -148,7 +148,6 @@
           },
           "attach": {
             "required": [
-              "program",
               "processId"
             ],
             "properties": {
@@ -248,9 +247,6 @@
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
-            "required": [
-              "program"
-            ],
             "properties": {
               "gdb": {
                 "type": "string",
@@ -497,9 +493,6 @@
             }
           },
           "attach": {
-            "required": [
-              "program"
-            ],
             "properties": {
               "gdb": {
                 "type": "string",
