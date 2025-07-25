@@ -1,5 +1,9 @@
 # Change Log
 
+# Unreleased
+
+-  Fixes [#398](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/398): Give gdbserver time to gracefully disconnect before terminating it
+
 # 2.1.0
 
 - Adds [PR #168](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/168): Supported languages for `gdb` and `gdbtarget` debug adapter types to show `Open Disassembly View` context menu entry in source code editors.
