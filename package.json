@@ -429,9 +429,9 @@
                     "type": "boolean",
                     "description": "Automatically kill the launched server when client issues a disconnect (default: true)"
                   },
-                  "disconnectRequestTimeout": {
+                  "gdbServerDisconnectTimeout": {
                     "type": "number",
-                    "description": "Timeout for disconnect request. Default value is 5000 (ms).",
+                    "description": "Timeout for gdb-server disconnect request. Default value is 5000 (ms).",
                     "default": 5000
                   },
                   "uart": {
