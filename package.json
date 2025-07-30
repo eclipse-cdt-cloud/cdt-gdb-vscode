@@ -429,6 +429,11 @@
                     "type": "boolean",
                     "description": "Automatically kill the launched server when client issues a disconnect (default: true)"
                   },
+                  "serverDisconnectTimeout": {
+                    "type": "number",
+                    "description": "Timeout for GDB server disconnect request. Default value is 1000 (ms).",
+                    "default": 1000
+                  },
                   "uart": {
                     "type": "object",
                     "description": "Settings related to displaying UART output in the debug console",
