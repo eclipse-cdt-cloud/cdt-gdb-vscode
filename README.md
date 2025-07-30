@@ -86,7 +86,7 @@ Additional settings to configure the remote GDB target. This object can be used 
 | `serverParameters` | x | | `string[]` | Command line arguments passed to server.<br>Default: `--once :0 ${args.program}` |
 | `serverPortRegExp` | x | | `string` | Regular expression to extract `port` from by examining stdout/stderr of the GDB server. Once the server is launched, `port` will be set to this if unspecified. Defaults to matching a string like `Listening on port 41551` which is what `gdbserver` provides. Ignored if `port` or `parameters` is set. |
 | `portDetectionTimeout` | x | | `number` | Timeout for port detection based on `serverPortRegExp`. Default value is `10000` (ms). |
-| `serverDisconnectTimeout` | x | | `number` |Timeout for gdb-server disconnect request. Default value is 1000 (ms). |
+| `serverDisconnectTimeout` | x | | `number` |Timeout for GDB server disconnect request. Default value is 1000 (ms). |
 | `serverStartupDelay` | x | | `number` | Delay, in milliseconds, after startup but before continuing launch. If `serverPortRegExp` is provided, it is the delay after that regexp is seen. |
 | `automaticallyKillServer` | x | | `boolean` | Automatically terminate the launched server when client issues a disconnect.<br>Default: `true` |
 | `uart` | x | x | `object` | Settings related to displaying UART output in the debug console. |

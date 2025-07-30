@@ -431,7 +431,7 @@
                   },
                   "serverDisconnectTimeout": {
                     "type": "number",
-                    "description": "Timeout for server disconnect request. Default value is 1000 (ms).",
+                    "description": "Timeout for GDB server disconnect request. Default value is 1000 (ms).",
                     "default": 1000
                   },
                   "uart": {
