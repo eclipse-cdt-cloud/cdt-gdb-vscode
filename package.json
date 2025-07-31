@@ -434,6 +434,11 @@
                     "description": "Timeout for GDB server disconnect request. Default value is 1000 (ms).",
                     "default": 1000
                   },
+                  "watchServerProcess": {
+                    "type": "boolean",
+                    "description": "Watch server process and handle when it (unexpectedly) exits (default: true)",
+                    "default": true
+                  },
                   "uart": {
                     "type": "object",
                     "description": "Settings related to displaying UART output in the debug console",
