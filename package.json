@@ -791,7 +791,7 @@
   },
   "dependencies": {
     "cdt-amalgamator": "^0.0.11",
-    "cdt-gdb-adapter": "^1.1.0",
+    "cdt-gdb-adapter": "^1.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
