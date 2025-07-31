@@ -1,6 +1,6 @@
 {
   "name": "cdt-gdb-vscode",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "displayName": "CDT GDB Debug Adapter Extension",
   "description": "CDT GDB debug adapter extension for Visual Studio Code",
   "publisher": "eclipse-cdt",
@@ -434,6 +434,11 @@
                     "description": "Timeout for GDB server disconnect request. Default value is 1000 (ms).",
                     "default": 1000
                   },
+                  "watchServerProcess": {
+                    "type": "boolean",
+                    "description": "Watch server process and handle when it (unexpectedly) exits (default: true)",
+                    "default": true
+                  },
                   "uart": {
                     "type": "object",
                     "description": "Settings related to displaying UART output in the debug console",
@@ -786,7 +791,7 @@
   },
   "dependencies": {
     "cdt-amalgamator": "^0.0.11",
-    "cdt-gdb-adapter": "^1.1.0",
+    "cdt-gdb-adapter": "^1.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

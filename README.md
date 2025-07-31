@@ -89,6 +89,7 @@ Additional settings to configure the remote GDB target. This object can be used 
 | `serverDisconnectTimeout` | x | | `number` |Timeout for GDB server disconnect request. Default value is 1000 (ms). |
 | `serverStartupDelay` | x | | `number` | Delay, in milliseconds, after startup but before continuing launch. If `serverPortRegExp` is provided, it is the delay after that regexp is seen. |
 | `automaticallyKillServer` | x | | `boolean` | Automatically terminate the launched server when client issues a disconnect.<br>Default: `true` |
+| `watchServerProcess` | x | | `boolean` | Watch server process and handle when it (unexpectedly) exits.<br>Default: `true` |
 | `uart` | x | x | `object` | Settings related to displaying UART output in the debug console. |
 
 ##### `uart` object
