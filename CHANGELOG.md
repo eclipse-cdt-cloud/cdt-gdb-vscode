@@ -1,17 +1,31 @@
 # Change Log
 
+## 2.3.0
+
+- Documentation update: Clarify behavior of `initCommands` setting for `gdbtarget` type.
+- Update to cdt-gdb-adapter v1.3.0
+    - Implements [cdt-gdb-adapter `#422`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/422): Initial support for data breakpoints.
+      **Note**: Initially supports global symbols with simple datatypes.
+    - Fixes [cdt-gdb-adapter `#402`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/402): Better handle setting too many breakpoints.
+    - Fixes [cdt-gdb-adapter `#407`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/407): Getting stuck on concurrent breakpoint setup on targets that don’t stop on attach.
+    - Fixes [cdt-gdb-adapter `#408`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/408): Avoid unnecessary ThreadInfoRequests.
+    - Fixes [cdt-gdb-adapter `#420`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/420): Disabling evaluate request error messages when hovering over comments.
+    - Fixes [cdt-gdb-adapter `#427`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/427): Breakpoint source code reference to module disappears when breakpoint is hit.
+    - Fixes [cdt-gdb-adapter `#428`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/428): User experience issues in step operations on slow sessions.
+    - Fixes [cdt-gdb-adapter `#437`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/437): `detach` request getting stuck on exited program.
+
 ## 2.2.0
 
 - Fixes [`#173`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/173): Add `target`>`watchServerProcess` setting to ignore early exit of `server` executable, e.g. if a launcher for actual gdbserver.
-- Fixes [cdt-gdb-adapter`#367`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/367): Allow empty `program` setting for remote `launch`/`attach` and for local `attach` configurations.
-- Fixes [cdt-gdb-adapter`#398`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/398): Add `target`>`serverDisconnectTimeout` setting to configure timeout for graceful gdbserver disconnect.
+- Fixes [cdt-gdb-adapter `#367`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/367): Allow empty `program` setting for remote `launch`/`attach` and for local `attach` configurations.
+- Fixes [cdt-gdb-adapter `#398`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/398): Add `target`>`serverDisconnectTimeout` setting to configure timeout for graceful gdbserver disconnect.
 - Update to cdt-gdb-adapter v1.2.0
     - Fixes [`#173`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/173): Add `target`>`watchServerProcess` setting to ignore early exit of `server` executable, e.g. if a launcher for actual gdbserver.
     - Fixes [cdt-gdb-adapter `#330`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/330) / [`#151`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/151): Cannot remove breakpoint when debugging (Windows, Theia).
-    - Fixes [cdt-gdb-adapter`#362`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/362): Cannot execute CLI commands like `> interrupt` from Debug Console while CPU is running.  
+    - Fixes [cdt-gdb-adapter `#362`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/362): Cannot execute CLI commands like `> interrupt` from Debug Console while CPU is running.  
       **Note**: Depends on whether a blocking command was executed from CLI before.
-    - Fixes [cdt-gdb-adapter`#367`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/367): Debugging with `gdbtarget` fails if `program` is omitted, despite user doc claiming it's optional.
-    - Fixes [cdt-gdb-adapter`#398`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/398): Give gdbserver time to gracefully disconnect before terminating it.
+    - Fixes [cdt-gdb-adapter `#367`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/367): Debugging with `gdbtarget` fails if `program` is omitted, despite user doc claiming it's optional.
+    - Fixes [cdt-gdb-adapter `#398`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/398): Give gdbserver time to gracefully disconnect before terminating it.
     - Enhancement: Improve error message if setting more HW breakpoints than supported by target.
     - Enhancement: Improve error message on `-target-select` timeout on Windows.
 
