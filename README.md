@@ -50,6 +50,7 @@ Launch and attach configuration settings that can be used with the `gdbtarget` d
 | `program` | x | x | `string` | Path to the program to be debugged. For `launch` requests, this program is also launched.<br>Default: `${workspaceFolder}/${command:askProgramPath}`, which allows to interactively enter the full program path.<br>**Note**: While `program` is marked as required, the debug adapter launches anyway for remote GDB connections. For example to inspect an embedded target system's memory and other hardware resources without debugging a program.  |
 | `gdbAsync` | x | x | `boolean` | Use `mi-async` mode for communication with GDB. Always `true` if `gdbNonStop` is `true`.<br>Default: `true` |
 | `gdbNonStop` | x | x | `boolean` | Use `non-stop` mode for controlling multiple threads.<br> Default: `false` |
+| `auxiliaryGdb` | x | x | `boolean` | Creates an auxiliary GDB connection to the target TCP port to allow memory accesses and expression evaluation while the target is running.<br>Default: `false`<br>**Notes**:<br>* Requires support for multiple connections to the same TCP port in connected GDB server.<br>* Requires `gdbAsync` mode and cannot be used with `gdbNonStop` mode. |
 | `verbose` | x | x | `boolean` | Produce verbose log output. |
 | `logFile` | x | x | `string` | Absolute path to the file to log interaction with GDB.|
 | `openGdbConsole` | x | x | `boolean` | *(UNIX-only)* Open a GDB console in your IDE while debugging. |
