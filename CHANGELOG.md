@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+- Implements [cdt-gdb-adapter `#442`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/442): Support auxiliary GDB connections to allow selected operations while CPU running.
+
 ## 2.3.0
 
 - Documentation update: Clarify behavior of `initCommands` setting for `gdbtarget` type.
