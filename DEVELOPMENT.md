@@ -63,12 +63,12 @@ The short step-by-step version is:
         - Add references to issues/PRs where possible. Use the format of previous releases.  
           Putting the displayed issue number in backticks is important to avoid that a web
           frontend automatically adds links. For example if referencing an issue/PR outside
-          this repository which has the same number like an issue in the cdt-gdb-vscode repository.
+          this repository which has the same number like an issue in the`cdt-gdb-vscode` repository.
         - Prefix issues from the sibling project `cdt-gdb-adapter` with their name if a change was
           made in cdt-gd-vscode to resolve it.
     - If an update of `cdt-gdb-adapter` is included, then add a section `Update to cdt-gdb-adapter vX.Y.Z`.  
       Include the release notes as listed in [`cdt-gdb-adapter` CHANGELOG](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/blob/main/CHANGELOG.md).  
-      Make sure to prefix issue and PR links correctly if they point to the cdt-gdb-adapter repository.
+      Make sure to prefix issue and PR links correctly if they point to the`cdt-gdb-adapter`repository.
 - Update the `version` entry in [package.json](./package.json) to the new version.  
   If the release only introduces defect fixes without significant feature changes,
   then bump the third ("patch") version digit.  
@@ -87,7 +87,7 @@ After the PR has been reviewed and merged, go to the GitHub [releases page](http
   that are shown on GitHub.
     - If an update of `cdt-gdb-adapter` is included, then add a section `Update to cdt-gdb-adapter vX.Y.Z`.  
       Include the release notes as listed in [`cdt-gdb-adapter` CHANGELOG](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/blob/main/CHANGELOG.md).  
-      Make sure to prefix issue and PR links correctly if they point to the cdt-gdb-adapter repository.
+      Make sure to prefix issue and PR links correctly if they point to the `cdt-gdb-adapter` repository.
 - Select whether the release is a pre-release and/or if it is the latest release to show
   on the GitHub repository page. Usually, no change of the defaults is required.
 - Click the `Publish release` button. This creates a new release and pushes the defined tag.
@@ -97,10 +97,10 @@ After the PR has been reviewed and merged, go to the GitHub [releases page](http
   It may take a few minutes for this and the release's asset list to complete, and for the extensions to show up
   on the other registries.
 
-Note: If CI should fail before the GitHub asset upload, you can either try to retrigger the failing GitHub action.
-Alternatively, you can manually remove the release and (!) the tag and retry with the same
-version after fixing the issues.  
-Should one of the registry pushes fail while the other succeeds, you can try to rerun the failing GitHub action.
-If more fixing is needed, you unfortunately may need to bump the version number again.
+**Note**:
 
-Important: Making a CDT GDB Debug Adapter release requires you to be a [committer](https://www.eclipse.org/membership/become-a-member/committer/).
+- If CI should fail before the GitHub asset upload, you can try to rerun the failing GitHub action.
+- Should one of the registry pushes fail while the other succeeds, you can try to rerun the failing jobs.
+  If more fixing is needed, you unfortunately may need to again bump the version number and repeat the entire process.
+
+**Important**: Making a CDT GDB Debug Adapter release requires you to be a [committer](https://www.eclipse.org/membership/become-a-member/committer/).
