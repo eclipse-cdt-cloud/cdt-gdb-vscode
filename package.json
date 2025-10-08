@@ -291,6 +291,11 @@
                 "description": "Use non-stop mode for controlling multiple threads. (defaults to false)",
                 "default": false
               },
+              "auxiliaryGdb": {
+                "type": "boolean",
+                "description": "Creates an auxiliary GDB connection to the target TCP port if supported by connected GDB server.\nRequires `gdbAsync` mode and cannot be used with `gdbNonStop` mode.",
+                "default": false
+              },
               "verbose": {
                 "type": "boolean",
                 "description": "Produce verbose log output",
