@@ -1,8 +1,13 @@
 # Change Log
 
-## Unreleased
+## 2.4.0
 
 - Implements [cdt-gdb-adapter `#442`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/442): Support auxiliary GDB connections to allow selected operations while CPU running.
+- Update to cdt-gdb-adapter v1.4.0
+    - Implements [cdt-gdb-adapter `#442`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/442): Support auxiliary GDB connections to allow selected operations while CPU running.
+    - Completes [cdt-gdb-adapter `#422`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/422): Support data breakpoints for complex data types.
+    - Fixes [cdt-gdb-adapter `#439`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/439): Missing thread names when attaching to targets that don’t stop on attach.
+    - Fixes [cdt-gdb-adapter `#440`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/440): Automatically disable async mode in adapter if debug target does not support it.
 
 ## 2.3.0
 
