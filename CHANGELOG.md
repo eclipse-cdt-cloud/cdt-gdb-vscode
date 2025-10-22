@@ -1,8 +1,10 @@
 # Change Log
 
-## Unreleased
+## 2.4.1
 
 - Fixes [`184`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/184): Add `auxiliaryGdb` setting to `attach` type for `gdbtarget`.
+- Update to cdt-gdb-adapter v1.4.1
+    - Fixes [cdt-gdb-adapter `400`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/400): Evaluation of variables to support RTOS Views extension.
 
 ## 2.4.0
 
