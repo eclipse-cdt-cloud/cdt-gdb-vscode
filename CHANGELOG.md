@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+- Fixes [``](): Cannot set breakpoints in assembler files.
+
 ## 2.4.1
 
 - Fixes [`184`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/184): Add `auxiliaryGdb` setting to `attach` type for `gdbtarget`.

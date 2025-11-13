@@ -33,6 +33,16 @@
     "onCommand:cdt.debug.suspendAllSession"
   ],
   "contributes": {
+    "languages": [
+      {
+        "id": "cdt-gdb-asm",
+        "extensions": [
+          "asm",
+          "s",
+          "S"
+        ]
+      }
+    ],
     "commands": [
       {
         "category": "GDB",
@@ -65,6 +75,9 @@
       }
     ],
     "breakpoints": [
+      {
+        "language": "cdt-gdb-asm"
+      },
       {
         "language": "c"
       },
