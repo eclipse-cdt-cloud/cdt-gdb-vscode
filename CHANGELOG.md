@@ -3,7 +3,7 @@
 ## 2.5.0
 
 - Fixes [`#191`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/191): Cannot set breakpoints in assembler files (.s, .S, .asm).
-- Update to cdt-gdb-adapter v1.5.0
+- Update to cdt-gdb-adapter [v1.5.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.5.0)
     - Fixes [cdt-gdb-adapter `#463`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/463): Cannot use custom reset while CPU is running.
     - Fixes [cdt-gdb-adapter `#465`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/465): UTF-8 'Failed to decode cstring' errors for GDB with CP1252 support only.
     - Fixes [cdt-gdb-adapter `#467`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/467): Skip pausing target at startup if request has no breakpoints
@@ -11,13 +11,13 @@
 ## 2.4.1
 
 - Fixes [`#184`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/184): Add `auxiliaryGdb` setting to `attach` type for `gdbtarget`.
-- Update to cdt-gdb-adapter v1.4.1
+- Update to cdt-gdb-adapter [v1.4.1](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.4.1)
     - Fixes [cdt-gdb-adapter `#400`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/400): Evaluation of variables to support RTOS Views extension.
 
 ## 2.4.0
 
 - Implements [cdt-gdb-adapter `#442`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/442): Support auxiliary GDB connections to allow selected operations while CPU running.
-- Update to cdt-gdb-adapter v1.4.0
+- Update to cdt-gdb-adapter [v1.4.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.4.0)
     - Implements [cdt-gdb-adapter `#442`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/442): Support auxiliary GDB connections to allow selected operations while CPU running.
     - Completes [cdt-gdb-adapter `#422`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/422): Support data breakpoints for complex data types.
     - Fixes [cdt-gdb-adapter `#439`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/439): Missing thread names when attaching to targets that don’t stop on attach.
@@ -26,7 +26,7 @@
 ## 2.3.0
 
 - Documentation update: Clarify behavior of `initCommands` setting for `gdbtarget` type.
-- Update to cdt-gdb-adapter v1.3.0
+- Update to cdt-gdb-adapter [v1.3.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.3.0)
     - Implements [cdt-gdb-adapter `#422`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/422): Initial support for data breakpoints.
       **Note**: Initially supports global symbols with simple datatypes.
     - Fixes [cdt-gdb-adapter `#402`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/402): Better handle setting too many breakpoints.
@@ -43,7 +43,7 @@
 - Fixes [`#173`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/173): Add `target`>`watchServerProcess` setting to ignore early exit of `server` executable, e.g. if a launcher for actual gdbserver.
 - Fixes [cdt-gdb-adapter `#367`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/367): Allow empty `program` setting for remote `launch`/`attach` and for local `attach` configurations.
 - Fixes [cdt-gdb-adapter `#398`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/398): Add `target`>`serverDisconnectTimeout` setting to configure timeout for graceful gdbserver disconnect.
-- Update to cdt-gdb-adapter v1.2.0
+- Update to cdt-gdb-adapter [v1.2.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.2.0)
     - Fixes [`#173`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/173): Add `target`>`watchServerProcess` setting to ignore early exit of `server` executable, e.g. if a launcher for actual gdbserver.
     - Fixes [cdt-gdb-adapter `#330`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/330) / [`#151`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/151): Cannot remove breakpoint when debugging (Windows, Theia).
     - Fixes [cdt-gdb-adapter `#362`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/362): Cannot execute CLI commands like `> interrupt` from Debug Console while CPU is running.  
@@ -57,7 +57,7 @@
 
 - Adds [PR `#168`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/168): Supported languages for `gdb` and `gdbtarget` debug adapter types to show `Open Disassembly View` context menu entry in source code editors.
 - Implements [`#157`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/157): Update NPM dependencies, Node and Python requirements, and Typescript version.
-- Update to cdt-gdb-adapter v1.1.0
+- Update to cdt-gdb-adapter [v1.1.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.1.0)
     - [Fixes and robustness around remote target GDB connect, disconnect, and unexpected connection loss/termination of gdb and gdbserver.](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/361)
     - [Error handling for missing remote configuration like port.](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/384)
     - [Update NPM dependencies, Node and Python requirements, and Typescript version.](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/381)
@@ -65,17 +65,17 @@
 ## 2.0.6
 
 - Fixes [`#161`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/161): Changed "Custom Reset" button tooltip to "Reset Target"
-- Update to cdt-gdb-adapter v1.0.11
+- Update to cdt-gdb-adapter [v1.0.11](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.0.11)
     - [Adds instruction breakpoint support to enable breakpoints in Disassembly View](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/373)
 
 ## 2.0.5
 
-- Update to cdt-gdb-adapter v1.0.10
+- Update to cdt-gdb-adapter [v1.0.10](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.0.10)
     - [Support GDB/MI breakpoint notifications](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/360)
 
 ## 2.0.4
 
-- Update to cdt-gdb-adapter v1.0.8
+- Update to cdt-gdb-adapter [v1.0.8](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.0.8)
     - [Optional device reset during debug session](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/359)
     - [Suppressing unneeded error message when hovering](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/366)
 
@@ -85,13 +85,13 @@
 
 ## 2.0.2
 
-- Update to cdt-gdb-adapter v1.0.6
+- Update to cdt-gdb-adapter [v1.0.6](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.0.6)
     - [Hardware/Software Breakpoint Modes](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/350)
     - [Fixes step out to always step out of top frame](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/353)
 
 ## 2.0.1
 
-- Update to cdt-gdb-adapter v1.0.4
+- Update to cdt-gdb-adapter [v1.0.4](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.0.4)
     - [Add supportsEvaluateForHovers](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/347)
     - [Disassembly address handling improvement](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/348)
 
