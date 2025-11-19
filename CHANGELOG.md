@@ -1,8 +1,12 @@
 # Change Log
 
-## Unreleased
+## 2.5.0
 
-- Fixes [`#191`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/191): Cannot set breakpoints in assembler files.
+- Fixes [`#191`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/191): Cannot set breakpoints in assembler files (.s, .S, .asm).
+- Update to cdt-gdb-adapter v1.5.0
+    - Fixes [cdt-gdb-adapter `#463`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/463): Cannot use custom reset while CPU is running.
+    - Fixes [cdt-gdb-adapter `#465`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/465): UTF-8 'Failed to decode cstring' errors for GDB with CP1252 support only.
+    - Fixes [cdt-gdb-adapter `#467`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/467): Skip pausing target at startup if request has no breakpoints
 
 ## 2.4.1
 
