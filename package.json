@@ -1,6 +1,6 @@
 {
   "name": "cdt-gdb-vscode",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "displayName": "CDT GDB Debug Adapter Extension",
   "description": "CDT GDB debug adapter extension for Visual Studio Code",
   "publisher": "eclipse-cdt",
@@ -814,7 +814,7 @@
   },
   "dependencies": {
     "cdt-amalgamator": "^0.0.11",
-    "cdt-gdb-adapter": "^1.4.1",
+    "cdt-gdb-adapter": "^1.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -825,7 +825,7 @@
     "@types/vscode": "^1.78.0",
     "@typescript-eslint/eslint-plugin": "^8.35.1",
     "@typescript-eslint/parser": "^8.35.1",
-    "@vscode/vsce": "^3.6.0",
+    "@vscode/vsce": "^3.7.0",
     "esbuild": "^0.25.5",
     "esbuild-sass-plugin": "^3.3.1",
     "eslint": "^9.30.1",
