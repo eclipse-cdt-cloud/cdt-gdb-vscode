@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.6.0
+
+- Update to cdt-gdb-adapter [v1.6.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.6.0)
+    - Fixes [cdt-gdb-adapter `#421`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/421): Using "commands" command for breakpoints locks up debugger.
+    - Fixes [cdt-gdb-adapter `#469`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/469): Issue with setting Program Counter ($PC$) register on Windows via GDB 12.1 using -var-assign.
+    - Fixes [cdt-gdb-adapter `#473`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/473): Confusing error pop-ups without additional user value in some corner cases.
+
 ## 2.5.0
 
 - Fixes [`#191`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/191): Cannot set breakpoints in assembler files (.s, .S, .asm).
