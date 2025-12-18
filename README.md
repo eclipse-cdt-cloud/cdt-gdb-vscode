@@ -35,7 +35,7 @@ Launch and attach configuration settings that can be used with the `gdb` debugge
 | `verbose` | x | x | `boolean` | Produce verbose log output. |
 | `logFile` | x | x | `string` | Absolute path to the file to log interaction with GDB.|
 | `openGdbConsole` | x | x | `boolean` | *(UNIX-only)* Open a GDB console in your IDE while debugging. |
-| `initCommands` | x | x | `string[]` | List of GDB commands sent before attaching to inferior. |
+| `initCommands` | x | x | `string[]` | List of GDB commands sent after attaching to inferior before running/continuing. |
 
 
 ### `gdbtarget` Debugger Type
