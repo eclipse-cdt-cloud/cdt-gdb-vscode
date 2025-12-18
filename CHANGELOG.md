@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+- Fixes [cdt-gdb-adapter `#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Incorrect documentation of `initCommands`.
+
 ## 2.6.0
 
 - Update to cdt-gdb-adapter [v1.6.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.6.0)
