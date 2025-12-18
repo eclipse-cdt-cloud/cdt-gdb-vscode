@@ -153,6 +153,14 @@
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
               },
+              "preConnectCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent before initCommands.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              },
               "initCommands": {
                 "type": "array",
                 "description": "List of GDB commands sent before starting inferior.",
@@ -220,6 +228,14 @@
               "openGdbConsole": {
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "preConnectCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent before attaching to inferior.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
               },
               "initCommands": {
                 "type": "array",
@@ -321,6 +337,14 @@
               "openGdbConsole": {
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "preConnectCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent before attaching to target.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
               },
               "initCommands": {
                 "type": "array",
@@ -587,6 +611,14 @@
               "openGdbConsole": {
                 "type": "boolean",
                 "description": "(UNIX-only) Open a GDB console in your IDE while debugging"
+              },
+              "preConnectCommands": {
+                "type": "array",
+                "description": "List of GDB commands sent before attaching to target.",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
               },
               "initCommands": {
                 "type": "array",

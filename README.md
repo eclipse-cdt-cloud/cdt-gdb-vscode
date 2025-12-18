@@ -35,6 +35,7 @@ Launch and attach configuration settings that can be used with the `gdb` debugge
 | `verbose` | x | x | `boolean` | Produce verbose log output. |
 | `logFile` | x | x | `string` | Absolute path to the file to log interaction with GDB.|
 | `openGdbConsole` | x | x | `boolean` | *(UNIX-only)* Open a GDB console in your IDE while debugging. |
+| `preConnectCommands` | x | x | `string[]` | List of GDB commands sent before attaching to inferior. |
 | `initCommands` | x | x | `string[]` | List of GDB commands sent after attaching to inferior before running/continuing. |
 
 
@@ -54,6 +55,7 @@ Launch and attach configuration settings that can be used with the `gdbtarget` d
 | `verbose` | x | x | `boolean` | Produce verbose log output. |
 | `logFile` | x | x | `string` | Absolute path to the file to log interaction with GDB.|
 | `openGdbConsole` | x | x | `boolean` | *(UNIX-only)* Open a GDB console in your IDE while debugging. |
+| `preConnectCommands` | x | x | `string[]` | List of GDB commands sent to initialize GDB before attaching to target. |
 | `initCommands` | x | x | `string[]` | List of GDB commands sent to initialize debug target after attaching to it but before loading image and symbols. |
 | `preRunCommands` | x | x | `string[]` | List of GDB commands sent after loading image on target before resuming target. |
 | `imageAndSymbols` | x | x | `object` | Additional settings for loading images to the target and symbols into the debugger. See section "`imageAndSymbols` object" for details.
