@@ -5,6 +5,8 @@
 - Fixes [cdt-gdb-adapter `#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Incorrect documentation of `initCommands`.
 - Update to cdt-gdb-adapter [v?.?.?](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v?.?.?)
     - Implements [`#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Add `preConnectCommands` setting.
+    - Implements [`#482`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/482): Add `updateThreadInfo` setting.
+
 
 ## 2.6.0
 

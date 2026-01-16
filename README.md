@@ -37,7 +37,18 @@ Launch and attach configuration settings that can be used with the `gdb` debugge
 | `openGdbConsole` | x | x | `boolean` | *(UNIX-only)* Open a GDB console in your IDE while debugging. |
 | `preConnectCommands` | x | x | `string[]` | List of GDB commands sent before attaching to inferior. |
 | `initCommands` | x | x | `string[]` | List of GDB commands sent after attaching to inferior before running/continuing. |
+| `updateThreadInfo` | x | x | `string` | Controls when thread information is retrieved from GDB. See [`updateThreadInfo`](#updatethreadinfo-setting) setting section for details.<br>Supported values: `missing`, `when-requested`, `never`<br>Default: `missing` |
 
+#### `updateThreadInfo` Setting
+
+The `updateThreadInfo` setting controls when thread information is retrieved from GDB. This setting can be used with both `gdb` and `gdbtarget` debugger types.
+
+Supported values:
+<ul>
+<li><code>never</code>: Thread info is never retrieved, no thread names will be displayed. Good for slow links or targets that have no thread names or are single-threaded.</li>
+<li><code>missing</code> (default): Thread info is retrieved when target is stopped or when thread names are missing and GDB allows retrieval while running (when using async mode locally or non-stop mode). Good for targets whose thread names/details don't change.</li>
+<li><code>when-requested</code>: Thread info is retrieved every time the client requests it, as far as possible (when stopped or when GDB allows while running). Good when thread names/details do change.</li>
+</ul>
 
 ### `gdbtarget` Debugger Type
 
@@ -61,6 +72,7 @@ Launch and attach configuration settings that can be used with the `gdbtarget` d
 | `imageAndSymbols` | x | x | `object` | Additional settings for loading images to the target and symbols into the debugger. See section "`imageAndSymbols` object" for details.
 | `target` | x | x |  `object` | Additional settings to configure the remote GDB target. See section "`target` object" for details. |
 | `customResetCommands` | x | x |  `string[]` | List of GDB commands to perform a RESET of the connected target, for example through `monitor ...` commands of the connected GDB server. |
+| `updateThreadInfo` | x | x | `string` | Controls when thread information is retrieved from GDB. See [`updateThreadInfo`](#updatethreadinfo-setting) setting section for details.<br>Supported values: `missing`, `when-requested`, `never`<br>Default: `missing` |
 
 #### `imageAndSymbols` Object
 
