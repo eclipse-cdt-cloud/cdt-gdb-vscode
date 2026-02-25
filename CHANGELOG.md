@@ -6,7 +6,7 @@
 - Implements [cdt-gdb-adapter `#482`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/482): Add `updateThreadInfo` setting.
 - Fixes [cdt-gdb-adapter `#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Incorrect documentation of `initCommands`.
 - Update to cdt-gdb-adapter [v1.7.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.7.0)
-    - Implements [cdt-gdb-adapter `#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432)/[cdt-gdb-adapter `#476`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Add `preConnectCommands` which executes GDB commands before attaching to inferior (`gdb` type) / before attaching to target (`gdbtarget` type).
+    - Implements [cdt-gdb-adapter `#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432)/[cdt-gdb-adapter `#476`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/476): Add `preConnectCommands` which executes GDB commands before attaching to inferior (`gdb` type) / before attaching to target (`gdbtarget` type).
     - Implements [cdt-gdb-adapter `#482`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/482): Add `updateThreadInfo` option to control when thread info is retrieved.
     - Fixes [cdt-gdb-adapter `#483`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/483): `detach` request still occasionally getting stuck on exited program.
     - Fixes [cdt-gdb-adapter `#485`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/485): Read Memory request error message is not comprehensive enough.
