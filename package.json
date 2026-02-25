@@ -75,11 +75,11 @@
       },
       {
         "command": "cdt.debug.setOutputRadixToHex",
-        "title": "Set Output Radix to Hex"
+        "title": "CDT: Set Output Radix to Hex"
       },
       {
         "command": "cdt.debug.setOutputRadixToDecimal",
-        "title": "Set Output Radix to Decimal"
+        "title": "CDT: Set Output Radix to Decimal"
       }
     ],
     "breakpoints": [
