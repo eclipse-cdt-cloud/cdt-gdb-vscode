@@ -72,6 +72,14 @@
           "light": "images/CustomReset_Light.svg",
           "dark": "images/CustomReset_Dark.svg"
         }
+      },
+      {
+        "command": "cdt.debug.setOutputRadixToHex",
+        "title": "Set Output Radix to Hex"
+      },
+      {
+        "command": "cdt.debug.setOutputRadixToDecimal",
+        "title": "Set Output Radix to Decimal"
       }
     ],
     "breakpoints": [
