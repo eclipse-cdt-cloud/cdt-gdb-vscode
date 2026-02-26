@@ -72,6 +72,16 @@
           "light": "images/CustomReset_Light.svg",
           "dark": "images/CustomReset_Dark.svg"
         }
+      },
+      {
+        "command": "cdt.debug.setOutputRadixToHex",
+        "category": "CDT-GDB",
+        "title": "Set Output Radix to Hex"
+      },
+      {
+        "command": "cdt.debug.setOutputRadixToDecimal",
+        "category": "CDT-GDB",
+        "title": "Set Output Radix to Decimal"
       }
     ],
     "breakpoints": [
@@ -865,6 +875,16 @@
           "command": "cdt.debug.customReset",
           "group": "custom",
           "when": "cdt.debug.hasCustomReset && (debugType == amalgamator || debugType == gdbtarget)"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "cdt.debug.setOutputRadixToHex",
+          "when": "inDebugMode"
+        },
+        {
+          "command": "cdt.debug.setOutputRadixToDecimal",
+          "when": "inDebugMode"
         }
       ]
     }
