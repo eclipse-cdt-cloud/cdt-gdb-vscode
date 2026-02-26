@@ -2,11 +2,12 @@
 
 ## Unreleased
 
+- Implements [`#201`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/201): Add `Set Output Radix to Hex` and `Set Output Radix to Decimal` commands
 - Fixes [cdt-gdb-adapter `#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Incorrect documentation of `initCommands`.
 - Update to cdt-gdb-adapter [v?.?.?](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v?.?.?)
     - Implements [`#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Add `preConnectCommands` setting.
     - Implements [`#482`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/482): Add `updateThreadInfo` setting.
-- Implements [`#201`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/201): Add `Set Output Radix to Hex` and `Set Output Radix to Decimal` commands
+
 ## 2.6.0
 
 - Update to cdt-gdb-adapter [v1.6.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.6.0)

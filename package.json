@@ -876,6 +876,16 @@
           "group": "custom",
           "when": "cdt.debug.hasCustomReset && (debugType == amalgamator || debugType == gdbtarget)"
         }
+      ],
+      "commandPalette": [
+        {
+          "command": "cdt.debug.setOutputRadixToHex",
+          "when": "inDebugMode"
+        },
+        {
+          "command": "cdt.debug.setOutputRadixToDecimal",
+          "when": "inDebugMode"
+        }
       ]
     }
   },
