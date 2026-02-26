@@ -11,6 +11,7 @@
 import * as vscode from 'vscode';
 import { DebugProtocol } from '@vscode/debugprotocol';
 
+type Radix = 'hexadecimal' | 'decimal';
 export class SwitchRadix {
     constructor(context: vscode.ExtensionContext) {
         this.registerCommands(context);
@@ -19,12 +20,12 @@ export class SwitchRadix {
     private readonly registerCommands = (context: vscode.ExtensionContext) => {
         const setOutputRadixToHexCommand = vscode.commands.registerCommand(
             'cdt.debug.setOutputRadixToHex',
-            () => this.handleSetOutputRadixToHex(),
+            () => this.handleSetOutputRadix('hexadecimal'),
         );
 
         const setOutputRadixToDecimalCommand = vscode.commands.registerCommand(
             'cdt.debug.setOutputRadixToDecimal',
-            () => this.handleSetOutputRadixToDecimal(),
+            () => this.handleSetOutputRadix('decimal'),
         );
         context.subscriptions.push(
             setOutputRadixToHexCommand,
@@ -32,10 +33,10 @@ export class SwitchRadix {
         );
     };
 
-    private async handleSetOutputRadixToHex() {
+    private async handleSetOutputRadix(radix: Radix) {
         const activeSession = vscode.debug.activeDebugSession;
         const args: DebugProtocol.EvaluateArguments = {
-            expression: '> set output-radix 16',
+            expression: `> set output-radix ${radix === 'hexadecimal' ? 16 : 10}`,
             frameId: undefined, // Currently required by CDT GDB Adapter
             context: 'repl',
         };
@@ -46,23 +47,7 @@ export class SwitchRadix {
             )) as DebugProtocol.EvaluateResponse['body'];
         } catch (error) {
             vscode.window.showErrorMessage(
-                `Failed to set output radix to hex: ${error}`,
-            );
-        }
-    }
-
-    private async handleSetOutputRadixToDecimal() {
-        const activeSession = vscode.debug.activeDebugSession;
-        const args: DebugProtocol.EvaluateArguments = {
-            expression: '> set output-radix 10',
-            frameId: undefined, // Currently required by CDT GDB Adapter
-            context: 'repl',
-        };
-        try {
-            await activeSession?.customRequest('evaluate', args);
-        } catch (error) {
-            vscode.window.showErrorMessage(
-                `Failed to set output radix to decimal: ${error}`,
+                `Failed to set output radix to ${radix}: ${error}`,
             );
         }
     }
