@@ -41,10 +41,10 @@ export class SwitchRadix {
             context: 'repl',
         };
         try {
-            (await activeSession?.customRequest(
+            await activeSession?.customRequest(
                 'evaluate',
                 args,
-            )) as DebugProtocol.EvaluateResponse['body'];
+            );
         } catch (error) {
             vscode.window.showErrorMessage(
                 `Failed to set output radix to ${radix}: ${error}`,
