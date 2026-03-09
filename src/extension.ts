@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import { ExtensionContext, commands, window } from 'vscode';
+import { ExtensionContext, commands, window, debug } from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
 export { MemoryServer } from './memory/server/MemoryServer';
 import { ResumeAllSession } from './ResumeAllSession';
@@ -38,6 +38,23 @@ export function activate(context: ExtensionContext) {
             });
         })
     );
+    
+    debug.registerDebugAdapterTrackerFactory('*', {
+      createDebugAdapterTracker() {
+        return {
+              // From vscode to debug adapter  
+              onWillReceiveMessage: (message) => {
+                  // Check if the message is an evaluate request. If so, add property format to it
+                  if (message.command === 'evaluate' && message.arguments.expression.trim().endsWith(',x')) {
+                      message.arguments.format = { 
+                          // Add all the formats you want to support here
+                          hex: true, 
+                      };
+                  }
+                }
+            }
+        }
+    });
 }
 
 export function deactivate() {
