@@ -76,12 +76,12 @@
       {
         "command": "cdt.debug.setOutputRadixToHex",
         "category": "CDT-GDB",
-        "title": "Set Output Radix to Hex"
+        "title": "Set Global Output Radix to Hex"
       },
       {
         "command": "cdt.debug.setOutputRadixToDecimal",
         "category": "CDT-GDB",
-        "title": "Set Output Radix to Decimal"
+        "title": "Set Global Output Radix to Decimal"
       }
     ],
     "breakpoints": [
