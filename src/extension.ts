@@ -56,7 +56,7 @@ export function activate(context: ExtensionContext) {
                 },
               // From debug adapter to vscode
               onDidSendMessage: (message) => {
-                  if(message.event === 'initialized' && message.body.supportsValueFormattingOptions) {
+                  if(message.command === 'initialize' && message.body.supportsValueFormattingOptions) {
                       valueFormatSupported = true;
                   }
               }
