@@ -1223,10 +1223,10 @@ cdt-amalgamator@^0.0.11:
     "@vscode/debugadapter-testsupport" "^1.59.0"
     "@vscode/debugprotocol" "^1.59.0"
 
-cdt-gdb-adapter@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.6.0.tgz#4955ff995669ab784aca374d02e346d2c3211b3d"
-  integrity sha512-5Nr9tuxY1ymMPR7aAm226HN0iArrjH1wSvOtQgZOZMKRc4G+aN9slu05Yl1VQRv/dPKjUSulGwygCWYHu2QvFA==
+cdt-gdb-adapter@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.7.0.tgz#280de67f5493a1fdc841e4ab3040346e199df6b4"
+  integrity sha512-VxOd/4pUrHiK+WcYQZ6kiGclVCMhf69haVQNbx3XT91ymYYAyj4fECmHiMM27zRJGfXk6PP2Chx96kMzB2HF6g==
   dependencies:
     "@vscode/debugadapter" "^1.68.0"
     "@vscode/debugprotocol" "^1.68.0"
@@ -2168,9 +2168,9 @@ ignore@^7.0.0, ignore@^7.0.3:
   integrity sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==
 
 immutable@^5.0.2:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/immutable/-/immutable-5.1.3.tgz#e6486694c8b76c37c063cca92399fa64098634d4"
-  integrity sha512-+chQdDfvscSF1SJqv2gn4SRO2ZyS3xL3r7IW/wWEEzrzLisnOlKiQu5ytC/BVNcS15C39WT2Hg/bjKjDMcu+zg==
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-5.1.5.tgz#93ee4db5c2a9ab42a4a783069f3c5d8847d40165"
+  integrity sha512-t7xcm2siw+hlUM68I+UEOK+z84RzmN59as9DZ7P1l0994DKUWV7UXBMQZVxaoMSRQ+PBZbHCOoBt7a2wxOMt+A==
 
 import-fresh@^3.2.1:
   version "3.3.0"
