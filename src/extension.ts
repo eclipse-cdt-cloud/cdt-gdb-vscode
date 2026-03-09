@@ -17,6 +17,7 @@ export { SuspendAllSession } from './SuspendAllSession';
 import { CustomReset } from './CustomReset';
 export { CustomReset } from './CustomReset';
 
+let valueFormatSupported = false;
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
     new ResumeAllSession(context);
@@ -45,13 +46,20 @@ export function activate(context: ExtensionContext) {
               // From vscode to debug adapter  
               onWillReceiveMessage: (message) => {
                   // Check if the message is an evaluate request. If so, add property format to it
-                  if (message.command === 'evaluate' && message.arguments.expression.trim().endsWith(',x')) {
+                  if (message.command === 'evaluate' && message.arguments.expression.trim().endsWith(',x') && valueFormatSupported) {
                       message.arguments.format = { 
                           // Add all the formats you want to support here
                           hex: true, 
                       };
+                      message.arguments.expression = message.arguments.expression.trim().slice(0, -2); // Remove the ,x from the expression
                   }
-                }
+                },
+              // From debug adapter to vscode
+              onDidSendMessage: (message) => {
+                  if(message.event === 'initialized' && message.body.supportsValueFormattingOptions) {
+                      valueFormatSupported = true;
+                  }
+              }
             }
         }
     });
