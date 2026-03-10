@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import { ExtensionContext, commands, window} from 'vscode';
+import { ExtensionContext, commands, window } from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
 export { MemoryServer } from './memory/server/MemoryServer';
 import { ResumeAllSession } from './ResumeAllSession';

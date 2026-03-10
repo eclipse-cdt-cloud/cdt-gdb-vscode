@@ -11,12 +11,12 @@ export class GdbDebugTracker {
     }
 
     private registerDefaultDebugTracker() {
-        const disposanleList : vscode.Disposable[] = [];
+        const disposableList : vscode.Disposable[] = [];
         for (const debugType of GDB_DEBUG_TYPES) {
             const disposable = vscode.debug.registerDebugAdapterTrackerFactory(debugType, { createDebugAdapterTracker: () => this.createTracker() });
-            disposanleList.push(disposable);
+            disposableList.push(disposable);
         }
-        this.context.subscriptions.push(...disposanleList);
+        this.context.subscriptions.push(...disposableList);
     }
 
     public registerDebugTracker(newDebugType : string) {
