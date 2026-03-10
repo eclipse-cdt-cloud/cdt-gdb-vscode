@@ -19,7 +19,7 @@ export class GdbDebugTracker {
           // From vscode to debug adapter  
           onWillReceiveMessage: (message) => {
               // Check if the message is an evaluate request. If so, add property format to it
-              if (message.command === 'evaluate' && message.arguments.expression.trim().endsWith(',x') && this.valueFormatSupported) {
+              if (message.command === 'evaluate' && message.type === 'request' && message.arguments.expression.trim().endsWith(',x') && this.valueFormatSupported) {
                   message.arguments.format = { 
                       // Add all the formats you want to support here
                       hex: true, 
@@ -29,7 +29,7 @@ export class GdbDebugTracker {
             },
           // From debug adapter to vscode
           onDidSendMessage: (message) => {
-              if(message.command === 'initialize' && message.body.supportsValueFormattingOptions) {
+              if(message.command === 'initialize' && message.type === 'response' && message.body.supportsValueFormattingOptions) {
                   this.valueFormatSupported = true;
               }
           }
