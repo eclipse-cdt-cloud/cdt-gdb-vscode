@@ -1,0 +1,37 @@
+import * as vscode from 'vscode';
+
+
+export class GdbDebugTracker {
+    private valueFormatSupported : boolean;
+    constructor() {
+        this.valueFormatSupported = false;
+        this.registerDebugTracker();
+    }
+
+    public registerDebugTracker() {
+        vscode.debug.registerDebugAdapterTrackerFactory('gdbtarget', { createDebugAdapterTracker: () => this.createTracker() });
+        vscode.debug.registerDebugAdapterTrackerFactory('gdb', { createDebugAdapterTracker: () => this.createTracker() });
+    }
+
+    private createTracker () : vscode.DebugAdapterTracker {
+            return {
+          // From vscode to debug adapter  
+          onWillReceiveMessage: (message) => {
+              // Check if the message is an evaluate request. If so, add property format to it
+              if (message.command === 'evaluate' && message.arguments.expression.trim().endsWith(',x') && this.valueFormatSupported) {
+                  message.arguments.format = { 
+                      // Add all the formats you want to support here
+                      hex: true, 
+                  };
+                  message.arguments.expression = message.arguments.expression.trim().slice(0, -2); // Remove the ,x from the expression
+              }
+            },
+          // From debug adapter to vscode
+          onDidSendMessage: (message) => {
+              if(message.command === 'initialize' && message.body.supportsValueFormattingOptions) {
+                  this.valueFormatSupported = true;
+              }
+          }
+        }
+    }
+}

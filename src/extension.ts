@@ -7,7 +7,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import { ExtensionContext, commands, window, debug } from 'vscode';
+import { ExtensionContext, commands, window} from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
 export { MemoryServer } from './memory/server/MemoryServer';
 import { ResumeAllSession } from './ResumeAllSession';
@@ -16,13 +16,15 @@ import { SuspendAllSession } from './SuspendAllSession';
 export { SuspendAllSession } from './SuspendAllSession';
 import { CustomReset } from './CustomReset';
 export { CustomReset } from './CustomReset';
+import { GdbDebugTracker } from './GdbDebugTracker';
+export { GdbDebugTracker } from './GdbDebugTracker';
 
-let valueFormatSupported = false;
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
     new ResumeAllSession(context);
     new SuspendAllSession(context);
     new CustomReset(context);
+    new GdbDebugTracker();
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
@@ -39,30 +41,7 @@ export function activate(context: ExtensionContext) {
             });
         })
     );
-    
-    debug.registerDebugAdapterTrackerFactory('*', {
-      createDebugAdapterTracker() {
-        return {
-              // From vscode to debug adapter  
-              onWillReceiveMessage: (message) => {
-                  // Check if the message is an evaluate request. If so, add property format to it
-                  if (message.command === 'evaluate' && message.arguments.expression.trim().endsWith(',x') && valueFormatSupported) {
-                      message.arguments.format = { 
-                          // Add all the formats you want to support here
-                          hex: true, 
-                      };
-                      message.arguments.expression = message.arguments.expression.trim().slice(0, -2); // Remove the ,x from the expression
-                  }
-                },
-              // From debug adapter to vscode
-              onDidSendMessage: (message) => {
-                  if(message.command === 'initialize' && message.body.supportsValueFormattingOptions) {
-                      valueFormatSupported = true;
-                  }
-              }
-            }
-        }
-    });
+
 }
 
 export function deactivate() {
