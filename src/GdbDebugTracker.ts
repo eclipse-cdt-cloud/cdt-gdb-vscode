@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-
+const GDB_DEBUG_TYPES = ['gdb', 'gdbtarget'];
 export class GdbDebugTracker {
     private valueFormatSupported : boolean;
     constructor() {
@@ -9,8 +9,9 @@ export class GdbDebugTracker {
     }
 
     public registerDebugTracker() {
-        vscode.debug.registerDebugAdapterTrackerFactory('gdbtarget', { createDebugAdapterTracker: () => this.createTracker() });
-        vscode.debug.registerDebugAdapterTrackerFactory('gdb', { createDebugAdapterTracker: () => this.createTracker() });
+        for (const debugType of GDB_DEBUG_TYPES) {
+            vscode.debug.registerDebugAdapterTrackerFactory(debugType, { createDebugAdapterTracker: () => this.createTracker() });
+        }
     }
 
     private createTracker () : vscode.DebugAdapterTracker {
