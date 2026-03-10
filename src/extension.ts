@@ -24,7 +24,7 @@ export function activate(context: ExtensionContext) {
     new ResumeAllSession(context);
     new SuspendAllSession(context);
     new CustomReset(context);
-    new GdbDebugTracker(context);
+    const gdbDebugTracker = new GdbDebugTracker(context);
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
@@ -41,7 +41,13 @@ export function activate(context: ExtensionContext) {
             });
         })
     );
-
+    // Add the ability to register more types to GdbDebugTracker from other extension 
+    // by providing registerDebugTracker() as an extension API
+    return {
+        registerDebugTracker: (newDebugType: string) => {
+            gdbDebugTracker.registerDebugTracker(newDebugType);
+        }
+    };
 }
 
 export function deactivate() {

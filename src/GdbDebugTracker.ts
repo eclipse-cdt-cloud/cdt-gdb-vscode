@@ -7,20 +7,21 @@ export class GdbDebugTracker {
     constructor(context: vscode.ExtensionContext) {
         this.valueFormatSupported = false;
         this.context = context;
-        this.registerDebugTracker();
+        this.registerDefaultDebugTracker();
     }
 
-    public registerDebugTracker(newDebugType?: string) {
+    private registerDefaultDebugTracker() {
         const disposanleList : vscode.Disposable[] = [];
         for (const debugType of GDB_DEBUG_TYPES) {
             const disposable = vscode.debug.registerDebugAdapterTrackerFactory(debugType, { createDebugAdapterTracker: () => this.createTracker() });
             disposanleList.push(disposable);
         }
-        if (newDebugType) {
-            const disposable = vscode.debug.registerDebugAdapterTrackerFactory(newDebugType, { createDebugAdapterTracker: () => this.createTracker() });
-            disposanleList.push(disposable);
-        }
         this.context.subscriptions.push(...disposanleList);
+    }
+
+    public registerDebugTracker(newDebugType : string) {
+        const disposable = vscode.debug.registerDebugAdapterTrackerFactory(newDebugType, { createDebugAdapterTracker: () => this.createTracker() });
+        this.context.subscriptions.push(disposable);
     }
 
     private createTracker () : vscode.DebugAdapterTracker {
