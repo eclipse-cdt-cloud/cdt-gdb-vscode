@@ -37,7 +37,6 @@ export class SwitchRadix {
         const activeSession = vscode.debug.activeDebugSession;
         const args: DebugProtocol.EvaluateArguments = {
             expression: `> set output-radix ${radix === 'hexadecimal' ? 16 : 10}`,
-            frameId: undefined, // Currently required by CDT GDB Adapter
             context: 'repl',
         };
         try {
