@@ -19,9 +19,9 @@ export class GdbDebugTracker {
         this.context.subscriptions.push(...disposableList);
     }
 
-    public registerDebugTracker(newDebugType : string) {
+    public registerDebugTracker(newDebugType : string) : vscode.Disposable {
         const disposable = vscode.debug.registerDebugAdapterTrackerFactory(newDebugType, { createDebugAdapterTracker: () => this.createTracker() });
-        this.context.subscriptions.push(disposable);
+        return disposable
     }
 
     private createTracker () : vscode.DebugAdapterTracker {
