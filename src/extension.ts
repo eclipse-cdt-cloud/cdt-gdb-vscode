@@ -24,7 +24,7 @@ export function activate(context: ExtensionContext) {
     new ResumeAllSession(context);
     new SuspendAllSession(context);
     new CustomReset(context);
-    new GdbDebugTracker();
+    new GdbDebugTracker(context);
 
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {

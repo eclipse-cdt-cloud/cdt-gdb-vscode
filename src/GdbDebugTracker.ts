@@ -3,15 +3,24 @@ import * as vscode from 'vscode';
 const GDB_DEBUG_TYPES = ['gdb', 'gdbtarget'];
 export class GdbDebugTracker {
     private valueFormatSupported : boolean;
-    constructor() {
+    private context : vscode.ExtensionContext;
+    constructor(context: vscode.ExtensionContext) {
         this.valueFormatSupported = false;
+        this.context = context;
         this.registerDebugTracker();
     }
 
-    public registerDebugTracker() {
+    public registerDebugTracker(newDebugType?: string) {
+        const disposanleList : vscode.Disposable[] = [];
         for (const debugType of GDB_DEBUG_TYPES) {
-            vscode.debug.registerDebugAdapterTrackerFactory(debugType, { createDebugAdapterTracker: () => this.createTracker() });
+            const disposable = vscode.debug.registerDebugAdapterTrackerFactory(debugType, { createDebugAdapterTracker: () => this.createTracker() });
+            disposanleList.push(disposable);
         }
+        if (newDebugType) {
+            const disposable = vscode.debug.registerDebugAdapterTrackerFactory(newDebugType, { createDebugAdapterTracker: () => this.createTracker() });
+            disposanleList.push(disposable);
+        }
+        this.context.subscriptions.push(...disposanleList);
     }
 
     private createTracker () : vscode.DebugAdapterTracker {
@@ -19,12 +28,19 @@ export class GdbDebugTracker {
           // From vscode to debug adapter  
           onWillReceiveMessage: (message) => {
               // Check if the message is an evaluate request. If so, add property format to it
-              if (message.command === 'evaluate' && message.type === 'request' && message.arguments.expression.trim().endsWith(',x') && this.valueFormatSupported) {
-                  message.arguments.format = { 
+              if (message.command === 'evaluate' && message.type === 'request' && this.valueFormatSupported) {
+                if (message.arguments.expression.trim().endsWith(',x')) {
+                    message.arguments.format = { 
                       // Add all the formats you want to support here
                       hex: true, 
-                  };
-                  message.arguments.expression = message.arguments.expression.trim().slice(0, -2); // Remove the ,x from the expression
+                    };
+                    message.arguments.expression = message.arguments.expression.trim().slice(0, -2); // Remove the ,x from the expression
+                } else {
+                    message.arguments.format = { 
+                      // Add all the formats you want to support here
+                      hex: false, 
+                    };
+                }
               }
             },
           // From debug adapter to vscode
