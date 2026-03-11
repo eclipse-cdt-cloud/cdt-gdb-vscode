@@ -36,7 +36,11 @@ export class GdbDebugTracker {
                       // Add all the formats you want to support here
                       hex: true, 
                     };
-                    message.arguments.expression = message.arguments.expression.trim().slice(0, -2); // Remove the ,x from the expression
+                    if (message.arguments.expression.trim().endsWith(', x')) {
+                        message.arguments.expression = message.arguments.expression.trim().slice(0, -3); // Remove the , x from the expression
+                    } else {
+                        message.arguments.expression = message.arguments.expression.trim().slice(0, -2); // Remove the ,x from the expression
+                    }
                 } else {
                     message.arguments.format = { 
                       // Add all the formats you want to support here
