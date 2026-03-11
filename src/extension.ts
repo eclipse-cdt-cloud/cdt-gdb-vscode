@@ -45,7 +45,8 @@ export function activate(context: ExtensionContext) {
     // by providing registerDebugTracker() as an extension API
     return {
         registerDebugTracker: (newDebugType: string) => {
-            gdbDebugTracker.registerDebugTracker(newDebugType);
+            const disposable = gdbDebugTracker.registerDebugTracker(newDebugType);
+            return disposable;
         }
     };
 }
