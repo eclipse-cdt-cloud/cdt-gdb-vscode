@@ -30,7 +30,8 @@ export class GdbDebugTracker {
           onWillReceiveMessage: (message) => {
               // Check if the message is an evaluate request. If so, add property format to it
               if (message.command === 'evaluate' && message.type === 'request' && this.valueFormatSupported) {
-                if (message.arguments.expression.trim().endsWith(',x')) {
+                // Check for spaces between the expression and the ',x', for example 'myVar , x' should also be supported
+                if (message.arguments.expression.trim().endsWith(',x') || message.arguments.expression.trim().endsWith(', x')) {
                     message.arguments.format = { 
                       // Add all the formats you want to support here
                       hex: true, 
