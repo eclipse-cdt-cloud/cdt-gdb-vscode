@@ -16,19 +16,21 @@ import { SuspendAllSession } from './SuspendAllSession';
 export { SuspendAllSession } from './SuspendAllSession';
 import { CustomReset } from './CustomReset';
 export { CustomReset } from './CustomReset';
+import { SwitchRadix } from './switchRadix';
+export { SwitchRadix } from './switchRadix';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
     new ResumeAllSession(context);
     new SuspendAllSession(context);
     new CustomReset(context);
-
+    new SwitchRadix(context);
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
             return window.showInputBox({
                 placeHolder: 'Please enter the path to the program',
             });
-        })
+        }),
     );
 
     context.subscriptions.push(
@@ -36,7 +38,7 @@ export function activate(context: ExtensionContext) {
             return window.showInputBox({
                 placeHolder: 'Please enter ID of process to attach to',
             });
-        })
+        }),
     );
 }
 

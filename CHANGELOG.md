@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+- Implements [cdt-gdb-adapter `#201`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/201): Add a command that allow users to change GDB session radix
+
 ## 2.7.0
 
 - Implements [cdt-gdb-adapter `#432`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/432): Add `preConnectCommands` setting.
