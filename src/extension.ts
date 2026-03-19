@@ -18,6 +18,7 @@ import { CustomReset } from './CustomReset';
 export { CustomReset } from './CustomReset';
 import { SwitchRadix } from './switchRadix';
 export { SwitchRadix } from './switchRadix';
+import { BreakpointModesController } from './BreakpointModesController';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
@@ -40,6 +41,8 @@ export function activate(context: ExtensionContext) {
             });
         }),
     );
+    const breakpointModesController = new BreakpointModesController(context);
+    breakpointModesController.registerCommands();
 }
 
 export function deactivate() {
