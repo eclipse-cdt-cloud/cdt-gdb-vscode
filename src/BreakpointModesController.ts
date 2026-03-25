@@ -7,8 +7,6 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import { platform } from 'node:os';
-import { normalize } from 'node:path';
 import {
     ExtensionContext,
     Position,
@@ -19,36 +17,7 @@ import {
     window,
     Uri,
 } from 'vscode';
-
-/**
- * This function compares the given paths, returns true if they are equal.
- *
- * - The compare function normalises the paths before checking, which means '.' and '..' expressions
- *   reduced properly.
- * - For Windows, the compare function is case insensitive
- * - For Windows, the compare function also handles backslashes, forward slashes insensitively.
- * - Compare function handles undefined values, which means given paths can be undefined. No need to check
- *   undefined before sending the arguments.
- *
- * @param path1
- *      First path to compare
- * @param path2
- *      Second path to compare
- */
-export const arePathsEqual = (
-    path1: string | undefined,
-    path2: string | undefined,
-): boolean => {
-    if (!path1 || !path2) {
-        return path1 === path2;
-    }
-    const nPath1 = normalize(path1);
-    const nPath2 = normalize(path2);
-    return platform() === 'win32'
-        ? nPath1.localeCompare(nPath2, undefined, { sensitivity: 'accent' }) ===
-              0
-        : nPath1 === nPath2;
-};
+import { arePathsEqual } from './utils';
 
 export class BreakpointModesController {
     constructor(private context: ExtensionContext) {}
@@ -78,7 +47,7 @@ export class BreakpointModesController {
                 const sp = new SourceBreakpoint(
                     new Location(values.uri, new Position(line, 0)),
                 );
-                // Limitation of VSCode:
+                // Limitation of VSCode: https://github.com/microsoft/vscode/issues/304764
                 // This is a workaround to inject 'mode' into VS breakpoint object.
                 // This injection functionally working as expected and passes the information
                 // correctly through DAP messages, however the breakpoint mode information is not

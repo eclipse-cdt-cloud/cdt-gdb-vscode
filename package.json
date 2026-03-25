@@ -896,11 +896,11 @@
         },
         {
           "command": "cdt.debug.breakpoints.addHardwareBreakpoint",
-          "when": "inDebugMode"
+          "when": "false"
         },
         {
           "command": "cdt.debug.breakpoints.addSoftwareBreakpoint",
-          "when": "inDebugMode"
+          "when": "false"
         }
       ],
       "editor/lineNumber/context": [
