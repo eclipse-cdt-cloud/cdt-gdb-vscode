@@ -82,6 +82,14 @@
         "command": "cdt.debug.setOutputRadixToDecimal",
         "category": "CDT-GDB",
         "title": "Set Global Output Radix to Decimal"
+      },
+      {
+        "title": "CDT-GDB: Set Hardware Breakpoint",
+        "command": "cdt.debug.breakpoints.addHardwareBreakpoint"
+      },
+      {
+        "title": "CDT-GDB: Set Software Breakpoint",
+        "command": "cdt.debug.breakpoints.addSoftwareBreakpoint"
       }
     ],
     "breakpoints": [
@@ -885,6 +893,24 @@
         {
           "command": "cdt.debug.setOutputRadixToDecimal",
           "when": "inDebugMode"
+        },
+        {
+          "command": "cdt.debug.breakpoints.addHardwareBreakpoint",
+          "when": "false"
+        },
+        {
+          "command": "cdt.debug.breakpoints.addSoftwareBreakpoint",
+          "when": "false"
+        }
+      ],
+      "editor/lineNumber/context": [
+        {
+          "command": "cdt.debug.breakpoints.addHardwareBreakpoint",
+          "group": "navigation"
+        },
+        {
+          "command": "cdt.debug.breakpoints.addSoftwareBreakpoint",
+          "group": "navigation"
         }
       ]
     }
