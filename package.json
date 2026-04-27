@@ -76,12 +76,14 @@
       {
         "command": "cdt.debug.setOutputRadixToHex",
         "category": "CDT-GDB",
-        "title": "Set Global Output Radix to Hex"
+        "title": "Set Global Output Radix to Hex",
+        "enablement": "cdt.debug.outputRadix == 'decimal'"
       },
       {
         "command": "cdt.debug.setOutputRadixToDecimal",
         "category": "CDT-GDB",
-        "title": "Set Global Output Radix to Decimal"
+        "title": "Set Global Output Radix to Decimal",
+        "enablement": "cdt.debug.outputRadix == 'hexadecimal'"
       }
     ],
     "breakpoints": [
@@ -880,11 +882,47 @@
       "commandPalette": [
         {
           "command": "cdt.debug.setOutputRadixToHex",
-          "when": "inDebugMode"
+          "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
         },
         {
           "command": "cdt.debug.setOutputRadixToDecimal",
-          "when": "inDebugMode"
+          "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
+        }
+      ],
+      "debug/watch/context": [
+        {
+          "command": "cdt.debug.setOutputRadixToHex",
+          "when": "inDebugMode && cdt.debug.outputRadix == 'decimal' && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
+        },
+        {
+          "command": "cdt.debug.setOutputRadixToDecimal",
+          "when": "inDebugMode && cdt.debug.outputRadix == 'hexadecimal' && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
+        }
+      ],
+      "debug/variables/context": [
+        {
+          "command": "cdt.debug.setOutputRadixToHex",
+          "when": "inDebugMode && cdt.debug.outputRadix == 'decimal' && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
+        },
+        {
+          "command": "cdt.debug.setOutputRadixToDecimal",
+          "when": "inDebugMode && cdt.debug.outputRadix == 'hexadecimal' && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "cdt.debug.setOutputRadixToHex",
+          "when": "inDebugMode && cdt.debug.outputRadix == 'decimal' && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
+        },
+        {
+          "command": "cdt.debug.setOutputRadixToDecimal",
+          "when": "inDebugMode && cdt.debug.outputRadix == 'hexadecimal' && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
         }
       ]
     }
