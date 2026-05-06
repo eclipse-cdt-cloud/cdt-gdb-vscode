@@ -21,6 +21,21 @@ export class SwitchRadix {
         vscode.debug.onDidTerminateDebugSession((session) => this._sessionsMap.delete(session.id));
         vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', 'decimal');
         this.registerCommands(context);
+        this.registerDebugAdapterTracker();
+    }
+
+    private registerDebugAdapterTracker() {vscode.debug.registerDebugAdapterTrackerFactory('*', {
+            createDebugAdapterTracker(session) {
+                return {
+                    onDidSendMessage: (message) => {
+                        if (message.type === 'event' && message.event === 'OutputRadixUpdated') {
+                            const radix = message.body.radix === 16 ? 'hexadecimal' : 'decimal';
+                            vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', radix);
+                        }
+                    }
+                };
+            }
+        });
     }
 
     private addCurrentRadixContext(session: vscode.DebugSession) {
