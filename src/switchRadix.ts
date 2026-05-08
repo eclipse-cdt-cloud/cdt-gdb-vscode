@@ -33,7 +33,7 @@ export class SwitchRadix {
                     return {
                         onDidSendMessage: (message: DebugProtocol.Event) => {
                             if (message.event === 'OutputRadixUpdated') {
-                            const radix = message.body.radix === 16 ? 'hexadecimal' : 'decimal';
+                            const radix = message.body.radix === '16' ? 'hexadecimal' : 'decimal';
                             vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', radix);
                         }
                     }
