@@ -11,7 +11,7 @@
 import * as vscode from 'vscode';
 import { DebugProtocol } from '@vscode/debugprotocol';
 
-type Radix = 'hexadecimal' | 'decimal';
+type Radix = 'hexadecimal' | 'decimal' | 'others';
 
 export class SwitchRadix {
     private _sessionsMap: Map<string, Radix> = new Map();
@@ -20,27 +20,23 @@ export class SwitchRadix {
         vscode.debug.onDidStartDebugSession((session) => this.addCurrentRadixContext(session));
         vscode.debug.onDidTerminateDebugSession((session) => this._sessionsMap.delete(session.id));
         vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', 'decimal');
+        vscode.debug.onDidReceiveDebugSessionCustomEvent((event) => this.handleOnDidReceiveCustomEvent(event));
         this.registerCommands(context);
-        this.registerDebugAdapterTracker();
     }
 
-    private registerDebugAdapterTracker() {
-        const debugTypes = ['gdb', 'gdbtarget'];
-        // Register a debug adapter tracker for each debug type
-        debugTypes.forEach(debugType => {
-            vscode.debug.registerDebugAdapterTrackerFactory(debugType, {
-                createDebugAdapterTracker() {
-                    return {
-                        onDidSendMessage: (message: DebugProtocol.Event) => {
-                            if (message.event === 'OutputRadixUpdated') {
-                            const radix = message.body.radix === '16' ? 'hexadecimal' : 'decimal';
-                            vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', radix);
-                        }
-                    }
+    private handleOnDidReceiveCustomEvent(event: vscode.DebugSessionCustomEvent) {
+        if(event.session.type === 'gdb' || event.session.type === 'gdbtarget') {
+            if (event.event === 'OutputRadixUpdated') {
+                if(event.body.radix === '16' || event.body.radix === '10') {
+                    const radix = event.body.radix === '16' ? 'hexadecimal' : 'decimal';
+                    this._sessionsMap.set(event.session.id, radix);
+                    vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', radix);
+                } else {
+                    vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', 'others');
+                    this._sessionsMap.set(event.session.id, 'others');
                 }
-                }
-            });
-        });
+            }
+        }
     }
 
     private addCurrentRadixContext(session: vscode.DebugSession) {
