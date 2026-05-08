@@ -24,17 +24,22 @@ export class SwitchRadix {
         this.registerDebugAdapterTracker();
     }
 
-    private registerDebugAdapterTracker() {vscode.debug.registerDebugAdapterTrackerFactory('*', {
-            createDebugAdapterTracker(session) {
-                return {
-                    onDidSendMessage: (message) => {
-                        if (message.type === 'event' && message.event === 'OutputRadixUpdated') {
+    private registerDebugAdapterTracker() {
+        const debugTypes = ['gdb', 'gdbtarget'];
+        // Register a debug adapter tracker for each debug type
+        debugTypes.forEach(debugType => {
+            vscode.debug.registerDebugAdapterTrackerFactory(debugType, {
+                createDebugAdapterTracker() {
+                    return {
+                        onDidSendMessage: (message: DebugProtocol.Event) => {
+                            if (message.event === 'OutputRadixUpdated') {
                             const radix = message.body.radix === 16 ? 'hexadecimal' : 'decimal';
                             vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', radix);
                         }
                     }
-                };
-            }
+                }
+                }
+            });
         });
     }
 
@@ -53,7 +58,6 @@ export class SwitchRadix {
         const existingSessionRadix = this._sessionsMap.get(session.id);
         if (existingSessionRadix) {
             vscode.commands.executeCommand('setContext', 'cdt.debug.outputRadix', existingSessionRadix);
-            this.handleSetOutputRadix(existingSessionRadix);
             return;
         }
     }
