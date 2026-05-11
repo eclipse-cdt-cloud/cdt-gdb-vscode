@@ -31,13 +31,13 @@ export class BreakpointModesController {
                     (bp: Partial<SourceBreakpoint>) =>
                         arePathsEqual(
                             bp?.location?.uri?.path,
-                            values.uri.path,
-                        ) && bp?.location?.range?.start?.line === line,
+                            values.uri.path
+                        ) && bp?.location?.range?.start?.line === line
                 );
                 if (existingBreakpoints.length) {
                     const existingBreakpointHasDesiredMode =
                         existingBreakpoints.findIndex(
-                            (bp: any) => bp.mode === mode,
+                            (bp: any) => bp.mode === mode
                         ) > -1;
                     if (existingBreakpointHasDesiredMode) {
                         return;
@@ -45,7 +45,7 @@ export class BreakpointModesController {
                     debug.removeBreakpoints(existingBreakpoints);
                 }
                 const sp = new SourceBreakpoint(
-                    new Location(values.uri, new Position(line, 0)),
+                    new Location(values.uri, new Position(line, 0))
                 );
                 // Limitation of VSCode: https://github.com/microsoft/vscode/issues/304764
                 // This is a workaround to inject 'mode' into VS breakpoint object.
@@ -56,7 +56,7 @@ export class BreakpointModesController {
                 debug.addBreakpoints([sp]);
             } catch (e) {
                 window.showErrorMessage(
-                    `Failed to set ${mode} breakpoint: ${e}`,
+                    `Failed to set ${mode} breakpoint: ${e}`
                 );
             }
         };
@@ -65,14 +65,14 @@ export class BreakpointModesController {
         this.context.subscriptions.push(
             commands.registerCommand(
                 'cdt.debug.breakpoints.addHardwareBreakpoint',
-                this.setBreakpointHandler('hardware'),
-            ),
+                this.setBreakpointHandler('hardware')
+            )
         );
         this.context.subscriptions.push(
             commands.registerCommand(
                 'cdt.debug.breakpoints.addSoftwareBreakpoint',
-                this.setBreakpointHandler('software'),
-            ),
+                this.setBreakpointHandler('software')
+            )
         );
     };
 }

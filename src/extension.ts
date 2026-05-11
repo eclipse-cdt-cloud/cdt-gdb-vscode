@@ -31,7 +31,7 @@ export function activate(context: ExtensionContext) {
             return window.showInputBox({
                 placeHolder: 'Please enter the path to the program',
             });
-        }),
+        })
     );
 
     context.subscriptions.push(
@@ -39,7 +39,7 @@ export function activate(context: ExtensionContext) {
             return window.showInputBox({
                 placeHolder: 'Please enter ID of process to attach to',
             });
-        }),
+        })
     );
     const breakpointModesController = new BreakpointModesController(context);
     breakpointModesController.registerCommands();
