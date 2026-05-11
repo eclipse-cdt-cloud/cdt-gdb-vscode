@@ -27,6 +27,10 @@ jobs:
           yarn install
           yarn build
           yarn vsce:package
+      - name: Verify code formatting is valid
+        run: |
+          yarn format-check
+          yarn lint
       - uses: actions/upload-artifact@v4
         with:
           name: vsix-package
