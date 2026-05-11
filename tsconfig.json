@@ -16,5 +16,5 @@
     "sourceMap": true,
     "preserveWatchOutput": true
   },
-  "references": [{ "path": "src/memory/tsconfig.json" }],
+  "references": [{ "path": "src/memory/tsconfig.json" }]
 }
