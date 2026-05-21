@@ -19,7 +19,7 @@ export { CustomReset } from './CustomReset';
 import { SwitchRadix } from './switchRadix';
 export { SwitchRadix } from './switchRadix';
 import { BreakpointModesController } from './BreakpointModesController';
-import { SourceFileHighlighting } from './sourceFileHighlighting';
+import { SourceFileHighlighting } from './SourceFileHighlighting';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);

@@ -42,6 +42,8 @@ export class SourceFileHighlighting {
                 this.clearExecutableLineDecorations(vscode.window.visibleTextEditors);
             }
             this.activeDebugSession = session;
+            // Get current active text editor
+            this.activeTextEditor = vscode.window.activeTextEditor
             this.handleOnDidChangeActiveTextEditor(this.activeTextEditor);
         });
         const onDidChangeActiveTextEditorDisposable = vscode.window.onDidChangeActiveTextEditor(editor => {
@@ -79,6 +81,7 @@ export class SourceFileHighlighting {
             };
         });
         editor.setDecorations(this.executableLineDecorator, decorations);
+        // reload current editor
     }
 
     private async getBreakpointLocations(editor: vscode.TextEditor): Promise<DebugProtocol.BreakpointLocationsResponse['body'] | void> {
