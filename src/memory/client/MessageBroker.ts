@@ -50,12 +50,13 @@ class MessageBroker {
 
     sendGetChildrenNames<
         Req extends ChildDapNamesClientRequest,
-        Resp extends ChildDapNamesServerResponse
+        Resp extends ChildDapNamesServerResponse,
     >(request: Req): Promise<Resp> {
         return new Promise<Resp>((resolve, reject) => {
             request.token = this.currentToken++;
-            this.queue[request.token] = (result: ChildDapNamesServerResponse) =>
-                result.err ? reject(result.err) : resolve(result as Resp);
+            this.queue[request.token] = (
+                result: ChildDapNamesServerResponse
+            ) => (result.err ? reject(result.err) : resolve(result as Resp));
             vscode.postMessage(request);
         });
     }

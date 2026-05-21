@@ -27,7 +27,7 @@ import { normalize } from 'node:path';
  */
 export const arePathsEqual = (
     path1: string | undefined,
-    path2: string | undefined,
+    path2: string | undefined
 ): boolean => {
     if (!path1 || !path2) {
         return path1 === path2;

@@ -20,7 +20,7 @@ See build instructions in the [developer documentation](./DEVELOPMENT.md). Furth
 Before your contribution can be accepted by the project team contributors must
 electronically sign the Eclipse Contributor Agreement (ECA).
 
--   http://www.eclipse.org/legal/ECA.php
+- http://www.eclipse.org/legal/ECA.php
 
 Commits that are provided by non-committers must have a Signed-off-by field in
 the footer indicating that the author is aware of the terms by which the
@@ -35,4 +35,4 @@ https://www.eclipse.org/projects/handbook/#resources-commit
 
 Contact the project developers via the project's "dev" list.
 
--   https://dev.eclipse.org/mailman/listinfo/cdt-dev
+- https://dev.eclipse.org/mailman/listinfo/cdt-dev

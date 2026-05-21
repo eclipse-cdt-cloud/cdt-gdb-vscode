@@ -19,6 +19,13 @@ You can also run the build in watch mode using
 yarn watch
 ```
 
+To format changed code consistently, run
+
+```
+yarn format
+yarn lint
+```
+
 ### Co-developing cdt-gdb-adapter
 
 If you are working on the cdt-gdb-adapter you can check it out to a different location and then link it in.
