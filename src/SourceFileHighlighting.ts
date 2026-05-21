@@ -19,7 +19,6 @@ import { DebugProtocol } from '@vscode/debugprotocol';
 
 export class SourceFileHighlighting {
     private activeDebugSession: vscode.DebugSession | undefined;
-    private activeTextEditor: vscode.TextEditor | undefined;
     private context: vscode.ExtensionContext;
     private executableLineDecorator = vscode.window.createTextEditorDecorationType({
         borderWidth: '0 0 0 2px',
@@ -42,13 +41,10 @@ export class SourceFileHighlighting {
                 this.clearExecutableLineDecorations(vscode.window.visibleTextEditors);
             }
             this.activeDebugSession = session;
-            // Get current active text editor
-            this.activeTextEditor = vscode.window.activeTextEditor
-            this.handleOnDidChangeActiveTextEditor(this.activeTextEditor);
+            this.handleOnDidChangeActiveTextEditor(vscode.window.activeTextEditor);
         });
         const onDidChangeActiveTextEditorDisposable = vscode.window.onDidChangeActiveTextEditor(editor => {
-            this.activeTextEditor = editor;
-            this.handleOnDidChangeActiveTextEditor(editor);
+            this.handleOnDidChangeActiveTextEditor(vscode.window.activeTextEditor);
         });
 
         this.context.subscriptions.push(onDidChangeActiveDebugSessionDisposable, onDidChangeActiveTextEditorDisposable);
@@ -81,7 +77,6 @@ export class SourceFileHighlighting {
             };
         });
         editor.setDecorations(this.executableLineDecorator, decorations);
-        // reload current editor
     }
 
     private async getBreakpointLocations(editor: vscode.TextEditor): Promise<DebugProtocol.BreakpointLocationsResponse['body'] | void> {
