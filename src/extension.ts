@@ -19,6 +19,7 @@ export { CustomReset } from './CustomReset';
 import { SwitchRadix } from './switchRadix';
 export { SwitchRadix } from './switchRadix';
 import { BreakpointModesController } from './BreakpointModesController';
+import { SourceFileHighlighting } from './sourceFileHighlighting';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
@@ -26,6 +27,7 @@ export function activate(context: ExtensionContext) {
     new SuspendAllSession(context);
     new CustomReset(context);
     new SwitchRadix(context);
+    new SourceFileHighlighting(context).activate();
     context.subscriptions.push(
         commands.registerCommand('cdt.debug.askProgramPath', (_config) => {
             return window.showInputBox({
