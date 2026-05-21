@@ -44,7 +44,7 @@ export class SourceFileHighlighting {
             this.handleOnDidChangeActiveTextEditor(vscode.window.activeTextEditor);
         });
         const onDidChangeActiveTextEditorDisposable = vscode.window.onDidChangeActiveTextEditor(editor => {
-            this.handleOnDidChangeActiveTextEditor(vscode.window.activeTextEditor);
+            this.handleOnDidChangeActiveTextEditor(editor);
         });
 
         this.context.subscriptions.push(onDidChangeActiveDebugSessionDisposable, onDidChangeActiveTextEditorDisposable);
