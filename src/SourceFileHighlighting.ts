@@ -20,12 +20,13 @@ import { DebugProtocol } from '@vscode/debugprotocol';
 export class SourceFileHighlighting {
     private activeDebugSession: vscode.DebugSession | undefined;
     private context: vscode.ExtensionContext;
-    private executableLineDecorator = vscode.window.createTextEditorDecorationType({
-        borderWidth: '0 0 0 2px',
-        borderStyle: 'solid',
-        borderColor: 'rgba(102, 145, 255, 0.85)',
-        isWholeLine: true
-    });
+    private executableLineDecorator =
+        vscode.window.createTextEditorDecorationType({
+            borderWidth: '0 0 0 2px',
+            borderStyle: 'solid',
+            borderColor: 'rgba(102, 145, 255, 0.85)',
+            isWholeLine: true,
+        });
 
     constructor(context: vscode.ExtensionContext) {
         this.context = context;
@@ -36,27 +37,40 @@ export class SourceFileHighlighting {
     }
 
     private registerToEvents(): void {
-        const onDidChangeActiveDebugSessionDisposable = vscode.debug.onDidChangeActiveDebugSession(session => {
-            if (!session) {
-                this.clearExecutableLineDecorations(vscode.window.visibleTextEditors);
-            }
-            this.activeDebugSession = session;
-            this.handleOnDidChangeActiveTextEditor(vscode.window.activeTextEditor);
-        });
-        const onDidChangeActiveTextEditorDisposable = vscode.window.onDidChangeActiveTextEditor(editor => {
-            this.handleOnDidChangeActiveTextEditor(editor);
-        });
+        const onDidChangeActiveDebugSessionDisposable =
+            vscode.debug.onDidChangeActiveDebugSession((session) => {
+                if (!session) {
+                    this.clearExecutableLineDecorations(
+                        vscode.window.visibleTextEditors
+                    );
+                }
+                this.activeDebugSession = session;
+                this.handleOnDidChangeActiveTextEditor(
+                    vscode.window.activeTextEditor
+                );
+            });
+        const onDidChangeActiveTextEditorDisposable =
+            vscode.window.onDidChangeActiveTextEditor((editor) => {
+                this.handleOnDidChangeActiveTextEditor(editor);
+            });
 
-        this.context.subscriptions.push(onDidChangeActiveDebugSessionDisposable, onDidChangeActiveTextEditorDisposable);
+        this.context.subscriptions.push(
+            onDidChangeActiveDebugSessionDisposable,
+            onDidChangeActiveTextEditorDisposable
+        );
     }
 
-    private clearExecutableLineDecorations(editors: readonly vscode.TextEditor[]): void {
+    private clearExecutableLineDecorations(
+        editors: readonly vscode.TextEditor[]
+    ): void {
         for (const editor of editors) {
             editor.setDecorations(this.executableLineDecorator, []);
         }
     }
 
-    private async handleOnDidChangeActiveTextEditor(editor: vscode.TextEditor | undefined): Promise<void> {
+    private async handleOnDidChangeActiveTextEditor(
+        editor: vscode.TextEditor | undefined
+    ): Promise<void> {
         if (!editor) {
             return;
         }
@@ -69,8 +83,14 @@ export class SourceFileHighlighting {
             this.clearExecutableLineDecorations([editor]);
             return;
         }
-        const executableLines = new Set(breakpointLocations.breakpoints.map((bp: DebugProtocol.BreakpointLocation) => bp.line));
-        const decorations: vscode.DecorationOptions[] = Array.from(executableLines).map((exeline: number) => {
+        const executableLines = new Set(
+            breakpointLocations.breakpoints.map(
+                (bp: DebugProtocol.BreakpointLocation) => bp.line
+            )
+        );
+        const decorations: vscode.DecorationOptions[] = Array.from(
+            executableLines
+        ).map((exeline: number) => {
             const line = exeline - 1; // Convert to 0-based index
             return {
                 range: new vscode.Range(line, 0, line, 0),
@@ -79,7 +99,9 @@ export class SourceFileHighlighting {
         editor.setDecorations(this.executableLineDecorator, decorations);
     }
 
-    private async getBreakpointLocations(editor: vscode.TextEditor): Promise<DebugProtocol.BreakpointLocationsResponse['body'] | void> {
+    private async getBreakpointLocations(
+        editor: vscode.TextEditor
+    ): Promise<DebugProtocol.BreakpointLocationsResponse['body'] | void> {
         if (editor.document.uri.scheme !== 'file') {
             return;
         }
@@ -89,7 +111,11 @@ export class SourceFileHighlighting {
             line: 1,
             endLine: editor.document.lineCount, // Requesting breakpoint locations for the whole file
         };
-        const breakpointLocations = await this.activeDebugSession?.customRequest('breakpointLocations', args);
+        const breakpointLocations =
+            await this.activeDebugSession?.customRequest(
+                'breakpointLocations',
+                args
+            );
         return breakpointLocations;
     }
 }
