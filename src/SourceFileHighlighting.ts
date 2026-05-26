@@ -18,7 +18,7 @@ export class SourceFileHighlighting {
         vscode.window.createTextEditorDecorationType({
             borderWidth: '0 0 0 2px',
             borderStyle: 'solid',
-            borderColor: 'rgba(102, 145, 255, 0.85)',
+            borderColor: new vscode.ThemeColor('editorLineNumber.foreground'),
             isWholeLine: true,
         });
 
