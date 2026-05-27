@@ -1,8 +1,14 @@
 # Change Log
 
-## Unreleased
+## 2.8.0
 
 - Implements [cdt-gdb-adapter `#201`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/201): Add a command that allow users to change GDB session radix
+- Implements [cdt-gdb-adapter `#206`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/206): Add "Set Output Radix" commands to context menus
+- Implements [cdt-gdb-adapter `#210`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/210): Support value formatting for single expressions
+- Implements [cdt-gdb-adapter `#224`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/224): Add source code highlighting
+- Fixes [cdt-gdb-adapter `#218`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/218): Race condition when using breakpoint modes to set HW/SW breaks
+- Update to cdt-gdb-adapter [v1.9.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.9.0)
+    - Implements [`#527`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/527): Support setting expression values
 
 ## 2.7.0
 
