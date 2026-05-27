@@ -7,7 +7,7 @@
 - Implements [cdt-gdb-adapter `#210`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/210): Support value formatting for single expressions
 - Implements [cdt-gdb-adapter `#224`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/224): Add highlighting of source code lines with machine code
 - Fixes [cdt-gdb-adapter `#218`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/218): Race condition when using breakpoint modes to set HW/SW breaks
-- Update to cdt-gdb-adapter [v1.9.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.9.0). 
+- Update to cdt-gdb-adapter [v1.9.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.9.0).
     - Skipped v1.8.0 and v1.8.1
     - Implements [`#527`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/527): Support setting expression values
     - Implements [`#506`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/506): Support value formatting in expressions with `,<type>` (where `<type>` is one of `x` (hex), `d` (dec), `o` (oct), `t`/`b` (bin), `z` (zero-padded hex)).
