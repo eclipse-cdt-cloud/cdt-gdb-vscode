@@ -38,6 +38,11 @@ export class SourceFileHighlighting {
                         vscode.window.visibleTextEditors
                     );
                 }
+                if (session?.type !== 'gdb' && session?.type !== 'gdbtarget') {
+                    this.clearExecutableLineDecorations(
+                        vscode.window.visibleTextEditors
+                    );
+                }
                 this.activeDebugSession = session;
                 this.handleOnDidChangeActiveTextEditor(
                     vscode.window.activeTextEditor
