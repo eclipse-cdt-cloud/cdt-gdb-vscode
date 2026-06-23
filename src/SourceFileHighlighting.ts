@@ -212,7 +212,7 @@ export class SourceFileHighlighting {
             vscode.window.activeTextEditor
         );
     }
-    
+
     private async getBreakpointLocations(
         editor: vscode.TextEditor
     ): Promise<DebugProtocol.BreakpointLocationsResponse['body'] | void> {
