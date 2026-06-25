@@ -1,5 +1,10 @@
 # Change Log
 
+## Unreleased
+
+- Update to cdt-gdb-adapter [v?.?.?](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v?.?.?).
+    - Implements [cdt-gdb-adapter `#548`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/548): Add `run` setting to keep stopped threads stopped on attaching.
+
 ## 2.8.0
 
 - Implements [cdt-gdb-adapter `#201`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/201): Add a command that allow users to change GDB session radix
