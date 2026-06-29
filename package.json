@@ -163,11 +163,11 @@
               "run": {
                 "type": "string",
                 "enum": [
-                  "always",
+                  "all",
                   "preserve"
                 ],
-                "description": "Whether to run the program. `always`: yes (default and historical). `preserve`: no, allow interaction with GDB before it starts the program (use the Continue command to do so).",
-                "default": "always"
+                "description": "Whether to run the program. `all`: yes (default and historical). `preserve`: no, allow interaction with GDB before it starts the program (use the Continue command to do so).",
+                "default": "all"
               },
               "verbose": {
                 "type": "boolean",
@@ -258,11 +258,11 @@
               "run": {
                 "type": "string",
                 "enum": [
-                  "always",
+                  "all",
                   "preserve"
                 ],
-                "description": "Whether to continue the program after attaching. `always`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
-                "default": "always"
+                "description": "How much of the program to continue after attaching. `all`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
+                "default": "all"
               },
               "verbose": {
                 "type": "boolean",
@@ -386,11 +386,11 @@
               "run": {
                 "type": "string",
                 "enum": [
-                  "always",
+                  "all",
                   "preserve"
                 ],
-                "description": "Whether to continue the program after attaching. `always`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
-                "default": "always"
+                "description": "How much of the program to continue after attaching. `all`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
+                "default": "all"
               },
               "verbose": {
                 "type": "boolean",
@@ -679,11 +679,11 @@
               "run": {
                 "type": "string",
                 "enum": [
-                  "always",
+                  "all",
                   "preserve"
                 ],
-                "description": "Whether to continue the program after attaching. `always`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
-                "default": "always"
+                "description": "How much of the program to continue after attaching. `all`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
+                "default": "all"
               },
               "verbose": {
                 "type": "boolean",
