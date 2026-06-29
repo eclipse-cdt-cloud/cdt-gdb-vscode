@@ -16,7 +16,7 @@ export class SourceFileHighlighting {
     private context: vscode.ExtensionContext;
     private highlightingEnabled: boolean = vscode.workspace
         .getConfiguration()
-        .get<boolean>('cdt.debug.sourceHighlighting', false);
+        .get<boolean>('cdt.debug.sourceHighlighting', true);
     private executableLineDecorator =
         vscode.window.createTextEditorDecorationType({
              backgroundColor: new vscode.ThemeColor(
@@ -35,7 +35,7 @@ export class SourceFileHighlighting {
         vscode.commands.executeCommand(
             'setContext',
             'cdt.debug.sourceCodeHighlightingEnabled',
-            false
+            true
         );
     }
 
@@ -87,7 +87,7 @@ export class SourceFileHighlighting {
         if (event.affectsConfiguration('cdt.debug.sourceHighlighting')) {
             this.highlightingEnabled = vscode.workspace
                 .getConfiguration()
-                .get<boolean>('cdt.debug.sourceHighlighting', false);
+                .get<boolean>('cdt.debug.sourceHighlighting', true);
             if (!this.highlightingEnabled) {
                 this.clearExecutableLineDecorations(
                     vscode.window.visibleTextEditors

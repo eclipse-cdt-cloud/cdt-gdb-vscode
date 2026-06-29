@@ -47,7 +47,7 @@
       "properties": {
         "cdt.debug.sourceHighlighting": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Highlight where breakpoints could be set"
         }
       }
