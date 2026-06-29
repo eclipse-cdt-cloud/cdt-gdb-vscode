@@ -48,7 +48,7 @@
         "cdt.debug.sourceHighlighting": {
           "type": "boolean",
           "default": true,
-          "description": "Highlight where breakpoints could be set"
+          "description": "Mark active source lines in editor"
         }
       }
     },
