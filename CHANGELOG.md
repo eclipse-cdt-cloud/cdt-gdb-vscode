@@ -3,7 +3,7 @@
 ## Unreleased
 
 - Update to cdt-gdb-adapter [v?.?.?](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v?.?.?).
-    - Implements [cdt-gdb-adapter `#548`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/548): Add `run` setting to keep stopped threads stopped on attaching.
+    - Implements [cdt-gdb-adapter `#548`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/548): Add `run` setting to configure if stopped threads are set running or kept stopped on attach.
 
 ## 2.8.0
 

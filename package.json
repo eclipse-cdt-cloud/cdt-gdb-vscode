@@ -166,7 +166,7 @@
                   "always",
                   "preserve"
                 ],
-                "description": "Whether to run the program. `always`: yes (default and historical). `preserve`: no, allow iteraction with GDB before it starts the program (use the Continue command to do so).",
+                "description": "Whether to run the program. `always`: yes (default and historical). `preserve`: no, allow interaction with GDB before it starts the program (use the Continue command to do so).",
                 "default": "always"
               },
               "verbose": {
