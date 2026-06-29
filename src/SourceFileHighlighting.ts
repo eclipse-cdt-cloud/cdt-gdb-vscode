@@ -14,11 +14,14 @@ import { DebugProtocol } from '@vscode/debugprotocol';
 export class SourceFileHighlighting {
     private activeDebugSession: vscode.DebugSession | undefined;
     private context: vscode.ExtensionContext;
+    private highlightingEnabled: boolean = vscode.workspace
+        .getConfiguration()
+        .get<boolean>('cdt.debug.sourceHighlighting', true);
     private executableLineDecorator =
         vscode.window.createTextEditorDecorationType({
-            borderWidth: '0 0 0 2px',
-            borderStyle: 'solid',
-            borderColor: new vscode.ThemeColor('editorLineNumber.foreground'),
+            backgroundColor: new vscode.ThemeColor(
+                'editor.wordHighlightBackground'
+            ),
             isWholeLine: true,
         });
 
@@ -28,29 +31,107 @@ export class SourceFileHighlighting {
 
     public activate(): void {
         this.registerToEvents();
+        this.registerCommands();
+        vscode.commands.executeCommand(
+            'setContext',
+            'cdt.debug.sourceCodeHighlightingEnabled',
+            true
+        );
     }
 
     private registerToEvents(): void {
         const onDidChangeActiveDebugSessionDisposable =
-            vscode.debug.onDidChangeActiveDebugSession((session) => {
-                if (!session) {
-                    this.clearExecutableLineDecorations(
-                        vscode.window.visibleTextEditors
-                    );
-                }
-                this.activeDebugSession = session;
-                this.handleOnDidChangeActiveTextEditor(
-                    vscode.window.activeTextEditor
-                );
+            vscode.debug.onDidChangeActiveDebugSession(async (session) => {
+                await this.handleOnDidChangeActiveDebugSession(session);
             });
         const onDidChangeActiveTextEditorDisposable =
-            vscode.window.onDidChangeActiveTextEditor((editor) => {
-                this.handleOnDidChangeActiveTextEditor(editor);
+            vscode.window.onDidChangeActiveTextEditor(async (editor) => {
+                await this.handleOnDidChangeActiveTextEditor(editor);
+            });
+        const onDidChangeConfigurationDisposable =
+            vscode.workspace.onDidChangeConfiguration(async (event) => {
+                await this.handleOnDidChangeConfiguration(event);
             });
 
         this.context.subscriptions.push(
             onDidChangeActiveDebugSessionDisposable,
-            onDidChangeActiveTextEditorDisposable
+            onDidChangeActiveTextEditorDisposable,
+            onDidChangeConfigurationDisposable
+        );
+    }
+
+    private registerCommands(): void {
+        const onEnableSourceFileHighlightingCommandDisposable =
+            vscode.commands.registerCommand(
+                'cdt.debug.enableSourceCodeHighlighting',
+                async () => {
+                    await this.handleEnableSourceFileHighlighting();
+                }
+            );
+        const onDisableSourceFileHighlightingCommandDisposable =
+            vscode.commands.registerCommand(
+                'cdt.debug.disableSourceCodeHighlighting',
+                async () => {
+                    await this.handleDisableSourceFileHighlighting();
+                }
+            );
+        this.context.subscriptions.push(
+            onEnableSourceFileHighlightingCommandDisposable,
+            onDisableSourceFileHighlightingCommandDisposable
+        );
+    }
+
+    private async handleOnDidChangeConfiguration(
+        event: vscode.ConfigurationChangeEvent
+    ): Promise<void> {
+        if (event.affectsConfiguration('cdt.debug.sourceHighlighting')) {
+            this.highlightingEnabled = vscode.workspace
+                .getConfiguration()
+                .get<boolean>('cdt.debug.sourceHighlighting', true);
+            if (!this.highlightingEnabled) {
+                this.clearExecutableLineDecorations(
+                    vscode.window.visibleTextEditors
+                );
+                vscode.commands.executeCommand(
+                    'setContext',
+                    'cdt.debug.sourceCodeHighlightingEnabled',
+                    !this.highlightingEnabled
+                );
+            } else {
+                await this.handleOnDidChangeActiveTextEditor(
+                    vscode.window.activeTextEditor
+                );
+                vscode.commands.executeCommand(
+                    'setContext',
+                    'cdt.debug.sourceCodeHighlightingEnabled',
+                    !this.highlightingEnabled
+                );
+            }
+        }
+    }
+
+    private async handleEnableSourceFileHighlighting(): Promise<void> {
+        if (!this.activeDebugSession) {
+            return;
+        }
+        this.highlightingEnabled = true;
+        await this.handleOnDidChangeActiveTextEditor(
+            vscode.window.activeTextEditor
+        );
+        vscode.commands.executeCommand(
+            'setContext',
+            'cdt.debug.sourceCodeHighlightingEnabled',
+            true
+        );
+    }
+
+    private async handleDisableSourceFileHighlighting(): Promise<void> {
+        this.clearExecutableLineDecorations(vscode.window.visibleTextEditors);
+        this.highlightingEnabled = false;
+        vscode.commands.executeCommand(
+            'setContext',
+            'cdt.debug.sourceCodeHighlightingEnabled',
+            false
         );
     }
 
@@ -68,7 +149,7 @@ export class SourceFileHighlighting {
         if (!editor) {
             return;
         }
-        if (!this.activeDebugSession) {
+        if (!this.highlightingEnabled || !this.activeDebugSession) {
             this.clearExecutableLineDecorations([editor]);
             return;
         }
@@ -91,6 +172,35 @@ export class SourceFileHighlighting {
             };
         });
         editor.setDecorations(this.executableLineDecorator, decorations);
+    }
+
+    private async handleOnDidChangeActiveDebugSession(
+        session: vscode.DebugSession | undefined
+    ): Promise<void> {
+        if (!session) {
+            this.handleSessionInActive();
+            return;
+        }
+        if (session.type !== 'gdb' && session.type !== 'gdbtarget') {
+            this.handleSessionInActive();
+            return;
+        }
+        this.activeDebugSession = session;
+        await this.handleOnDidChangeActiveTextEditor(
+            vscode.window.activeTextEditor
+        );
+    }
+
+    private handleSessionInActive() {
+        this.clearExecutableLineDecorations(vscode.window.visibleTextEditors);
+        vscode.commands.executeCommand(
+            'setContext',
+            'cdt.debug.sourceCodeHighlightingEnabled',
+            false
+        );
+        this.highlightingEnabled = false;
+        this.activeDebugSession = undefined;
+        return;
     }
 
     private async getBreakpointLocations(

@@ -43,6 +43,15 @@
         ]
       }
     ],
+    "configuration": {
+      "properties": {
+        "cdt.debug.sourceHighlighting": {
+          "type": "boolean",
+          "default": true,
+          "description": "Mark active source lines in editor"
+        }
+      }
+    },
     "commands": [
       {
         "category": "GDB",
@@ -92,6 +101,18 @@
       {
         "title": "CDT-GDB: Set Software Breakpoint",
         "command": "cdt.debug.breakpoints.addSoftwareBreakpoint"
+      },
+      {
+        "title": "Mark Active Source Lines",
+        "category": "CDT-GDB",
+        "command": "cdt.debug.enableSourceCodeHighlighting",
+        "enablement": "!cdt.debug.sourceCodeHighlightingEnabled"
+      },
+      {
+        "title": "Unmark Active Source Lines",
+        "category": "CDT-GDB",
+        "command": "cdt.debug.disableSourceCodeHighlighting",
+        "enablement": "cdt.debug.sourceCodeHighlightingEnabled"
       }
     ],
     "breakpoints": [
@@ -895,6 +916,14 @@
         {
           "command": "cdt.debug.setOutputRadixToDecimal",
           "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
+        },
+        {
+          "command": "cdt.debug.enableSourceCodeHighlighting",
+          "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
+        },
+        {
+          "command": "cdt.debug.disableSourceCodeHighlighting",
+          "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
         }
       ],
       "debug/watch/context": [
@@ -939,6 +968,16 @@
         {
           "command": "cdt.debug.breakpoints.addSoftwareBreakpoint",
           "when": "false"
+        },
+        {
+          "command": "cdt.debug.enableSourceCodeHighlighting",
+          "when": "inDebugMode && cdt.debug.sourceCodeHighlightingEnabled == false && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
+        },
+        {
+          "command": "cdt.debug.disableSourceCodeHighlighting",
+          "when": "inDebugMode && cdt.debug.sourceCodeHighlightingEnabled == true && (debugType == gdb || debugType == gdbtarget)",
+          "group": "z_commands"
         }
       ],
       "editor/lineNumber/context": [
