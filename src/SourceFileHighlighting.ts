@@ -19,9 +19,9 @@ export class SourceFileHighlighting {
         .get<boolean>('cdt.debug.sourceHighlighting', false);
     private executableLineDecorator =
         vscode.window.createTextEditorDecorationType({
-            borderWidth: '0 0 0 2px',
-            borderStyle: 'solid',
-            borderColor: new vscode.ThemeColor('editorLineNumber.foreground'),
+             backgroundColor: new vscode.ThemeColor(
+                'editor.wordHighlightBackground'
+            ),
             isWholeLine: true,
         });
 
