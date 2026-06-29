@@ -916,6 +916,14 @@
         {
           "command": "cdt.debug.setOutputRadixToDecimal",
           "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
+        },
+        {
+          "command": "cdt.debug.enableSourceCodeHighlighting",
+          "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
+        },
+        {
+          "command": "cdt.debug.disableSourceCodeHighlighting",
+          "when": "inDebugMode && (debugType == gdb || debugType == gdbtarget)"
         }
       ],
       "debug/watch/context": [
@@ -963,12 +971,12 @@
         },
         {
           "command": "cdt.debug.enableSourceCodeHighlighting",
-          "when": "inDebugMode && cdt.debug.sourceHighlighting == false && (debugType == gdb || debugType == gdbtarget)",
+          "when": "inDebugMode && cdt.debug.sourceCodeHighlightingEnabled == false && (debugType == gdb || debugType == gdbtarget)",
           "group": "z_commands"
         },
         {
           "command": "cdt.debug.disableSourceCodeHighlighting",
-          "when": "inDebugMode && cdt.debug.sourceHighlighting == true && (debugType == gdb || debugType == gdbtarget)",
+          "when": "inDebugMode && cdt.debug.sourceCodeHighlightingEnabled == true && (debugType == gdb || debugType == gdbtarget)",
           "group": "z_commands"
         }
       ],
