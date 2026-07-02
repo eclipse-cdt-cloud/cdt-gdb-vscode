@@ -160,6 +160,15 @@
                 "description": "Use non-stop mode for controlling multiple threads. (defaults to false)",
                 "default": false
               },
+              "run": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "preserve"
+                ],
+                "description": "Whether to run the program. `all`: yes (default and historical). `preserve`: no, allow interaction with GDB before it starts the program (use the Continue command to do so).",
+                "default": "all"
+              },
               "verbose": {
                 "type": "boolean",
                 "description": "Produce verbose log output",
@@ -245,6 +254,15 @@
                 "type": "boolean",
                 "description": "Use non-stop mode for controlling multiple threads. (defaults to false)",
                 "default": false
+              },
+              "run": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "preserve"
+                ],
+                "description": "How much of the program to continue after attaching. `all`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
+                "default": "all"
               },
               "verbose": {
                 "type": "boolean",
@@ -364,6 +382,15 @@
                 "type": "boolean",
                 "description": "Creates an auxiliary GDB connection to the target TCP port if supported by connected GDB server.\nRequires `gdbAsync` mode and cannot be used with `gdbNonStop` mode.",
                 "default": false
+              },
+              "run": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "preserve"
+                ],
+                "description": "How much of the program to continue after attaching. `all`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
+                "default": "all"
               },
               "verbose": {
                 "type": "boolean",
@@ -648,6 +675,15 @@
                 "type": "boolean",
                 "description": "Creates an auxiliary GDB connection to the target TCP port if supported by connected GDB server.\nRequires `gdbAsync` mode and cannot be used with `gdbNonStop` mode.",
                 "default": false
+              },
+              "run": {
+                "type": "string",
+                "enum": [
+                  "all",
+                  "preserve"
+                ],
+                "description": "How much of the program to continue after attaching. `all`: let all threads run (default and historical). `preserve`: keep stopped threads stopped.",
+                "default": "all"
               },
               "verbose": {
                 "type": "boolean",
