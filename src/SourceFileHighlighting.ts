@@ -101,14 +101,6 @@ export class SourceFileHighlighting {
                 'cdt.debug.sourceCodeHighlightingEnabled',
                 this.highlightingEnabled
             );
-            // Change configuration programatically to reflect the new state in the settings UI
-            await vscode.workspace
-                .getConfiguration()
-                .update(
-                    'cdt.debug.sourceHighlighting',
-                    this.highlightingEnabled,
-                    vscode.ConfigurationTarget.Workspace
-                );
         }
     }
 
@@ -162,13 +154,6 @@ export class SourceFileHighlighting {
             'cdt.debug.sourceCodeHighlightingEnabled',
             false
         );
-        await vscode.workspace
-            .getConfiguration()
-            .update(
-                'cdt.debug.sourceHighlighting',
-                false,
-                vscode.ConfigurationTarget.Workspace
-            );
     }
 
     private async handleOnDidChangeActiveTextEditor(
