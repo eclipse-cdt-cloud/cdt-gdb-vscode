@@ -1051,6 +1051,7 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "10.0.1",
     "@types/node": "20.19.4",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
@@ -1060,7 +1061,7 @@
     "@vscode/vsce": "3.9.2",
     "esbuild": "0.28.1",
     "esbuild-sass-plugin": "3.7.0",
-    "eslint": "9.30.1",
+    "eslint": "10.6.0",
     "eslint-config-prettier": "10.1.5",
     "event-stream": "4.0.1",
     "globals": "16.3.0",
