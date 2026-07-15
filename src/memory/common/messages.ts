@@ -22,8 +22,7 @@ export namespace Message {
     }
 }
 
-export interface MemoryAmalgamatorRequestArguments
-    extends MemoryRequestArguments {
+export interface MemoryAmalgamatorRequestArguments extends MemoryRequestArguments {
     child?: number;
 }
 
