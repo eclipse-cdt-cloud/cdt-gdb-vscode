@@ -892,6 +892,13 @@
   dependencies:
     "@vscode/debugprotocol" "1.59.0"
 
+"@vscode/debugadapter@1.68.0":
+  version "1.68.0"
+  resolved "https://registry.yarnpkg.com/@vscode/debugadapter/-/debugadapter-1.68.0.tgz#abb23463cb750ca4a6f0834c5d4db659258dc159"
+  integrity sha512-D6gk5Fw2y4FV8oYmltoXpj+VAZexxJFopN/mcZ6YcgzQE9dgq2L45Aj3GLxScJOD6GeLILcxJIaA8l3v11esGg==
+  dependencies:
+    "@vscode/debugprotocol" "1.68.0"
+
 "@vscode/debugadapter@^1.59.0":
   version "1.59.0"
   resolved "https://registry.yarnpkg.com/@vscode/debugadapter/-/debugadapter-1.59.0.tgz#ed89afe9b50e28f81c642e635634076f9ca8b6d4"
@@ -899,19 +906,12 @@
   dependencies:
     "@vscode/debugprotocol" "1.59.0"
 
-"@vscode/debugadapter@^1.68.0":
-  version "1.68.0"
-  resolved "https://registry.yarnpkg.com/@vscode/debugadapter/-/debugadapter-1.68.0.tgz#abb23463cb750ca4a6f0834c5d4db659258dc159"
-  integrity sha512-D6gk5Fw2y4FV8oYmltoXpj+VAZexxJFopN/mcZ6YcgzQE9dgq2L45Aj3GLxScJOD6GeLILcxJIaA8l3v11esGg==
-  dependencies:
-    "@vscode/debugprotocol" "1.68.0"
-
 "@vscode/debugprotocol@1.59.0", "@vscode/debugprotocol@^1.59.0":
   version "1.59.0"
   resolved "https://registry.yarnpkg.com/@vscode/debugprotocol/-/debugprotocol-1.59.0.tgz#f173ff725f60e4ff1002f089105634900c88bd77"
   integrity sha512-Ks8NiZrCvybf9ebGLP8OUZQbEMIJYC8X0Ds54Q/szpT/SYEDjTksPvZlcWGTo7B9t5abjvbd0jkNH3blYaSuVw==
 
-"@vscode/debugprotocol@1.68.0", "@vscode/debugprotocol@^1.68.0":
+"@vscode/debugprotocol@1.68.0":
   version "1.68.0"
   resolved "https://registry.yarnpkg.com/@vscode/debugprotocol/-/debugprotocol-1.68.0.tgz#e558ba6affe1be7aff4ec824599f316b61d9a69d"
   integrity sha512-2J27dysaXmvnfuhFGhfeuxfHRXunqNPxtBoR3koiTOA9rdxWNDTa1zIFLCFMSHJ9MPTPKFcBeblsyaCJCIlQxg==
@@ -1101,7 +1101,7 @@ astral-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-async-mutex@^0.5.0:
+async-mutex@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/async-mutex/-/async-mutex-0.5.0.tgz#353c69a0b9e75250971a64ac203b0ebfddd75482"
   integrity sha512-1A94B18jkJ3DYq284ohPxoXbfTA5HsQ7/Mf4DEhcyLx3Bz27Rh59iScbB6EPiP+B+joue6YCxcMXSbFC1tZKwA==
@@ -1235,16 +1235,16 @@ cdt-amalgamator@^0.0.11:
     "@vscode/debugadapter-testsupport" "^1.59.0"
     "@vscode/debugprotocol" "^1.59.0"
 
-cdt-gdb-adapter@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.9.0.tgz#b3f3027da297ecd4d8cbf372cc9992cc2b8f44d3"
-  integrity sha512-7piD74QjYCITxmwn2ben8uBCahKOLjsJq9LH9C0vHhi0jtAnUIlnwoi0ctaxd2aKI6t86OasJQpFCAUFpSDbWQ==
+cdt-gdb-adapter@1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/cdt-gdb-adapter/-/cdt-gdb-adapter-1.10.0.tgz#0490c3d56503b297defc4d1766e305029dd22d01"
+  integrity sha512-thK9zknSrHpgKznPLqaAXOdqREnWDh1+jL2ApN/X0kOAamZDe3QxAscXvuS2vN7mvT6MDz6XmTEyf8z1h5lPXQ==
   dependencies:
-    "@vscode/debugadapter" "^1.68.0"
-    "@vscode/debugprotocol" "^1.68.0"
-    async-mutex "^0.5.0"
-    node-addon-api "^8.4.0"
-    serialport "^13.0.0"
+    "@vscode/debugadapter" "1.68.0"
+    "@vscode/debugprotocol" "1.68.0"
+    async-mutex "0.5.0"
+    node-addon-api "8.9.0"
+    serialport "13.0.0"
 
 chalk@^2.4.1:
   version "2.4.2"
@@ -2757,6 +2757,11 @@ node-addon-api@8.3.0:
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-8.3.0.tgz#ec3763f18befc1cdf66d11e157ce44d5eddc0603"
   integrity sha512-8VOpLHFrOQlAH+qA0ZzuGRlALRA6/LVh8QJldbrC4DY0hXoMP0l4Acq8TzFC018HztWiRqyCEj2aTWY2UvnJUg==
 
+node-addon-api@8.9.0:
+  version "8.9.0"
+  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-8.9.0.tgz#d2467090e6195c428ccd510dfd604f01c027f0a0"
+  integrity sha512-ekZMeaaIzSQTSpr7X2X3iJM7lTzgnx8ahAG9pJfT/7+14mlEM8ZYQ9cgCDvSSRbReFK0oHli3WrZdCiRsgAT9Q==
+
 node-addon-api@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-4.3.0.tgz#52a1a0b475193e0928e98e0426a0d1254782b77f"
@@ -2766,11 +2771,6 @@ node-addon-api@^7.0.0:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-7.1.1.tgz#1aba6693b0f255258a049d621329329322aad558"
   integrity sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==
-
-node-addon-api@^8.4.0:
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-8.4.0.tgz#8cbc68ee1c216368921a8f63038a23a39cd8ba44"
-  integrity sha512-D9DI/gXHvVmjHS08SVch0Em8G5S1P+QWtU31appcKT/8wFSPRcdHadIFSAntdMMVM5zz+/DL+bL/gz3UDppqtg==
 
 node-gyp-build@4.8.4:
   version "4.8.4"
@@ -3286,7 +3286,7 @@ semver@^7.6.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.2.tgz#67d99fdcd35cec21e6f8b87a7fd515a33f982b58"
   integrity sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==
 
-serialport@^13.0.0:
+serialport@13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/serialport/-/serialport-13.0.0.tgz#f92a8c04e1b0ba5550bdf01224df27f7919b14c4"
   integrity sha512-PHpnTd8isMGPfFTZNCzOZp9m4mAJSNWle9Jxu6BPTcWq7YXl5qN7tp8Sgn0h+WIGcD6JFz5QDgixC2s4VW7vzg==
