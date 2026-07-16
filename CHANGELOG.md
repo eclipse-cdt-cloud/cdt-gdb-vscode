@@ -1,9 +1,18 @@
 # Change Log
 
-## Unreleased
+## 2.9.0
 
-- Update to cdt-gdb-adapter [v?.?.?](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v?.?.?).
-    - Implements [cdt-gdb-adapter `#548`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/548): Add `run` setting to configure if stopped threads are set running or kept stopped on attach.
+- Implements [cdt-gdb-adapter `#528`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/528): Add `run` setting to configure if stopped threads are set running or kept stopped on attach.
+- Implements [`#229`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/229): Further enhance highlighting of source code lines for parts where machine code exists. Adds a setting to enable/disable the feature.
+- Fixes [`#232`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/232): SourceFileHighlighting sends breakpointLocations requests to non-GDB debug sessions, breaking ms-python.debugpy (regression in v2.8.0).
+- Update to cdt-gdb-adapter [v1.10.0](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/releases/tag/v1.10.0).
+    - Implements [cdt-gdb-adapter `#539`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/539): Extend `evaluate` response by `memoryReference` field where possible and if supported by client. A client can use this to determine if an expression maps to a memory address.
+    - Implements [cdt-gdb-adapter `#560`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/560): Support `completions` request for GDB CLI commands (with `>` prefix). This enables auto-completion features in the IDE, for example in a debug console.
+    - Fixes [`#230`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/230): Fixes variables display of anonymous unions/structs.
+    - Fixes [cdt-gdb-adapter `#545`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/545): Skip error pop-up when `evaluate` request context is repl (e.g. Debug Console).
+    - Fixes [cdt-gdb-adapter `#549`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/549): Handle exceptions from `pause` request.
+    - Fixes [cdt-gdb-adapter `#558`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/pull/558): Fixes exception when setting a watchpoint while multi-location breakpoints are set.
+    - Adds support for `evaluate` requests without frame ID for GDB CLI commands (with `>` prefix) for `gdb` type. Previously was only enabled for `gdbtarget` type.
 
 ## 2.8.0
 
