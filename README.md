@@ -1,6 +1,6 @@
 # CDT GDB Debug Adapter Extension
 
-This is an extension that supports debugging using GDB and the MI protocol. It is built by the experts that provide the GDB support in the Eclipse C/C++ IDE (CDT).
+This is an extension for Visual Studio Code and compatible IDEs that supports debugging using GDB and the MI protocol. It is built by the experts that provide the GDB support in the Eclipse C/C++ IDE (CDT).
 
 This extension provides a number of features that integrate into your debug environment. This includes launch types, support for the standard debug views as well as a custom viewer for memory browsing.
 

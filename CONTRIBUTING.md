@@ -6,10 +6,8 @@ The source code can be found in the following repository: https://github.com/ecl
 
 ## Project description
 
-This is an extension that supports
-debugging using gdb and any other debugger that supports
-the MI protocol. It is built by the experts that provide
-the gdb support in the Eclipse C/C++ IDE (CDT).
+This extension supports debugging using GDB and the MI protocol. It is built
+by the experts that provide the GDB support in the Eclipse C/C++ IDE (CDT).
 
 ## Build Instructions
 
