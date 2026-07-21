@@ -47,11 +47,11 @@ export class BreakpointModesController {
                 const sp = new SourceBreakpoint(
                     new Location(values.uri, new Position(line, 0))
                 );
-                // Limitation of VSCode: https://github.com/microsoft/vscode/issues/304764
-                // This is a workaround to inject 'mode' into VS breakpoint object.
+                // Limitation of VS Code: https://github.com/microsoft/vscode/issues/304764
+                // This is a workaround to inject 'mode' into VS Code breakpoint object.
                 // This injection functionally working as expected and passes the information
                 // correctly through DAP messages, however the breakpoint mode information is not
-                // visible in the breakpoint list window in VSCode
+                // visible in the breakpoint list window
                 (sp as any).mode = mode;
                 debug.addBreakpoints([sp]);
             } catch (e) {
