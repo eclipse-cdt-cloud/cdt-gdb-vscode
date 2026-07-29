@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.9.1
+
+- Fixes [`#243`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/243): Mark Active Source Lines is disabled after ending a debug session.
+- Fixes [`#244`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/244): cdt.debug.sourceHighlighting written for unrelated debug session.
+
 ## 2.9.0
 
 - Implements [cdt-gdb-adapter `#528`](https://github.com/eclipse-cdt-cloud/cdt-gdb-adapter/issues/528): Add `run` setting to configure if stopped threads are set running or kept stopped on attach.
