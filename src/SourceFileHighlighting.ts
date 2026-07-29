@@ -199,29 +199,20 @@ export class SourceFileHighlighting {
             return;
         }
         this.activeDebugSession = session;
-        await this.handleOnDidChangeActiveTextEditor(
-            vscode.window.activeTextEditor
-        );
+        const shouldEnable = vscode.workspace
+            .getConfiguration()
+            .get<boolean>('cdt.debug.sourceHighlighting', true);
+        if (shouldEnable) {
+            await this.handleEnableSourceFileHighlighting();
+        } else {
+            return;
+        }
     }
 
     private async handleSessionInActive() {
         await this.clearExecutableLineDecorations(
             vscode.window.visibleTextEditors
         );
-        await vscode.commands.executeCommand(
-            'setContext',
-            'cdt.debug.sourceCodeHighlightingEnabled',
-            false
-        );
-        await vscode.workspace
-            .getConfiguration()
-            .update(
-                'cdt.debug.sourceHighlighting',
-                false,
-                vscode.ConfigurationTarget.Workspace
-            );
-        this.highlightingEnabled = false;
-        this.activeDebugSession = undefined;
         return;
     }
 
