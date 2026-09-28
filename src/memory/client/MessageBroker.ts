@@ -7,14 +7,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
-import {
-    ClientRequest,
-    ServerResponse,
-    ReadMemory,
-    ChildDapNamesServerResponse,
-    GetChildDapNames,
-    ChildDapNamesClientRequest,
-} from '../common/messages';
+import { ClientRequest, ServerResponse, ReadMemory } from '../common/messages';
 
 declare function acquireVsCodeApi(): any;
 const vscode = acquireVsCodeApi();
@@ -42,21 +35,6 @@ class MessageBroker {
             request.token = this.currentToken++;
             this.queue[request.token] = (result: ServerResponse) =>
                 result.err ? reject(result.err) : resolve(result as Resp);
-            vscode.postMessage(request);
-        });
-    }
-
-    sendGetChildrenNames(request: any): Promise<GetChildDapNames.Response>;
-
-    sendGetChildrenNames<
-        Req extends ChildDapNamesClientRequest,
-        Resp extends ChildDapNamesServerResponse,
-    >(request: Req): Promise<Resp> {
-        return new Promise<Resp>((resolve, reject) => {
-            request.token = this.currentToken++;
-            this.queue[request.token] = (
-                result: ChildDapNamesServerResponse
-            ) => (result.err ? reject(result.err) : resolve(result as Resp));
             vscode.postMessage(request);
         });
     }
