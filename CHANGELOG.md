@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Fixes [`#253`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/253): With the archiving of cdt-amalgamator, removes CDT Amalgamator integration.
+- Fixes [`#110`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/110): Remove the memory browser in favour of the more complete Memory Inspector extension.
 
 ## 2.9.1
 
