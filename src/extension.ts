@@ -8,8 +8,6 @@
  * SPDX-License-Identifier: EPL-2.0
  *********************************************************************/
 import { ExtensionContext, commands, window } from 'vscode';
-import { MemoryServer } from './memory/server/MemoryServer';
-export { MemoryServer } from './memory/server/MemoryServer';
 import { CustomReset } from './CustomReset';
 export { CustomReset } from './CustomReset';
 import { SwitchRadix } from './switchRadix';
@@ -18,7 +16,6 @@ import { BreakpointModesController } from './BreakpointModesController';
 import { SourceFileHighlighting } from './SourceFileHighlighting';
 
 export function activate(context: ExtensionContext) {
-    new MemoryServer(context);
     new CustomReset(context);
     new SwitchRadix(context);
     new SourceFileHighlighting(context).activate();
