@@ -28,9 +28,7 @@
   ],
   "activationEvents": [
     "onDebug",
-    "onCommand:cdt.gdb.memory.open",
-    "onCommand:cdt.debug.resumeAllSession",
-    "onCommand:cdt.debug.suspendAllSession"
+    "onCommand:cdt.gdb.memory.open"
   ],
   "contributes": {
     "languages": [
@@ -58,22 +56,6 @@
         "category": "GDB",
         "title": "Open Memory Browser",
         "command": "cdt.gdb.memory.open"
-      },
-      {
-        "command": "cdt.debug.resumeAllSession",
-        "title": "Resume All Sessions",
-        "icon": {
-          "light": "images/ResumeAll_Light.png",
-          "dark": "images/ResumeAll_Dark.png"
-        }
-      },
-      {
-        "command": "cdt.debug.suspendAllSession",
-        "title": "Suspend All Sessions",
-        "icon": {
-          "light": "images/SuspendAll_Light.png",
-          "dark": "images/SuspendAll_Dark.png"
-        }
       },
       {
         "command": "cdt.debug.customReset",
@@ -930,19 +912,9 @@
     "menus": {
       "debug/toolBar": [
         {
-          "command": "cdt.debug.resumeAllSession",
-          "group": "navigation",
-          "when": "debugType == amalgamator"
-        },
-        {
-          "command": "cdt.debug.suspendAllSession",
-          "group": "navigation",
-          "when": "debugType == amalgamator"
-        },
-        {
           "command": "cdt.debug.customReset",
           "group": "custom",
-          "when": "cdt.debug.hasCustomReset && (debugType == amalgamator || debugType == gdbtarget)"
+          "when": "cdt.debug.hasCustomReset && debugType == gdbtarget"
         }
       ],
       "commandPalette": [
@@ -1045,7 +1017,6 @@
     "vsce:package": "vsce package"
   },
   "dependencies": {
-    "cdt-amalgamator": "0.0.11",
     "cdt-gdb-adapter": "1.10.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"
