@@ -2,7 +2,7 @@
 
 This is an extension for Visual Studio Code and compatible IDEs that supports debugging using GDB and the MI protocol. It is built by the experts that provide the GDB support in the Eclipse C/C++ IDE (CDT).
 
-This extension provides a number of features that integrate into your debug environment. This includes launch types, support for the standard debug views as well as a custom viewer for memory browsing.
+This extension provides a number of features that integrate into your debug environment. This includes launch types, support for the standard debug views as well as compatibility with the [Eclipse CDT Cloud Memory Inspector](#memory-inspector).
 
 ## Prerequisites
 
@@ -127,11 +127,9 @@ Settings related to displaying UART output in the debug console. This object can
 | `handshakingMethod` |    x     |    x     | `string` | The handshaking method used for flow control across the serial line.<br>Supported values: `none`, `XON/XOFF`, `RTS/CTS`<br>Default: `none` - no handshaking                          |
 | `eolCharacter`      |    x     |    x     | `string` | The EOL character used to parse the UART output line-by-line.<br>Supported values: `LF`, `CRLF`<br>Default: `LF`                                                                     |
 
-## Memory Browser
+## Memory Inspector
 
-The extension comes with a Memory Browser window. However, we have plans to deprecate and remove the window in favour of the Eclipse CDT Cloud [Memory Inspector](https://github.com/eclipse-cdt-cloud/vscode-memory-inspector) extension which is available from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector) and the [Open VSX Registry](https://open-vsx.org/extension/eclipse-cdt/memory-inspector).
-
-Any feedback on these plans is welcomed in the discussion in GitHub issue [#110](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/110).
+The extension works well with the Eclipse CDT Cloud [Memory Inspector](https://github.com/eclipse-cdt-cloud/vscode-memory-inspector) extension which is available from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=eclipse-cdt.memory-inspector) and the [Open VSX Registry](https://open-vsx.org/extension/eclipse-cdt/memory-inspector).
 
 ## Contributions
 
