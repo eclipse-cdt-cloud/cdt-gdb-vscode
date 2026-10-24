@@ -10,10 +10,6 @@
 import { ExtensionContext, commands, window } from 'vscode';
 import { MemoryServer } from './memory/server/MemoryServer';
 export { MemoryServer } from './memory/server/MemoryServer';
-import { ResumeAllSession } from './ResumeAllSession';
-export { ResumeAllSession } from './ResumeAllSession';
-import { SuspendAllSession } from './SuspendAllSession';
-export { SuspendAllSession } from './SuspendAllSession';
 import { CustomReset } from './CustomReset';
 export { CustomReset } from './CustomReset';
 import { SwitchRadix } from './switchRadix';
@@ -23,8 +19,6 @@ import { SourceFileHighlighting } from './SourceFileHighlighting';
 
 export function activate(context: ExtensionContext) {
     new MemoryServer(context);
-    new ResumeAllSession(context);
-    new SuspendAllSession(context);
     new CustomReset(context);
     new SwitchRadix(context);
     new SourceFileHighlighting(context).activate();
