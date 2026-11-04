@@ -1,6 +1,6 @@
 {
   "name": "cdt-gdb-vscode",
-  "version": "2.9.1",
+  "version": "3.0.0",
   "displayName": "CDT GDB Debug Adapter Extension",
   "description": "Extension from Eclipse CDT that integrates local and remote debugging with GDB in VS Code and compatible IDEs",
   "publisher": "eclipse-cdt",
@@ -1009,7 +1009,7 @@
     "vsce:package": "vsce package"
   },
   "dependencies": {
-    "cdt-gdb-adapter": "1.10.0"
+    "cdt-gdb-adapter": "2.0.0"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
