@@ -15,6 +15,5 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "preserveWatchOutput": true
-  },
-  "references": [{ "path": "src/memory/tsconfig.json" }]
+  }
 }

@@ -27,8 +27,7 @@
     "GDB"
   ],
   "activationEvents": [
-    "onDebug",
-    "onCommand:cdt.gdb.memory.open"
+    "onDebug"
   ],
   "contributes": {
     "languages": [
@@ -52,11 +51,6 @@
       }
     },
     "commands": [
-      {
-        "category": "GDB",
-        "title": "Open Memory Browser",
-        "command": "cdt.gdb.memory.open"
-      },
       {
         "command": "cdt.debug.customReset",
         "title": "Reset Target",
@@ -1004,8 +998,6 @@
   "scripts": {
     "build:tsc": "tsc -b",
     "watch:tsc": "tsc -b -w",
-    "build:esbuild": "node esbuild.js",
-    "watch:esbuild": "node esbuild.js --watch",
     "build": "run-p build:*",
     "clean": "git clean -f -x ./node_modules ./dist",
     "watch": "run-p watch:*",
@@ -1017,21 +1009,15 @@
     "vsce:package": "vsce package"
   },
   "dependencies": {
-    "cdt-gdb-adapter": "1.10.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "cdt-gdb-adapter": "1.10.0"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "20.19.4",
-    "@types/react": "19.1.8",
-    "@types/react-dom": "19.1.6",
     "@types/vscode": "^1.78.0",
     "@typescript-eslint/eslint-plugin": "8.63.0",
     "@typescript-eslint/parser": "8.63.0",
     "@vscode/vsce": "3.9.2",
-    "esbuild": "0.28.1",
-    "esbuild-sass-plugin": "3.7.0",
     "eslint": "10.6.0",
     "eslint-config-prettier": "10.1.5",
     "event-stream": "4.0.1",
