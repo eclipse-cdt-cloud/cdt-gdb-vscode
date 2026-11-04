@@ -22,6 +22,34 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22.x
+      - name: Set Version
+        # Set a unique version for PR and main builds. Use npm for access to required features.
+        # Do nothing for tag references, these are release builds and should use the version from package.json as is.
+        if: github.ref_type != 'tag'
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          DESCRIBE=$(git describe --tags --long --match 'v[0-9]*.[0-9]*.[0-9]*' 2>/dev/null || true)
+          echo "DESCRIBE: ${DESCRIBE}"
+          if [ -z "${DESCRIBE}" ]; then
+            echo "No semver tag matching vX.Y.Z found."
+            exit 1
+          fi
+          BASE_VERSION=$(printf '%s\n' "${DESCRIBE}" | grep -Eo '^v[0-9]+\.[0-9]+\.[0-9]+')
+          # Increment patch version and discard the leading 'v' from the tag for the printf.
+          NEXT_VERSION="$(printf '%s\n' "${BASE_VERSION}" | awk -F. '{ printf "%d.%d.%d", substr($1, 2), $2, $3 + 1 }')"
+          BRANCH_QUALIFIER=$(printf '%s\n' "${DESCRIBE}" | grep -Eo '[0-9]+\-g[0-9a-f]+$' || true)
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            BRANCH_QUALIFIER="pr${PR_NUMBER}-${BRANCH_QUALIFIER}"
+          else
+            SANITIZED_REF_NAME="${GITHUB_REF_NAME//[^0-9A-Za-z-]/-}"
+            BRANCH_QUALIFIER="${SANITIZED_REF_NAME}${BRANCH_QUALIFIER}"
+          fi
+          # First without qualifier but incremented patch version as fallback
+          npm version -s --allow-same-version --no-git-tag-version --new-version "${NEXT_VERSION}"
+          # Then attempt with branch specific qualifier if available
+          PR_VERSION="${NEXT_VERSION}-${BRANCH_QUALIFIER}"
+          npm version --no-git-tag-version --new-version "${PR_VERSION}" && echo "Prerelease version set succeeded" || echo "Prerelease version set FAILED with exit code $?"
       - name: Build
         run: |
           yarn install
