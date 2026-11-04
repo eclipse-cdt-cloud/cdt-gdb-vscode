@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+- Fixes [`#253`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/pull/253): With the archiving of cdt-amalgamator, removes CDT Amalgamator integration.
+
 ## 2.9.1
 
 - Fixes [`#243`](https://github.com/eclipse-cdt-cloud/cdt-gdb-vscode/issues/243): Mark Active Source Lines is disabled after ending a debug session.

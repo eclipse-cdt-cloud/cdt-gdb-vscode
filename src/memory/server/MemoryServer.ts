@@ -9,16 +9,8 @@
  *********************************************************************/
 import * as vscode from 'vscode';
 import * as path from 'path';
-import {
-    ClientRequest,
-    ServerResponse,
-    ReadMemory,
-    ChildDapNamesClientRequest,
-    ChildDapNamesServerResponse,
-    GetChildDapNames,
-} from '../common/messages';
+import { ClientRequest, ServerResponse, ReadMemory } from '../common/messages';
 import { MemoryContents } from 'cdt-gdb-adapter';
-import { ChildDapContents } from 'cdt-amalgamator';
 
 export class MemoryServer {
     constructor(context: vscode.ExtensionContext) {
@@ -78,23 +70,20 @@ export class MemoryServer {
     }
 
     private onDidReceiveMessage(
-        request: ClientRequest | ChildDapNamesClientRequest,
+        request: ClientRequest,
         panel: vscode.WebviewPanel
     ) {
         switch (request.command) {
             case 'ReadMemory':
                 this.handleReadMemory(request, panel);
                 break;
-            case 'getChildDapNames':
-                this.handleGetChildDapNames(request, panel);
-                break;
         }
     }
 
     private sendResponse(
         panel: vscode.WebviewPanel,
-        request: ClientRequest | ChildDapNamesClientRequest,
-        response: Partial<ServerResponse | ChildDapNamesServerResponse>
+        request: ClientRequest,
+        response: Partial<ServerResponse>
     ) {
         if (panel) {
             response.token = request.token;
@@ -111,35 +100,8 @@ export class MemoryServer {
         if (session) {
             try {
                 const result: MemoryContents = await session.customRequest(
-                    request.args.child === undefined
-                        ? 'cdt-gdb-adapter/Memory'
-                        : 'cdt-amalgamator/Memory',
+                    'cdt-gdb-adapter/Memory',
                     request.args
-                );
-                this.sendResponse(panel, request, {
-                    result,
-                });
-            } catch (err) {
-                this.sendResponse(panel, request, {
-                    err: err + '',
-                });
-            }
-        } else {
-            this.sendResponse(panel, request, {
-                err: 'No Debug Session',
-            });
-        }
-    }
-
-    private async handleGetChildDapNames(
-        request: GetChildDapNames.Request,
-        panel: vscode.WebviewPanel
-    ) {
-        const session = vscode.debug.activeDebugSession;
-        if (session) {
-            try {
-                const result: ChildDapContents = await session.customRequest(
-                    'cdt-amalgamator/getChildDapNames'
                 );
                 this.sendResponse(panel, request, {
                     result,
